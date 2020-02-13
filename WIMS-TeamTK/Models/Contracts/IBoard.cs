@@ -6,8 +6,8 @@ namespace WIMS_TeamTK.Models.Contracts
     public interface IBoard
     {
         // TODO : Not sure if is it right
-        string Name();
-        List<WorkItem> WorkItems();
-        List<string> ActivityHistory();       
+        string Name { get; }
+        List<WorkItem> WorkItems { get; }
+        List<string> ActivityHistory { get; }       
     }
 }

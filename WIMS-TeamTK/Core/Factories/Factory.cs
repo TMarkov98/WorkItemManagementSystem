@@ -3,21 +3,20 @@ using System.Collections.Generic;
 using System.Text;
 using WIMS_TeamTK.Models;
 using WIMS_TeamTK.Models.Contracts;
+using WIMS_TeamTK.Models.Enums;
 
 namespace WIMS_TeamTK.Core.Factories
 {
     public class Factory : IFactory
     {
-        public Member CreateMember()
+        public Member CreateMember(string name, List<WorkItem> workItems, List<string> activityHistory)
         {
-            //TODO: Implement this
-            return new Member();
+            return new Member(name, workItems, activityHistory);
         }
 
-        public Board CreateBoard()
+        public Board CreateBoard(string name, List<WorkItem> workItems, List<string> activityHistory)
         {
-            //TODO Implement this
-            return new Board();
+            return new Board(name, workItems, activityHistory);
         }
 
         public Team CreateTeam()
@@ -26,22 +25,19 @@ namespace WIMS_TeamTK.Core.Factories
             return new Team();
         }
 
-        public IWorkItem CreateBug()
+        public IWorkItem CreateBug(string title, string description, List<string> stepsToReproduce)
         {
-            //TODO: Implement this
-            return new Bug();
+            return new Bug(title, description, stepsToReproduce);
         }
 
-        public IWorkItem CreateStory()
+        public IWorkItem CreateStory(string title, string description, Priority priority, Size size, StoryStatus status)
         {
-            //TODO: Implement this
-            return new Story();
+            return new Story(title, description, priority, size, status);
         }
 
-        public IWorkItem CreateFeedback()
+        public IWorkItem CreateFeedback(string title, string description, int rating, FeedbackStatus status)
         {
-            //TODO Implement this
-            return new Feedback();
+            return new Feedback(title, description, rating, status);
         }
     }
 }

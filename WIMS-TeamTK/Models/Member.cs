@@ -5,7 +5,7 @@ using WIMS_TeamTK.Models.Contracts;
 
 namespace WIMS_TeamTK.Models
 {
-    public class Member
+    public class Member : IMember
     {
         private string _name;
         private List<WorkItem> _workItems = new List<WorkItem>();
