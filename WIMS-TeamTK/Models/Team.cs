@@ -1,10 +1,11 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Text;
+using WIMS_TeamTK.Models.Contracts;
 
 namespace WIMS_TeamTK.Models
 {
-    public class Team
+    public class Team : ITeam
     {
         private string _name;
         private List<Member> _members = new List<Member>();

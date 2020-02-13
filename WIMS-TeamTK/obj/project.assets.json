@@ -8,23 +8,19 @@
     ".NETCoreApp,Version=v3.1": []
   },
   "packageFolders": {
-    "C:\\Users\\Xhism\\.nuget\\packages\\": {},
-    "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder": {}
+    "C:\\Users\\TMarkov\\.nuget\\packages\\": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "D:\\GitLab\\OOP-WIMS\\WIMS-TeamTK\\WIMS-TeamTK.csproj",
+      "projectUniqueName": "C:\\Users\\TMarkov\\Desktop\\OOP Project\\wims-teamtk\\WIMS-TeamTK\\WIMS-TeamTK.csproj",
       "projectName": "WIMS-TeamTK",
-      "projectPath": "D:\\GitLab\\OOP-WIMS\\WIMS-TeamTK\\WIMS-TeamTK.csproj",
-      "packagesPath": "C:\\Users\\Xhism\\.nuget\\packages\\",
-      "outputPath": "D:\\GitLab\\OOP-WIMS\\WIMS-TeamTK\\obj\\",
+      "projectPath": "C:\\Users\\TMarkov\\Desktop\\OOP Project\\wims-teamtk\\WIMS-TeamTK\\WIMS-TeamTK.csproj",
+      "packagesPath": "C:\\Users\\TMarkov\\.nuget\\packages\\",
+      "outputPath": "C:\\Users\\TMarkov\\Desktop\\OOP Project\\wims-teamtk\\WIMS-TeamTK\\obj\\",
       "projectStyle": "PackageReference",
-      "fallbackFolders": [
-        "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
-      ],
       "configFilePaths": [
-        "C:\\Users\\Xhism\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Users\\TMarkov\\AppData\\Roaming\\NuGet\\NuGet.Config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
       "originalTargetFrameworks": [
