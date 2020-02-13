@@ -1,13 +1,17 @@
 # WIMS-TeamTK
 
 Functional Requirements
+
 Application should support multiple teams. Each team has name, members and boards.
 
 
 Member has name, list of work items and activity history.
 
+
 Name should be unique in the application.
 Name is a string between 5 and 15 symbols.
+
+
 Board has name, list of work items and activity history.
 
 Name should be unique in the team.
@@ -16,6 +20,7 @@ There are 3 types of work items: Bug, Story and Feedback.
 
 
 Bug has ID, title, description, steps to reproduce, priority, severity, status, assignee, comments and history.
+
 
 Title is a string between 10 and 50 symbols.
 Description is a string between 10 and 500 symbols.
@@ -26,7 +31,10 @@ Status is one of the following: [Active, Fixed]
 Assignee is a member from the team.
 Comments is a list of comments (string messages with author).
 History is a list of all changes (string messages) that were done to the bug.
+
+
 Story has ID, title, description, priority, size, status, assignee, comments and history.
+
 
 Title is a string between 10 and 50 symbols.
 Description is a string between 10 and 500 symbols.
@@ -36,7 +44,10 @@ Status is one of the following: [NotDone, InProgress, Done]
 Assignee is a member from the team.
 Comments is a list of comments (string messages with author).
 History is a list of all changes (string messages) that were done to the story.
+
+
 Feedback has ID, title, description, rating, status, comments and history.
+
 
 Title is a string between 10 and 50 symbols.
 Description is a string between 10 and 500 symbols.
@@ -46,10 +57,12 @@ Comments is a list of comments (string messages with author).
 History is a list of all changes (string messages) that were done to the feedback.
 Note:
 
+
 IDs of work items should be unique in the application i.e. if we have a bug with ID X then we can't have Story of Feedback with ID X.
 
 
 Application should support the following operations:
+
 
 Create a new person
 Show all people
