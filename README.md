@@ -65,42 +65,79 @@ Application should support the following operations:
 
 
 Create a new person
+
 Show all people
+
 Show person's activity
+
 Create a new team
+
 Show all teams
+
 Show team's activity
+
 Add person to team
+
 Show all team members
+
 Create a new board in a team
+
 Show all team boards
+
 Show board's activity
+
 Create a new Bug/Story/Feedback in a board
+
 Change Priority/Severity/Status of a bug
+
 Change Priority/Size/Status of a story
+
 Change Rating/Status of a feedback
+
 Assign/Unassign work item to a person
+
 Add comment to a work item
+
 List work items with options:
+
 List all
+
 Filter bugs/stories/feedback only
+
 Filter by status and/or assignee
+
 Sort by title/priority/severity/size/rating
+
 General Requirements
+
 Follow the OOP best practices:
+
 Use data encapsulation
+
 Properly use inheritance and polymorphism
+
 Properly use interfaces and abstract classes
+
 Properly use static members
+
 Properly use enums
+
 Follow the principles of strong cohesion and loose coupling
+
 Use LINQ Extension methods
+
 Implement proper user input validation and display meaningful user messages
+
 Implement proper exception handling
+
 Use Git to keep your source code and for team collaboration
+
 Teamwork Requirements & Guidelines
+
 Use the Teamwork Requirements & Guidelines Page for instructions on how to better plan and prioritize features with your teammate.
 
 
+
 Teamwork Defense
+
 Prepare a list of commands to demonstrate how the program works.
