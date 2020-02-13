@@ -10,11 +10,11 @@ namespace WIMS_TeamTK.Models
         private string _title;
         private string _description;
         private List<string> _history;
-        private ulong _id = 0;
+        private ulong _id = 1;
 
         public WorkItem(string title, string description)
         {
-            _history.Add($"{DateTime.Now}: Created {this.GetType().Name}.");
+            this.History.Add($"{DateTime.Now}: Created {this.GetType().Name} with ID {this._id}.");
             this.Title = title;
             this.Description = description;
             this._id++;
@@ -29,7 +29,7 @@ namespace WIMS_TeamTK.Models
                 {
                     throw new ArgumentException();
                 }
-                this._history.Add($"{DateTime.Now}: Modified Title from {this.Title} to {value}.");
+                this.History.Add($"{DateTime.Now}: Modified Title from {this.Title} to {value}.");
                 this._title = value;
             }
         }
@@ -42,8 +42,19 @@ namespace WIMS_TeamTK.Models
                 {
                     throw new ArgumentException();
                 }
-                this._history.Add($"{DateTime.Now}: Modified Description from {this.Description} to {value}.");
+                this.History.Add($"{DateTime.Now}: Modified Description from {this.Description} to {value}.");
                 this._description = value;
+            }
+        }
+        public virtual List<string> History
+        {
+            get
+            {
+                return this._history;
+            }
+            set
+            {
+                this._history = value;
             }
         }
         public virtual string ListHistory() 

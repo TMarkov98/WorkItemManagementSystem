@@ -25,6 +25,7 @@ namespace WIMS_TeamTK.Models
             }
             set
             {
+                this.History.Add($"{DateTime.Now}: Modified Rating from {this.Rating} to {value}.");
                 this._rating = value;
             }
         }
@@ -37,6 +38,7 @@ namespace WIMS_TeamTK.Models
             }
             set
             {
+                this.History.Add($"{DateTime.Now}: Modified Status from {this.Status} to {value}.");
                 this._status = value;
             }
         }

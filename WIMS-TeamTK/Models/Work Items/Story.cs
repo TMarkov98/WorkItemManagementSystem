@@ -28,6 +28,7 @@ namespace WIMS_TeamTK.Models
             }
             set
             {
+                this.History.Add($"{DateTime.Now}: Modified Priority from {this.Priority} to {value}.");
                 this._priority = value;
             }
         }
@@ -40,6 +41,7 @@ namespace WIMS_TeamTK.Models
             }
             set
             {
+                this.History.Add($"{DateTime.Now}: Modified Size from {this.Size} to {value}.");
                 this._size = value;
             }
         }
@@ -52,6 +54,7 @@ namespace WIMS_TeamTK.Models
             }
             set
             {
+                this.History.Add($"{DateTime.Now}: Modified Status from {this.Status} to {value}.");
                 this._status = value;
             }
         }
@@ -64,6 +67,7 @@ namespace WIMS_TeamTK.Models
             }
             set
             {
+                this.History.Add($"{DateTime.Now}: Modified Assignee from {this.Assignee} to {value}.");
                 this._assignee = value;
             }
         }

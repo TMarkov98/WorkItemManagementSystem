@@ -12,6 +12,9 @@ namespace WIMS_TeamTK.Models
     {
         private string _assignee;
         private List<string> _stepsToReproduce = new List<string>();
+        private Priority _priority;
+        private Severity _severity;
+        private BugStatus _status;
         public Bug(string title, string description, List<string> stepsToReproduce) : base(title, description)
         {
             this.StepsToReproduce = stepsToReproduce;
@@ -26,17 +29,49 @@ namespace WIMS_TeamTK.Models
             }
         }
 
-        public Priority Priority { get; set; }
+        public Priority Priority {
+            get
+            {
+                return this._priority;
+            }
+            set
+            {
+                this.History.Add($"{DateTime.Now}: Modified Priority from {this.Priority} to {value}.");
+                this._priority = value;
+            } 
+        }
 
-        public Severity Severity { get; set; }
+        public Severity Severity {
+            get
+            {
+                return this._severity;
+            }
+            set
+            {
+                this.History.Add($"{DateTime.Now}: Modified Severity from {this.Severity} to {value}.");
+                this._severity = value;
+            }
+        }
 
-        public BugStatus Status { get; set; }
+        public BugStatus Status
+        {
+            get
+            {
+                return this._status;
+            }
+            set
+            {
+                this.History.Add($"{DateTime.Now}: Modified Status from {this.Status} to {value}.");
+                this._status = value;
+            }
+        }
 
         public string Assignee
         {
             get => this._assignee;
             set
             {
+                this.History.Add($"{DateTime.Now}: Modified Assignee from {this.Assignee} to {value}.");
                 this._assignee = value;
             }
         }
