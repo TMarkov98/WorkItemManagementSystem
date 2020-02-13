@@ -32,10 +32,9 @@ namespace WIMS_TeamTK.Core.Factories
             return new Board(name, workItems, activityHistory);
         }
 
-        public Team CreateTeam()
+        public Team CreateTeam(string name, List<Member> members, List<Board> boards)
         {
-            //TODO Implement this
-            return new Team();
+            return new Team(name, members, boards);
         }
 
         public IWorkItem CreateBug(string title, string description, List<string> stepsToReproduce)
