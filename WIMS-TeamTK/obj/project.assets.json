@@ -8,17 +8,21 @@
     ".NETCoreApp,Version=v3.1": []
   },
   "packageFolders": {
-    "C:\\Users\\Xhism\\.nuget\\packages\\": {}
+    "C:\\Users\\Xhism\\.nuget\\packages\\": {},
+    "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "D:\\Git\\Repos\\OOP Project\\Default\\WorkItemManagementSystem\\WIMS-TeamTK\\WIMS-TeamTK\\WIMS-TeamTK.csproj",
+      "projectUniqueName": "D:\\GitLab\\OOP-WIMS\\WIMS-TeamTK\\WIMS-TeamTK.csproj",
       "projectName": "WIMS-TeamTK",
-      "projectPath": "D:\\Git\\Repos\\OOP Project\\Default\\WorkItemManagementSystem\\WIMS-TeamTK\\WIMS-TeamTK\\WIMS-TeamTK.csproj",
+      "projectPath": "D:\\GitLab\\OOP-WIMS\\WIMS-TeamTK\\WIMS-TeamTK.csproj",
       "packagesPath": "C:\\Users\\Xhism\\.nuget\\packages\\",
-      "outputPath": "D:\\Git\\Repos\\OOP Project\\Default\\WorkItemManagementSystem\\WIMS-TeamTK\\WIMS-TeamTK\\obj\\",
+      "outputPath": "D:\\GitLab\\OOP-WIMS\\WIMS-TeamTK\\obj\\",
       "projectStyle": "PackageReference",
+      "fallbackFolders": [
+        "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
+      ],
       "configFilePaths": [
         "C:\\Users\\Xhism\\AppData\\Roaming\\NuGet\\NuGet.Config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
@@ -58,7 +62,7 @@
             "privateAssets": "all"
           }
         },
-        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\3.1.101\\RuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\3.1.100\\RuntimeIdentifierGraph.json"
       }
     }
   }

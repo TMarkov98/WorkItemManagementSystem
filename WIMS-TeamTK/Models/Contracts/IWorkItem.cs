@@ -4,7 +4,7 @@ namespace WIMS_TeamTK.Models.Contracts
 {
     public interface IWorkItem
     {
-        string Title();
-        string Description();
+        public string Title { get; }
+        public string Description { get; }
     }
 }
