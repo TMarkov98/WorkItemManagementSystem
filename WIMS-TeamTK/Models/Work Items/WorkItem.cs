@@ -20,7 +20,7 @@ namespace WIMS_TeamTK.Models
             this._id++;
         }
 
-        public string Title
+        public virtual string Title
         {
             get => this._title;
             set
@@ -33,7 +33,7 @@ namespace WIMS_TeamTK.Models
                 this._title = value;
             }
         }
-        public string Description
+        public virtual string Description
         {
             get => this._description;
             set
@@ -46,7 +46,7 @@ namespace WIMS_TeamTK.Models
                 this._description = value;
             }
         }
-        public string ListHistory() 
+        public virtual string ListHistory() 
         {
             string result = "";
             foreach (var data in _history)
