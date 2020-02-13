@@ -14,7 +14,6 @@ namespace WIMS_TeamTK.Core
         private const string TerminationCommand = "Exit";
         private const string NullProvidersExceptionMessage = "cannot be null.";
 
-        // private because of Singleton design pattern
         private Engine()
         {
             this.Reader = new ConsoleReader();
@@ -39,7 +38,6 @@ namespace WIMS_TeamTK.Core
             }
         }
 
-        // Property dependencty injection not validated for simplicity
         public IReader Reader { get; set; }
 
         public IWriter Writer { get; set; }
@@ -70,7 +68,6 @@ namespace WIMS_TeamTK.Core
                 catch (Exception ex)
                 {
                     this.Writer.WriteLine(ex.Message);
-                    //this.Writer.WriteLine("####################");
                 }
             }
         }
@@ -87,7 +84,6 @@ namespace WIMS_TeamTK.Core
 
             var executionResult = command.Execute(parameters);
             this.Writer.WriteLine(executionResult);
-            //this.Writer.WriteLine("####################");
         }
     }
 }

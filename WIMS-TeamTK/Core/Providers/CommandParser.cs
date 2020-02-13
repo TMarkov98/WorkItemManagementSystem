@@ -9,7 +9,6 @@ namespace WIMS_TeamTK.Core.Providers
 {
     public class CommandParser : IParser
     {
-        // Magic, do not touch!
         public ICommand ParseCommand(string fullCommand)
         {
             var commandName = fullCommand.Split(' ')[0];
@@ -19,7 +18,6 @@ namespace WIMS_TeamTK.Core.Providers
             return command;
         }
 
-        // Magic, do not touch!
         public IList<string> ParseParameters(string fullCommand)
         {
             var commandParts = fullCommand.Split(' ').ToList();
@@ -33,7 +31,6 @@ namespace WIMS_TeamTK.Core.Providers
             return commandParts;
         }
 
-        // Very magic, do not even think about touching!!!
         private TypeInfo FindCommand(string commandName)
         {
             Assembly currentAssembly = this.GetType().GetTypeInfo().Assembly;

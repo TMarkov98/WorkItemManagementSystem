@@ -1,3 +1,0 @@
-D:\GitLab\OOP-WIMS\WIMS-TeamTK\obj\Debug\netcoreapp3.1\WIMS-TeamTK.csprojAssemblyReference.cache
-D:\GitLab\OOP-WIMS\WIMS-TeamTK\obj\Debug\netcoreapp3.1\WIMS-TeamTK.AssemblyInfoInputs.cache
-D:\GitLab\OOP-WIMS\WIMS-TeamTK\obj\Debug\netcoreapp3.1\WIMS-TeamTK.AssemblyInfo.cs
