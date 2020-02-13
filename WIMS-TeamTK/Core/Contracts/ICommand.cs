@@ -1,6 +1,9 @@
-﻿namespace WIMS_TeamTK.Core.Contracts
+﻿using System.Collections.Generic;
+
+namespace WIMS_TeamTK.Core.Contracts
 {
     public interface ICommand
     {
+        string Execute(IList<string> parameters);
     }
 }
