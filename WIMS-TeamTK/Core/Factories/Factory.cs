@@ -9,6 +9,19 @@ namespace WIMS_TeamTK.Core.Factories
 {
     public class Factory : IFactory
     {
+        private static IFactory instanceHolder = new Factory();
+
+        private Factory()
+        {
+        }
+
+        public static IFactory Instance
+        {
+            get
+            {
+                return instanceHolder;
+            }
+        }
         public Member CreateMember(string name, List<WorkItem> workItems, List<string> activityHistory)
         {
             return new Member(name, workItems, activityHistory);
