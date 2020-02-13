@@ -8,8 +8,8 @@ namespace WIMS_TeamTK.Models
 {
     public class Feedback : WorkItem, IFeedback
     {
-        int _rating;
-        FeedbackStatus _status;
+        private int _rating;
+        private FeedbackStatus _status;
 
         public Feedback(string title, string description, int rating, FeedbackStatus status) : base(title, description)
         {
