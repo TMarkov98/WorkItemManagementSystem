@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Text;
 using WIMS_TeamTK.Models.Contracts;
+using WIMS_TeamTK.Models.Services;
 
 namespace WIMS_TeamTK.Models
 {
@@ -10,6 +11,7 @@ namespace WIMS_TeamTK.Models
         private string _title;
         private string _description;
         private List<string> _history;
+        private List<Comment> _comments;
         private ulong _id = 1;
 
         public WorkItem(string title, string description)
@@ -18,6 +20,7 @@ namespace WIMS_TeamTK.Models
             this.Description = description;
             this._id++;
             this.History = new List<string>();
+            this.Comments = new List<Comment>();
             this.History.Add($"{DateTime.Now}: Created {this.GetType().Name} with ID {this._id}.");
         }
 
@@ -58,7 +61,15 @@ namespace WIMS_TeamTK.Models
                 this._history = value;
             }
         }
-        public virtual string ListHistory() 
+        public List<Comment> Comments
+        {
+            get => this._comments;
+            set
+            {
+                this._comments = value;
+            }
+        }
+        public virtual string ListHistory()
         {
             string result = "";
             foreach (var data in _history)
