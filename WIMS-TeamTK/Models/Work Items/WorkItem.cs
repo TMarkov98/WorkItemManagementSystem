@@ -14,10 +14,11 @@ namespace WIMS_TeamTK.Models
 
         public WorkItem(string title, string description)
         {
-            this.History.Add($"{DateTime.Now}: Created {this.GetType().Name} with ID {this._id}.");
             this.Title = title;
             this.Description = description;
             this._id++;
+            this.History = new List<string>();
+            this.History.Add($"{DateTime.Now}: Created {this.GetType().Name} with ID {this._id}.");
         }
 
         public virtual string Title

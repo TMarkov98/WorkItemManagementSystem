@@ -79,10 +79,10 @@ namespace WIMS_TeamTK.Models
         public override string ToString()
         {
             return base.ToString() 
-                + $"Steps to Reproduce:{Environment.NewLine} {string.Join(Environment.NewLine, this.StepsToReproduce)} {Environment.NewLine}"
-                + $"Priority: {this.Priority}"
-                + $"Severity {this.Severity}"
-                + $"Status {this.Status}"
+                + $"Steps to Reproduce:{Environment.NewLine} {string.Join(Environment.NewLine, this.StepsToReproduce)}{Environment.NewLine}"
+                + $"Priority: {this.Priority}{Environment.NewLine}"
+                + $"Severity {this.Severity}{Environment.NewLine}"
+                + $"Status {this.Status}{Environment.NewLine}"
                 + $"Assignee {this.Assignee}";
         }
     }
