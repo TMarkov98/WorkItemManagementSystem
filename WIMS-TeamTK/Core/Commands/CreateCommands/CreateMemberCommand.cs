@@ -8,13 +8,28 @@ namespace WIMS_TeamTK.Core.Commands
 {
     class CreateMemberCommand : Command
     {
-        public CreateMemberCommand(IFactory factory, IEngine engine) : base(factory, engine)
+        public CreateMemberCommand(IFactory factory, IEngine engine)
+            : base(factory, engine)
         {
         }
 
         public override string Execute(IList<string> parameters)
         {
-            throw new NotImplementedException();
+            string name;
+
+            try
+            {
+                name = parameters[0];
+            }
+            catch
+            {
+                throw new ArgumentException("Failed to parse CreateAirplane command parameters.");
+            }
+
+            var member = this._factory.CreateMember(name);
+            this._engine.Members.Add(member);
+
+            return $"Member with name: {name} and ID: {this._engine.Members.Count}was created.";
         }
     }
 }
