@@ -8,14 +8,14 @@ namespace WIMS_TeamTK.Models
     public abstract class Resource : IResource
     {
         private string _name;
-        private List<WorkItem> _workItems = new List<WorkItem>();
-        private List<string> _activityHistory = new List<string>();
+        private List<WorkItem> _workItems;
+        private List<string> _activityHistory;
 
-        public Resource(string name, List<WorkItem> workItems, List<string> activityHistory)
+        public Resource(string name)
         {
             this.Name = name;
-            this.WorkItems = workItems;
-            this.ActivityHistory = activityHistory;
+            this.WorkItems = new List<WorkItem>();
+            this.ActivityHistory = new List<string>();
         }
 
         public virtual string Name
@@ -40,7 +40,17 @@ namespace WIMS_TeamTK.Models
                 this._workItems = value;
             }
         }
-        public virtual List<string> ActivityHistory { get; set; }
+        public virtual List<string> ActivityHistory 
+        {
+            get
+            {
+                return this._activityHistory;
+            }
+            set
+            {
+                this._activityHistory = value;
+            }
+        }
 
         public override string ToString()
         {

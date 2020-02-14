@@ -7,9 +7,7 @@ namespace WIMS_TeamTK
     {
         static void Main(string[] args)
         {
-            // Singleton design pattern
-            // Ensures that there is only one instance of Engine in existance
-            // Yo are already familiar with it, right?
+            Console.WriteLine("Welcome! Type \"help\" for a list of commands.");
             var engine = Engine.Instance;
             engine.Start();
         }

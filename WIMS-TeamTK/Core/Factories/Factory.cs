@@ -22,14 +22,14 @@ namespace WIMS_TeamTK.Core.Factories
                 return instanceHolder;
             }
         }
-        public Member CreateMember(string name, List<WorkItem> workItems, List<string> activityHistory)
+        public Member CreateMember(string name)
         {
-            return new Member(name, workItems, activityHistory);
+            return new Member(name);
         }
 
-        public Board CreateBoard(string name, List<WorkItem> workItems, List<string> activityHistory)
+        public Board CreateBoard(string name)
         {
-            return new Board(name, workItems, activityHistory);
+            return new Board(name);
         }
 
         public Team CreateTeam(string name, List<Member> members, List<Board> boards)
