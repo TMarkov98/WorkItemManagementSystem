@@ -41,7 +41,7 @@ namespace WIMS_TeamTK.Core.Commands
             var bug = this._factory.CreateBug(title, description, stepsToReproduce);
             this._engine.WorkItems.Add(bug);
 
-            return $"Bug with Title {bug.Title} was created.";
+            return $"Bug with ID {this._engine.WorkItems.Count - 1}, Title {bug.Title} was created.";
         }
     }
 }

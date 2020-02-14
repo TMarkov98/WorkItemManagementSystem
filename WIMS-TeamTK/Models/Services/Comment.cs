@@ -36,5 +36,10 @@ namespace WIMS_TeamTK.Models.Services
                 this._message = value;
             }
         }
+
+        public override string ToString()
+        {
+            return $"{this.Author}: {this.Message}";
+        }
     }
 }

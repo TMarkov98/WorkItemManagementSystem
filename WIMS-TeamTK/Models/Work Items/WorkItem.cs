@@ -37,7 +37,7 @@ namespace WIMS_TeamTK.Models
                 this._title = value;
             }
         }
-        public string Description
+        public virtual string Description
         {
             get => this._description;
             set
@@ -84,6 +84,10 @@ namespace WIMS_TeamTK.Models
             {
                 return this._id;
             }
+        }
+        public virtual void AddComment(Comment comment)
+        {
+            this.Comments.Add(comment);
         }
         public override string ToString()
         {
