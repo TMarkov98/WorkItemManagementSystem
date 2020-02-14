@@ -47,7 +47,7 @@ namespace WIMS_TeamTK.Models
         {
             return base.ToString()
                 + $"Rating: {this.Rating}{Environment.NewLine}"
-                + $"Status: {this.Status}{Environment.NewLine}";
+                + $"Status: {this.Status}";
         }
     }
 }
