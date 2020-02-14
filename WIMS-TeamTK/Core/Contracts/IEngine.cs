@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Text;
 using WIMS_TeamTK.Models;
+using WIMS_TeamTK.Models.Contracts;
 
 namespace WIMS_TeamTK.Core.Contracts
 {
@@ -14,7 +15,8 @@ namespace WIMS_TeamTK.Core.Contracts
         IWriter Writer { get; set; }
 
         IParser Parser { get; set; }
-
+        
+        IList<IWorkItem> WorkItems { get; }
 
         IList<Board> Boards { get; }
 

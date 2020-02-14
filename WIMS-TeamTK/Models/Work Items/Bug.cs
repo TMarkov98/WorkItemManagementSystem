@@ -15,7 +15,8 @@ namespace WIMS_TeamTK.Models
         private Priority _priority;
         private Severity _severity;
         private BugStatus _status;
-        public Bug(string title, string description, List<string> stepsToReproduce) : base(title, description)
+        public Bug(string title, string description, List<string> stepsToReproduce)
+            : base(title, description)
         {
             this.StepsToReproduce = stepsToReproduce;
         }

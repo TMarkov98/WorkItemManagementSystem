@@ -31,7 +31,7 @@ namespace WIMS_TeamTK.Models
             {
                 if (value.Length < 10 || value.Length > 50)
                 {
-                    throw new ArgumentException();
+                    throw new ArgumentException("Title must be between 10 and 50 symbols.");
                 }
                 this.History.Add($"{DateTime.Now}: Modified Title from {this.Title} to {value}.");
                 this._title = value;
@@ -44,7 +44,7 @@ namespace WIMS_TeamTK.Models
             {
                 if (value.Length < 10 || value.Length > 500)
                 {
-                    throw new ArgumentException();
+                    throw new ArgumentException("Description must be between 10 and 500 symbols.");
                 }
                 this.History.Add($"{DateTime.Now}: Modified Description from {this.Description} to {value}.");
                 this._description = value;
@@ -78,10 +78,16 @@ namespace WIMS_TeamTK.Models
             }
             return result.Trim();
         }
-        public virtual ulong ID { get; }
+        public virtual ulong Id 
+        {
+            get
+            {
+                return this._id;
+            }
+        }
         public override string ToString()
         {
-            string result = $"Type: {this.GetType().Name} ID: {this.ID}{Environment.NewLine}"
+            string result = $"Type: {this.GetType().Name} ID: {this.Id}{Environment.NewLine}"
                 + $"Title: {this.Title}{Environment.NewLine}"
                 + $"Description: {this.Description}{Environment.NewLine}";
             return result;

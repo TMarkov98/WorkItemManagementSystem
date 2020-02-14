@@ -4,6 +4,7 @@ using System.Text;
 using WIMS_TeamTK.Core.Contracts;
 using WIMS_TeamTK.Core.Providers;
 using WIMS_TeamTK.Models;
+using WIMS_TeamTK.Models.Contracts;
 
 namespace WIMS_TeamTK.Core
 {
@@ -20,6 +21,7 @@ namespace WIMS_TeamTK.Core
             this.Writer = new ConsoleWriter();
             this.Parser = new CommandParser();
 
+            this.WorkItems = new List<IWorkItem>();
             this.Boards = new List<Board>();
             this.Members = new List<Member>();
             this.Teams = new List<Team>();
@@ -43,6 +45,8 @@ namespace WIMS_TeamTK.Core
         public IWriter Writer { get; set; }
 
         public IParser Parser { get; set; }
+
+        public IList<IWorkItem> WorkItems { get; private set; }
 
         public IList<Board> Boards { get; private set; }
 

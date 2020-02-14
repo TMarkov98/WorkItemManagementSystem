@@ -3,7 +3,7 @@ using WIMS_TeamTK.Models.Enums;
 
 namespace WIMS_TeamTK.Models.Contracts
 {
-    public interface IBug
+    public interface IBug : IWorkItem
     {
         public List<string> StepsToReproduce { get; }
         public Priority Priority { get; }
