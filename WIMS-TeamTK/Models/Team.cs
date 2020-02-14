@@ -46,5 +46,10 @@ namespace WIMS_TeamTK.Models
                 this._boards = value;
             }
         }
+
+        public override string ToString()
+        {
+            return $"{this.Name}{Environment.NewLine}";
+        }
     }
 }
