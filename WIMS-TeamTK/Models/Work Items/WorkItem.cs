@@ -8,9 +8,9 @@ namespace WIMS_TeamTK.Models
 {
     public abstract class WorkItem : IWorkItem
     {
-        private string _title;
-        private string _description;
-        private List<string> _history;
+        private string _title = "";
+        private string _description = "";
+        private List<string> _history = new List<string>();
         private List<Comment> _comments;
         private ulong _id = 1;
 
@@ -37,7 +37,7 @@ namespace WIMS_TeamTK.Models
                 this._title = value;
             }
         }
-        public virtual string Description
+        public string Description
         {
             get => this._description;
             set
@@ -74,7 +74,7 @@ namespace WIMS_TeamTK.Models
             string result = "";
             foreach (var data in _history)
             {
-                result += $"{data}\n";
+                result += $"{data}{Environment.NewLine}";
             }
             return result.Trim();
         }

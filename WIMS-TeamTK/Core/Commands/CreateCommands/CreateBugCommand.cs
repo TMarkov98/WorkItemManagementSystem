@@ -38,7 +38,7 @@ namespace WIMS_TeamTK.Core.Commands
                 throw new ArgumentException("Failed to parse CreateBug command parameters.");
             }
 
-            var bug = this._factory.CreateBug(title, description, stepsToReproduce) as Bug;
+            var bug = this._factory.CreateBug(title, description, stepsToReproduce);
             this._engine.WorkItems.Add(bug);
 
             return $"Bug with Title {bug.Title} was created.";
