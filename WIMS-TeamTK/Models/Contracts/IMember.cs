@@ -5,8 +5,5 @@ namespace WIMS_TeamTK.Models.Contracts
 {
     public interface IMember
     {
-        string Name { get; }
-        List<WorkItem> WorkItems { get; }
-        List<string> ActivityHistory { get; }
     }
 }
