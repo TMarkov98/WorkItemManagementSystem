@@ -9,5 +9,6 @@ namespace WIMS_TeamTK.Models.Contracts
         string Name { get; }
         List<WorkItem> WorkItems { get; }
         List<string> ActivityHistory { get; }
+        string ToString();
     }
 }

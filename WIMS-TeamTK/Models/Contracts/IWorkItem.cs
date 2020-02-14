@@ -6,5 +6,6 @@ namespace WIMS_TeamTK.Models.Contracts
     {
         public string Title { get; }
         public string Description { get; }
+        public string ToString();
     }
 }

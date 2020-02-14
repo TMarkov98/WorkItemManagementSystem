@@ -9,5 +9,6 @@ namespace WIMS_TeamTK.Models.Contracts
         public string Name { get; }
         public List<Member> Members { get; }
         public List<Board> Boards { get; }
+        public string ToString();
     }
 }

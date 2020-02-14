@@ -2,7 +2,7 @@
 
 namespace WIMS_TeamTK.Models.Contracts
 {
-    public interface IStory : IWorkItem
+    public interface IStory
     {
         Priority Priority { get; }
         Size Size { get; }
