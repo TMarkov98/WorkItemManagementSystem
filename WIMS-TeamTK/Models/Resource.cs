@@ -18,8 +18,28 @@ namespace WIMS_TeamTK.Models
             this.ActivityHistory = activityHistory;
         }
 
-        public virtual string Name { get; set; }
-        public virtual List<WorkItem> WorkItems { get; set; }
+        public virtual string Name
+        {
+            get
+            {
+                return this._name;
+            }
+            set
+            {
+                this._name = value;
+            }
+        }
+        public virtual List<WorkItem> WorkItems 
+        {
+            get
+            {
+                return this._workItems;
+            }
+            set
+            {
+                this._workItems = value;
+            }
+        }
         public virtual List<string> ActivityHistory { get; set; }
 
         public override string ToString()
