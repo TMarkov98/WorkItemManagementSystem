@@ -66,5 +66,13 @@ namespace WIMS_TeamTK.Models
             }
             return result.Trim();
         }
+        public virtual ulong ID { get; }
+        public override string ToString()
+        {
+            string result = $"Type: {this.GetType().Name} ID: {this.ID}{Environment.NewLine}"
+                + $"Title: {this.Title}{Environment.NewLine}"
+                + $"Description: {this.Description}{Environment.NewLine}";
+            return result;
+        }
     }
 }

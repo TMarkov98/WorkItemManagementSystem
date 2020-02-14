@@ -71,5 +71,13 @@ namespace WIMS_TeamTK.Models
                 this._assignee = value;
             }
         }
+        public override string ToString()
+        {
+            return base.ToString()
+                + $"Priority {this.Priority}{Environment.NewLine}"
+                + $"Size {this.Size}{Environment.NewLine}"
+                + $"Status {this.Status}{Environment.NewLine}"
+                + $"Assignee {this.Assignee}";
+        }
     }
 }
