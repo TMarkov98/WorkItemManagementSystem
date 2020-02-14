@@ -42,5 +42,12 @@ namespace WIMS_TeamTK.Models
                 this._status = value;
             }
         }
+
+        public override string ToString()
+        {
+            return base.ToString()
+                + $"Rating: {this.Rating}{Environment.NewLine}"
+                + $"Status: {this.Status}{Environment.NewLine}";
+        }
     }
 }
