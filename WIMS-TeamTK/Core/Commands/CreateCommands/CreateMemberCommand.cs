@@ -23,7 +23,7 @@ namespace WIMS_TeamTK.Core.Commands
             }
             catch
             {
-                throw new ArgumentException("Failed to parse CreateAirplane command parameters.");
+                throw new ArgumentException("Failed to parse CreateMember command parameters.");
             }
 
             var member = this._factory.CreateMember(name);

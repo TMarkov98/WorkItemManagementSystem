@@ -11,11 +11,9 @@ namespace WIMS_TeamTK.Models
         private List<Member> _members = new List<Member>();
         private List<Board> _boards = new List<Board>();
 
-        public Team(string name, List<Member> members, List<Board> boards)
+        public Team(string name)
         {
             this.Name = name;
-            this.Members = members;
-            this.Boards = boards;
         }
 
         public string Name

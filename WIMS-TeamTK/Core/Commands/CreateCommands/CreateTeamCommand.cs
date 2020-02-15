@@ -14,7 +14,21 @@ namespace WIMS_TeamTK.Core.Commands
 
         public override string Execute(IList<string> parameters)
         {
-            throw new NotImplementedException();
+            string name;
+
+            try
+            {
+                name = parameters[0];
+            }
+            catch
+            {
+                throw new ArgumentException("Failed to parse CreateTeam command parameters.");
+            }
+
+            var team = this._factory.CreateTeam(name);
+            this._engine.Teams.Add(team);
+
+            return $"Team with name: {name} and ID: {this._engine.Teams.Count} was created.";
         }
     }
 }

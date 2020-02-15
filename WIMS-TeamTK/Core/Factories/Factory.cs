@@ -32,9 +32,9 @@ namespace WIMS_TeamTK.Core.Factories
             return new Board(name);
         }
 
-        public Team CreateTeam(string name, List<Member> members, List<Board> boards)
+        public Team CreateTeam(string name)
         {
-            return new Team(name, members, boards);
+            return new Team(name);
         }
 
         public IWorkItem CreateBug(string title, string description, List<string> stepsToReproduce)
