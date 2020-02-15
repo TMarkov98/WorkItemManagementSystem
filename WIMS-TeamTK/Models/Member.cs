@@ -13,15 +13,6 @@ namespace WIMS_TeamTK.Models
             this.Name = name;
             this._activityHistory.Add($"{DateTime.Now}: Member was created.");
         }
-
-        public List<string> ActivityHistory
-        {
-            get => this._activityHistory;
-            set
-            {
-                this._activityHistory = value;
-            }
-        }
         public override string Name
         {
             get => this._name;

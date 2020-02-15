@@ -8,6 +8,6 @@ namespace WIMS_TeamTK.Core.Contracts
     {
         ICommand ParseCommand(string fullCommand);
 
-        IList<string> ParseParameters(string fullCommand);
+        string ParseParameters(string fullCommand);
     }
 }

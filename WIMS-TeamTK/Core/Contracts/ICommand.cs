@@ -4,6 +4,6 @@ namespace WIMS_TeamTK.Core.Contracts
 {
     public interface ICommand
     {
-        string Execute(IList<string> parameters);
+        string Execute(string parameter);
     }
 }

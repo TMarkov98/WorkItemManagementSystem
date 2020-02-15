@@ -14,17 +14,16 @@ namespace WIMS_TeamTK.Core.Commands
         {
         }
 
-        public override string Execute(IList<string> parameters)
+        public override string Execute(string parameter)
         {
-            string name;
             string teamname;
 
             try
             {
-                name = parameters[0];
-                teamname = parameters[1];
+                Console.Write("Assign to team: ");
+                teamname = Console.ReadLine();
 
-                var board = this._factory.CreateBoard(name);
+                var board = this._factory.CreateBoard(parameter);
                 this._engine.Boards.Add(board);
                 this._engine.Teams.First(n => n.Name == teamname).Boards.Add(board);
                 return $"Board with ID: {this._engine.Boards.Count - 1} and name: {board.Name} was created in team {teamname}.";

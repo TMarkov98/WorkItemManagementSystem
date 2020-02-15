@@ -15,6 +15,6 @@ namespace WIMS_TeamTK.Core.Commands
             this._factory = factory;
             this._engine = engine;
         }
-        public abstract string Execute(IList<string> parameters);
+        public abstract string Execute(string parameter);
     }
 }

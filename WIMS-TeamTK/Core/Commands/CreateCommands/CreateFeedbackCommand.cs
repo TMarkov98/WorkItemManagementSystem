@@ -15,16 +15,14 @@ namespace WIMS_TeamTK.Core.Commands
         {
         }
 
-        public override string Execute(IList<string> parameters)
+        public override string Execute(string parameter)
         {
-            string title;
             List<string> stepsToReproduce = new List<string>();
             string boardname;
 
             try
             {
-                title = string.Join(" ", parameters);
-                Feedback feedback = (Feedback)this._factory.CreateFeedback(title);
+                Feedback feedback = (Feedback)this._factory.CreateFeedback(parameter);
                 Console.Write("Board: ");
                 boardname = Console.ReadLine();
                 if (this._engine.Boards.Count(n => n.Name == boardname) > 1)

@@ -15,7 +15,7 @@ namespace WIMS_TeamTK.Core.Commands
         {
         }
 
-        public override string Execute(IList<string> parameters)
+        public override string Execute(string parameter)
         {
             string title;
             string boardname;
@@ -23,7 +23,7 @@ namespace WIMS_TeamTK.Core.Commands
 
             try
             {
-                title = string.Join(" ", parameters);
+                title = parameter;
                 Bug bug = (Bug)this._factory.CreateBug(title);
                 Console.Write("Board: ");
                 boardname = Console.ReadLine();

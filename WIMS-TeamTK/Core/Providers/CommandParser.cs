@@ -18,17 +18,18 @@ namespace WIMS_TeamTK.Core.Providers
             return command;
         }
 
-        public IList<string> ParseParameters(string fullCommand)
+        public string ParseParameters(string fullCommand)
         {
             var commandParts = fullCommand.Split(' ').ToList();
             commandParts.RemoveAt(0);
+            var parameter = string.Join(' ', commandParts);
 
             if (commandParts.Count() == 0)
             {
-                return new List<string>();
+                return "";
             }
 
-            return commandParts;
+            return parameter;
         }
 
         private TypeInfo FindCommand(string commandName)
