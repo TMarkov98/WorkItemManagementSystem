@@ -37,19 +37,19 @@ namespace WIMS_TeamTK.Core.Factories
             return new Team(name);
         }
 
-        public IWorkItem CreateBug(string title, string description, List<string> stepsToReproduce)
+        public IWorkItem CreateBug(string title)
         {
-            return new Bug(title, description, stepsToReproduce);
+            return new Bug(title);
         }
 
-        public IWorkItem CreateStory(string title, string description, Priority priority, Size size, StoryStatus status)
+        public IWorkItem CreateStory(string title)
         {
-            return new Story(title, description, priority, size, status);
+            return new Story(title);
         }
 
-        public IWorkItem CreateFeedback(string title, string description, int rating, FeedbackStatus status)
+        public IWorkItem CreateFeedback(string title)
         {
-            return new Feedback(title, description, rating, status);
+            return new Feedback(title);
         }
     }
 }

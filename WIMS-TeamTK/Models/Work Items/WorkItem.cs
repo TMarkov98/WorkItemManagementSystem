@@ -14,6 +14,15 @@ namespace WIMS_TeamTK.Models
         private List<Comment> _comments;
         private ulong _id = 1;
 
+        public WorkItem(string title)
+        {
+            this.Title = title;
+            this._id++;
+            this.History = new List<string>();
+            this.Comments = new List<Comment>();
+            this.History.Add($"{DateTime.Now}: Created {this.GetType().Name} with ID {this._id}.");
+        }
+            //TODO: Check if still necessary
         public WorkItem(string title, string description)
         {
             this.Title = title;

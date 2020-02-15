@@ -12,8 +12,8 @@ namespace WIMS_TeamTK.Core.Factories
         public Member CreateMember(string name);
         public Board CreateBoard(string name);
         public Team CreateTeam(string name);
-        public IWorkItem CreateBug(string title, string description, List<string> stepsToReproduce);
-        public IWorkItem CreateStory(string title, string description, Priority priority, Size size, StoryStatus status);
-        public IWorkItem CreateFeedback(string title, string description, int rating, FeedbackStatus status);
+        public IWorkItem CreateBug(string title);
+        public IWorkItem CreateStory(string title);
+        public IWorkItem CreateFeedback(string title);
     }
 }

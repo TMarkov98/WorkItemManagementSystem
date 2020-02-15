@@ -15,6 +15,12 @@ namespace WIMS_TeamTK.Models
         private Priority _priority;
         private Severity _severity;
         private BugStatus _status;
+
+        public Bug(string title)
+            : base(title)
+        {
+        }
+
         public Bug(string title, string description, List<string> stepsToReproduce)
             : base(title, description)
         {
@@ -23,7 +29,10 @@ namespace WIMS_TeamTK.Models
 
         public List<string> StepsToReproduce
         {
-            get => this._stepsToReproduce;
+            get
+            {
+                return this._stepsToReproduce;
+            }
             set
             {
                 this._stepsToReproduce = value;
