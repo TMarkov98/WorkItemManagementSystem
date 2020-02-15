@@ -46,7 +46,7 @@ namespace WIMS_TeamTK.Models
 
         public override string ToString()
         {
-            return $"{this.Name}{Environment.NewLine}";
+            return $"{this.GetType().Name}{this.Name}";
         }
     }
 }
