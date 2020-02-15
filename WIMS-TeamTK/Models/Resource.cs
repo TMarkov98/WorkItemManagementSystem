@@ -1,13 +1,11 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
+﻿using System.Collections.Generic;
 using WIMS_TeamTK.Models.Contracts;
 
 namespace WIMS_TeamTK.Models
 {
     public abstract class Resource : IResource
     {
-        private string _name;
+        protected string _name;
         private List<WorkItem> _workItems;
         private List<string> _activityHistory;
 

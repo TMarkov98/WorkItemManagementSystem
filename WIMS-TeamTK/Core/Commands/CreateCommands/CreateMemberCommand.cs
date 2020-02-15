@@ -1,6 +1,5 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Text;
 using WIMS_TeamTK.Core.Contracts;
 using WIMS_TeamTK.Core.Factories;
 
@@ -29,7 +28,7 @@ namespace WIMS_TeamTK.Core.Commands
             var member = this._factory.CreateMember(name);
             this._engine.Members.Add(member);
 
-            return $"Member with name: {name} and ID: {this._engine.Members.Count} was created.";
+            return $"Member with ID: {this._engine.Members.Count} and  name: {name} was created.";
         }
     }
 }

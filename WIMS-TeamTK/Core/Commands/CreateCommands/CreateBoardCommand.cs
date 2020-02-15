@@ -1,6 +1,5 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Text;
 using WIMS_TeamTK.Core.Contracts;
 using WIMS_TeamTK.Core.Factories;
 
@@ -23,13 +22,13 @@ namespace WIMS_TeamTK.Core.Commands
             }
             catch
             {
-                throw new ArgumentException("Failed to parse CreateAirplane command parameters.");
+                throw new ArgumentException("Failed to parse CreateBoard command parameters.");
             }
 
             var board = this._factory.CreateBoard(name);
             this._engine.Boards.Add(board);
 
-            return $"Board with ID {this._engine.Boards.Count - 1}, Name {board.Name} was created.";
+            return $"Board with ID: {this._engine.Boards.Count} and name: {board.Name} was created.";
         }
     }
 }

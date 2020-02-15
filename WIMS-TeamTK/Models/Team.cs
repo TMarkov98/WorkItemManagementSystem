@@ -1,6 +1,5 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Text;
 using WIMS_TeamTK.Models.Contracts;
 
 namespace WIMS_TeamTK.Models
@@ -21,9 +20,9 @@ namespace WIMS_TeamTK.Models
             get => this._name;
             set
             {
-                if (value.Length < 5 || value.Length > 10)
+                if (value.Length < 5 || value.Length > 15)
                 {
-                    throw new ArgumentException();
+                    throw new ArgumentException("Name must be between 5 and 15 symbols.");
                 }
                 this._name = value;
             }
