@@ -33,7 +33,7 @@ namespace WIMS_TeamTK.Core.Commands
                 }
                 else if (this._engine.Boards.Count(n => n.Name == boardname) < 1)
                 {
-                    throw new ArgumentException("Board does not exist!");
+                    throw new ArgumentException($"Board {boardname} not found.");
                 }
                 else
                 {

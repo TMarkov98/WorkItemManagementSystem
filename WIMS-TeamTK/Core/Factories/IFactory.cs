@@ -15,5 +15,6 @@ namespace WIMS_TeamTK.Core.Factories
         public IWorkItem CreateBug(string title);
         public IWorkItem CreateStory(string title);
         public IWorkItem CreateFeedback(string title);
+        public IComment CreateComment(string author, string message);
     }
 }

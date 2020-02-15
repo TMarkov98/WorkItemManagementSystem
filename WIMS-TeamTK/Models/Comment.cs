@@ -1,10 +1,11 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Text;
+using WIMS_TeamTK.Models.Contracts;
 
-namespace WIMS_TeamTK.Models.Services
+namespace WIMS_TeamTK.Models
 {
-    public class Comment
+    public class Comment : IComment
     {
         private string _author;
         private string _message;

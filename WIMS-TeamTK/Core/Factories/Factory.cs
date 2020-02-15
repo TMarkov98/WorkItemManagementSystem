@@ -51,5 +51,9 @@ namespace WIMS_TeamTK.Core.Factories
         {
             return new Feedback(title);
         }
+        public IComment CreateComment(string author, string message)
+        {
+            return new Comment(author, message);
+        }
     }
 }

@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using System.Text;
 using WIMS_TeamTK.Models.Contracts;
-using WIMS_TeamTK.Models.Services;
+using WIMS_TeamTK.Models;
 
 namespace WIMS_TeamTK.Models
 {
@@ -11,7 +11,7 @@ namespace WIMS_TeamTK.Models
         private string _title = "";
         private string _description = "";
         private List<string> _history = new List<string>();
-        private List<Comment> _comments;
+        private List<Comment> _comments = new List<Comment>();
         private ulong _id = 1;
 
         public WorkItem(string title)
@@ -77,6 +77,10 @@ namespace WIMS_TeamTK.Models
             {
                 this._comments = value;
             }
+        }
+        public void addComment(Comment comment)
+        {
+            this._comments.Add(comment);
         }
         public virtual string ListHistory()
         {
