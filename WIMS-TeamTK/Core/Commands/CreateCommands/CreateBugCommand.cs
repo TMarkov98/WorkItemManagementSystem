@@ -18,12 +18,29 @@ namespace WIMS_TeamTK.Core.Commands
         public override string Execute(IList<string> parameters)
         {
             string title;
+            string boardname;
             List<string> stepsToReproduce = new List<string>();
 
             try
             {
                 title = string.Join(" ", parameters);
                 Bug bug = (Bug)this._factory.CreateBug(title);
+                Console.Write("Board: ");
+                boardname = Console.ReadLine();
+                if (this._engine.Boards.Count(n=>n.Name == boardname) > 1)
+                {
+                    Console.Write("More than one board found. Please use board's ID: ");
+                    var boardId = int.Parse(Console.ReadLine());
+                    this._engine.Boards[boardId].WorkItems.Add(bug);
+                }
+                else if (this._engine.Boards.Count(n => n.Name == boardname) < 1)
+                {
+                    throw new ArgumentException("Board does not exist!");
+                }
+                else
+                {
+                    this._engine.Boards.FirstOrDefault(n => n.Name == boardname).WorkItems.Add(bug);
+                }
                 Console.Write("Bug Description(Single line.): ");
                 bug.Description = Console.ReadLine();
                 Console.WriteLine("Steps to reproduce(Reads until it reaches an empty line.):");

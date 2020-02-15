@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Linq;
 using System.Text;
 using WIMS_TeamTK.Core.Contracts;
 using WIMS_TeamTK.Core.Factories;
@@ -17,12 +18,29 @@ namespace WIMS_TeamTK.Core.Commands
         public override string Execute(IList<string> parameters)
         {
             string title;
+            string boardname;
             List<string> stepsToReproduce = new List<string>();
 
             try
             {
                 title = string.Join(" ", parameters);
                 Story story = (Story)this._factory.CreateStory(title);
+                Console.Write("Board: ");
+                boardname = Console.ReadLine();
+                if (this._engine.Boards.Count(n => n.Name == boardname) > 1)
+                {
+                    Console.Write("More than one board found. Please use board's ID: ");
+                    var boardId = int.Parse(Console.ReadLine());
+                    this._engine.Boards[boardId].WorkItems.Add(story);
+                }
+                else if (this._engine.Boards.Count(n => n.Name == boardname) < 1)
+                {
+                    throw new ArgumentException("Board does not exist!");
+                }
+                else
+                {
+                    this._engine.Boards.FirstOrDefault(n => n.Name == boardname).WorkItems.Add(story);
+                }
                 Console.Write("Story Description(Single line): ");
                 story.Description = Console.ReadLine();
                 Console.WriteLine("Story Priority(High/Medium/Low):");
