@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Linq;
 using System.Text;
 using WIMS_TeamTK.Core.Contracts;
 using WIMS_TeamTK.Core.Factories;
@@ -14,8 +15,8 @@ namespace WIMS_TeamTK.Core.Commands.ListCommands
 
         public override string Execute(string parameter)
         {
-            //TODO : Try to add indexes
-            string result = string.Join($"{Environment.NewLine}", this._engine.Teams);
+            string result = string.Join($"{Environment.NewLine}", this._engine.Teams
+                .Select((team, index) => $"ID: {index} - {team.ToString()}").ToArray());
             return result;
         }
     }

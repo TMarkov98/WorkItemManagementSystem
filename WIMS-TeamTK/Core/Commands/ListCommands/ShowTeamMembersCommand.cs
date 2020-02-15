@@ -18,8 +18,8 @@ namespace WIMS_TeamTK.Core.Commands.ListCommands
             try
             {
                 var team = this._engine.Teams.First(n => n.Name == parameter);
-                //TODO : Try to add indexes
-                string result = string.Join($"{Environment.NewLine}", team.Members);
+                string result = string.Join($"{Environment.NewLine}", team.Members
+                    .Select((member, index) => $"ID: {index} - {member.ToString()}").ToArray());
                 return result;
             }
             catch

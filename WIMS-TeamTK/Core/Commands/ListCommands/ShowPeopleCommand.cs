@@ -15,8 +15,8 @@ namespace WIMS_TeamTK.Core.Commands.ListCommands
 
         public override string Execute(string parameter)
         {
-            //TODO : Try to add indexes
-            string result = string.Join($"{Environment.NewLine}", this._engine.Members);
+            string result = string.Join($"{Environment.NewLine}", this._engine.Members
+                .Select((member, index) => $"ID: {index} - {member.ToString()}").ToArray());
             return result;
         }
     }
