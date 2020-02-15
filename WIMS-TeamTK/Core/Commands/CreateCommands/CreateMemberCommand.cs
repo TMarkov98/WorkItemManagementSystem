@@ -28,7 +28,7 @@ namespace WIMS_TeamTK.Core.Commands
             var member = this._factory.CreateMember(name);
             this._engine.Members.Add(member);
 
-            return $"Member with ID: {this._engine.Members.Count} and  name: {name} was created.";
+            return $"Member with ID: {this._engine.Members.Count - 1} and  name: {name} was created.";
         }
     }
 }

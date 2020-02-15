@@ -28,7 +28,7 @@ namespace WIMS_TeamTK.Core.Commands
             var board = this._factory.CreateBoard(name);
             this._engine.Boards.Add(board);
 
-            return $"Board with ID: {this._engine.Boards.Count} and name: {board.Name} was created.";
+            return $"Board with ID: {this._engine.Boards.Count - 1} and name: {board.Name} was created.";
         }
     }
 }

@@ -18,7 +18,6 @@ namespace WIMS_TeamTK.Core.Commands
         public override string Execute(IList<string> parameters)
         {
             string title;
-            string description;
             List<string> stepsToReproduce = new List<string>();
 
             try
@@ -26,7 +25,7 @@ namespace WIMS_TeamTK.Core.Commands
                 title = string.Join(" ", parameters);
                 Bug bug = (Bug)this._factory.CreateBug(title);
                 Console.Write("Bug Description(Single line.): ");
-                description = Console.ReadLine();
+                bug.Description = Console.ReadLine();
                 Console.WriteLine("Steps to reproduce(Reads until it reaches an empty line.):");
                 string input = Console.ReadLine();
                 while(input != "")
@@ -44,9 +43,9 @@ namespace WIMS_TeamTK.Core.Commands
                 this._engine.WorkItems.Add(bug);
                 return $"Bug with ID {this._engine.WorkItems.Count - 1}, Title {bug.Title} was created.";
             }
-            catch
+            catch (ArgumentException ex)
             {
-                throw new ArgumentException("Incorrect values passed when creating bug. Bug was not created.");
+                throw new ArgumentException(ex.Message + "\nIncorrect values passed when creating bug. Bug was not created.");
             }
         }
     }

@@ -27,7 +27,7 @@ namespace WIMS_TeamTK.Core.Commands
             var team = this._factory.CreateTeam(name);
             this._engine.Teams.Add(team);
 
-            return $"Team with ID: {this._engine.Teams.Count} and name: {name} was created.";
+            return $"Team with ID: {this._engine.Teams.Count - 1} and name: {name} was created.";
         }
     }
 }

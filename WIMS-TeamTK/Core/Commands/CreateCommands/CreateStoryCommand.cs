@@ -34,9 +34,9 @@ namespace WIMS_TeamTK.Core.Commands
                 this._engine.WorkItems.Add(story);
                 return $"Story with ID {this._engine.WorkItems.Count - 1}, Title {story.Title} was created.";
             }
-            catch
+            catch (ArgumentException ex)
             {
-                throw new ArgumentException("Incorrect values passed when creating bug. Bug was not created.");
+                throw new ArgumentException(ex.Message + "\nIncorrect values passed when creating story. Story was not created.");
             }
         }
     }

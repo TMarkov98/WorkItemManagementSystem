@@ -30,11 +30,11 @@ namespace WIMS_TeamTK.Core.Commands
                 Console.WriteLine("Feedback Status(New/Unscheduled/Scheduled/Done):");
                 feedback.Status = (FeedbackStatus)Enum.Parse(typeof(FeedbackStatus), Console.ReadLine(), true);
                 this._engine.WorkItems.Add(feedback);
-                return $"Story with ID {this._engine.WorkItems.Count - 1}, Title {feedback.Title} was created.";
+                return $"Feedback with ID {this._engine.WorkItems.Count - 1}, Title {feedback.Title} was created.";
             }
-            catch
+            catch (ArgumentException ex)
             {
-                throw new ArgumentException("Incorrect values passed when creating bug. Bug was not created.");
+                throw new ArgumentException(ex.Message + "\nIncorrect values passed when creating feedback. Feedback was not created.");
             }
         }
     }
