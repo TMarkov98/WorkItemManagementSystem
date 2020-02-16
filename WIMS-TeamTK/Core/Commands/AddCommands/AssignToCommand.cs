@@ -33,7 +33,7 @@ namespace WIMS_TeamTK.Core.Commands.AddCommands
                     var workItemId = int.Parse(Console.ReadLine());
                     workItem = this._engine.WorkItems[workItemId];
                 }
-                else if (this._engine.WorkItems.Count((n => n.Title == workItemTitle)) < 1)
+                else if (!this._engine.WorkItems.Any((n => n.Title == workItemTitle)))
                 {
                     throw new ArgumentException($"WorkItem {workItemTitle} not found.");
                 }
