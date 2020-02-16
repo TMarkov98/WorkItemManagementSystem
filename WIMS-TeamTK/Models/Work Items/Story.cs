@@ -83,10 +83,10 @@ namespace WIMS_TeamTK.Models
         public override string ToString()
         {
             return base.ToString()
-                + $"Priority {this.Priority}{Environment.NewLine}"
-                + $"Size {this.Size}{Environment.NewLine}"
-                + $"Status {this.Status}{Environment.NewLine}"
-                + $"Assignee {this.Assignee}";
+                + $"Priority: {this.Priority}{Environment.NewLine}"
+                + $"Size: {this.Size}{Environment.NewLine}"
+                + $"Status: {this.Status}{Environment.NewLine}"
+                + $"Assignee: {this.Assignee}";
         }
     }
 }

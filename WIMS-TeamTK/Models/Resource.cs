@@ -66,7 +66,7 @@ namespace WIMS_TeamTK.Models
         {
             this._activityHistory.Add($"{DateTime.UtcNow}: {this.Name} was added to {team}");
         }
-        public void AssigneWorkItem(IWorkItem workItem)
+        public void AssignWorkItem(IWorkItem workItem)
         {
             _workItems.Add(workItem);
             this._activityHistory.Add($"{DateTime.UtcNow}: Item was assigned to {this.Name}");

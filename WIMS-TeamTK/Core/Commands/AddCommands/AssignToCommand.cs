@@ -4,6 +4,7 @@ using System.Linq;
 using System.Text;
 using WIMS_TeamTK.Core.Contracts;
 using WIMS_TeamTK.Core.Factories;
+using WIMS_TeamTK.Models;
 
 namespace WIMS_TeamTK.Core.Commands.AddCommands
 {
@@ -15,7 +16,7 @@ namespace WIMS_TeamTK.Core.Commands.AddCommands
 
         public override string Execute(string parameter)
         {
-            string workItem;
+            string workItemTitle;
             try
             {
                 if (!this._engine.Members.Any(n => n.Name == parameter))
@@ -24,22 +25,28 @@ namespace WIMS_TeamTK.Core.Commands.AddCommands
                 }
                 var member = this._engine.Members.First(n => n.Name == parameter);
                 Console.WriteLine("WorkItem:");
-                workItem = Console.ReadLine();
-                if (this._engine.WorkItems.Count(n => n.Title == workItem) > 1)
+                workItemTitle = Console.ReadLine();
+                var workItem = this._engine.WorkItems.First(n => n.Title == workItemTitle);
+                if (this._engine.WorkItems.Count(n => n.Title == workItemTitle) > 1)
                 {
                     Console.Write("More than one WorkItem found with this title. Please use WorkItem ID: ");
                     var workItemId = int.Parse(Console.ReadLine());
-                    member.AssigneWorkItem(this._engine.WorkItems[workItemId]);
+                    workItem = this._engine.WorkItems[workItemId];
                 }
-                else if (this._engine.WorkItems.Count((n => n.Title == workItem)) < 1)
+                else if (this._engine.WorkItems.Count((n => n.Title == workItemTitle)) < 1)
                 {
-                    throw new ArgumentException($"WorkItem {workItem} not found.");
+                    throw new ArgumentException($"WorkItem {workItemTitle} not found.");
                 }
-                else
+                member.AssignWorkItem(workItem);
+                if(workItem.GetType().Name == "Bug")
                 {
-                    member.AssigneWorkItem(this._engine.WorkItems.First(n => n.Title == workItem));
+                    (workItem as Bug).Assignee = parameter;
                 }
-                return $"Assigned {workItem} to {parameter}";
+                if (workItem.GetType().Name == "Story")
+                {
+                    (workItem as Story).Assignee = parameter;
+                }
+                return $"Assigned {workItemTitle} to {parameter}";
             }
             catch (ArgumentException ex)
             {
