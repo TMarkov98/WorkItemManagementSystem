@@ -8,7 +8,6 @@ namespace WIMS_TeamTK.Models
         public Board(string name)
             : base(name)
         {
-            
         }
 
         public override string Name

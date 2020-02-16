@@ -20,6 +20,10 @@ namespace WIMS_TeamTK.Core.Commands.CreateCommands
             {
                 Console.Write("Member: ");
                 memberName = Console.ReadLine();
+                if (!this._engine.Members.Any(n => n.Name == memberName))
+                {
+                    throw new ArgumentException($"{memberName} is not a valid member.");
+                }
                 var team = this._engine.Teams.First(n => n.Name == parameter);
                 var member = this._engine.Members.First(n => n.Name == memberName);
                 if (team.Members.Any(n => n.Name == memberName))
