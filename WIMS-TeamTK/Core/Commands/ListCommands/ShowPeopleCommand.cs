@@ -16,7 +16,7 @@ namespace WIMS_TeamTK.Core.Commands.ListCommands
         public override string Execute(string parameter)
         {
             string result = string.Join($"{Environment.NewLine}", this._engine.Members
-                .Select((member, index) => $"ID: {index} - {member.ToString()}").ToArray());
+                .Select((member) => $"ID: {this._engine.Members.IndexOf(member)} - {member.ToString()}").ToArray());
             return result;
         }
     }

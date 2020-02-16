@@ -18,16 +18,19 @@ namespace WIMS_TeamTK.Core.Commands.ListCommands
             string result = "";
             if(parameter == "")
             {
-                result = string.Join($"{Environment.NewLine}============={Environment.NewLine}", this._engine.WorkItems.Select((workItem, index) => $"ID: {index} - {workItem.ToString()}").ToArray());
+                result = string.Join($"{Environment.NewLine}============={Environment.NewLine}", this._engine.WorkItems
+                    .Select((workItem) => $"ID: {this._engine.WorkItems.IndexOf(workItem)} - {workItem.ToString()}").ToArray());
             }
             else if(parameter.ToLower() == "title")
             {
-                result = string.Join($"{Environment.NewLine}============={Environment.NewLine}", this._engine.WorkItems.OrderBy(n => n.Title));
+                result = string.Join($"{Environment.NewLine}============={Environment.NewLine}", this._engine.WorkItems
+                    .OrderBy(n => n.Title).Select((workItem) => $"ID: {this._engine.WorkItems.IndexOf(workItem)} - {workItem.ToString()}").ToArray());
             }
             else
             {
                 Console.WriteLine($"{parameter} is not a valid field to sort by. Printing by default(ID).");
-                result = string.Join($"{Environment.NewLine}============={Environment.NewLine}", this._engine.WorkItems.Select((workItem, index) => $"ID: {index} - {workItem.ToString()}").ToArray());
+                result = string.Join($"{Environment.NewLine}============={Environment.NewLine}", this._engine.WorkItems
+                    .Select((workItem) => $"ID: {this._engine.WorkItems.IndexOf(workItem)} - {workItem.ToString()}").ToArray());
             }
             return result;
         }
