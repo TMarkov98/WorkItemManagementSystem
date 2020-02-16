@@ -18,6 +18,7 @@ namespace WIMS_TeamTK.Core.Commands.AddCommands
             string workItem;
             try
             {
+                //TODO: Change Bug/Story assignee property
                 if (!this._engine.Members.Any(n => n.Name == parameter))
                 {
                     throw new ArgumentException($"Author {parameter} is not a valid member.");

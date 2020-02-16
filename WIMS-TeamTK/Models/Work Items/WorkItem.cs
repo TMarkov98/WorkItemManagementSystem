@@ -42,7 +42,7 @@ namespace WIMS_TeamTK.Models
                 {
                     throw new ArgumentException("Title must be between 10 and 50 symbols.");
                 }
-                this.History.Add($"{DateTime.Now}: Modified Title from {this.Title} to {value}.");
+                this.History.Add($"{DateTime.Now}: Changed Title to {value}.");
                 this._title = value;
             }
         }
@@ -55,7 +55,7 @@ namespace WIMS_TeamTK.Models
                 {
                     throw new ArgumentException("Description must be between 10 and 500 symbols.");
                 }
-                this.History.Add($"{DateTime.Now}: Modified Description from {this.Description} to {value}.");
+                this.History.Add($"{DateTime.Now}: Changed Description to {value}.");
                 this._description = value;
             }
         }
