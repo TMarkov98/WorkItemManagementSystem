@@ -9,37 +9,37 @@ using WIMS_TeamTK.Models.Enums;
 
 namespace WIMS_TeamTK.Core.Commands.ListCommands
 {
-    class ListBugsCommand : Command
+    class ListStoriesCommand : Command
     {
-        public ListBugsCommand(IFactory factory, IEngine engine) : base(factory, engine)
+        public ListStoriesCommand(IFactory factory, IEngine engine) : base(factory, engine)
         {
         }
 
         public override string Execute(string parameter)
         {
             string result = "";
-            List<Bug> allBugs = this._engine.WorkItems.Where(n => n.GetType().Name == "Bug").Select(n => n as Bug).ToList();
+            List<Story> allStories = this._engine.WorkItems.Where(n => n.GetType().Name == "Story").Select(n => n as Story).ToList();
             if (parameter == "")
             {
-                result = string.Join(Environment.NewLine, this._engine.WorkItems.Where(n => n.GetType().Name == "Bug").Select((workItem, index) => $"ID: {index} - {workItem.ToString()}").ToArray());
+                result = string.Join(Environment.NewLine, this._engine.WorkItems.Where(n => n.GetType().Name == "Story").Select((workItem, index) => $"ID: {index} - {workItem.ToString()}").ToArray());
             }
             else if (parameter.ToLower() == "sort")
             {
-                Console.Write("Sort by(title/priority/severity/status): ");
+                Console.Write("Sort by(title/priority/size/status): ");
                 string sortedBy = Console.ReadLine().ToLower();
                 switch (sortedBy)
                 {
                     case "title":
-                        result = string.Join(Environment.NewLine, this._engine.WorkItems.Where(n => n.GetType().Name == "Bug").OrderBy(n => n.Title));
+                        result = string.Join(Environment.NewLine, this._engine.WorkItems.Where(n => n.GetType().Name == "Story").OrderBy(n => n.Title));
                         break;
                     case "priority":
-                        result = string.Join(Environment.NewLine, allBugs.OrderBy(n => n.Priority));
+                        result = string.Join(Environment.NewLine, allStories.OrderBy(n => n.Priority));
                         break;
-                    case "severity":
-                        result = string.Join(Environment.NewLine, allBugs.OrderBy(n => n.Severity));
+                    case "size":
+                        result = string.Join(Environment.NewLine, allStories.OrderBy(n => n.Size));
                         break;
                     case "status":
-                        result = string.Join(Environment.NewLine, allBugs.OrderBy(n => n.Status));
+                        result = string.Join(Environment.NewLine, allStories.OrderBy(n => n.Status));
                         break;
                     default:
                         throw new ArgumentException("Input is not valid parameter to be sort by.");
@@ -52,18 +52,22 @@ namespace WIMS_TeamTK.Core.Commands.ListCommands
 
                 if (filter == "status")
                 {
-                    Console.WriteLine("Status to filter by(active, fixed): ");
+                    Console.WriteLine("Status to filter by(NotDone/InProgress/Done): ");
                     string filterStatus = Console.ReadLine().ToLower();
-                    if (filterStatus == "active")
+                    if (filterStatus == "notdone")
                     {
-                        result = string.Join(Environment.NewLine, allBugs.Where(n => n.Status.Equals(BugStatus.Active)));
+                        result = string.Join(Environment.NewLine, allStories.Where(n => n.Status.Equals(StoryStatus.NotDone)));
                     }
-                    else if (filterStatus == "fixed")
+                    else if (filterStatus == "inprogress")
                     {
-                        result = string.Join(Environment.NewLine, allBugs.Where(n => n.Status.Equals(BugStatus.Fixed)));
+                        result = string.Join(Environment.NewLine, allStories.Where(n => n.Status.Equals(StoryStatus.InProgress)));
+                    }
+                    else if (filterStatus == "done")
+                    {
+                        result = string.Join(Environment.NewLine, allStories.Where(n => n.Status.Equals(StoryStatus.Done)));
                     }
                 }
-                else if(filter == "assigne")
+                else if (filter == "assigne")
                 {
                     Console.WriteLine("Assigne to filter by: ");
                     string filterAssigne = Console.ReadLine();
@@ -71,7 +75,7 @@ namespace WIMS_TeamTK.Core.Commands.ListCommands
                     {
                         throw new ArgumentException($"Author {filterAssigne} is not a valid member.");
                     }
-                    result = string.Join(Environment.NewLine, allBugs.Where(n => n.Assignee.Equals(filterAssigne)));
+                    result = string.Join(Environment.NewLine, allStories.Where(n => n.Assignee.Equals(filterAssigne)));
                 }
                 else
                 {
