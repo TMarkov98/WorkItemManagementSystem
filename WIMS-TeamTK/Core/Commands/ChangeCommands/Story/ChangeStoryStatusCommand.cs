@@ -4,9 +4,10 @@ using System.Linq;
 using System.Text;
 using WIMS_TeamTK.Core.Contracts;
 using WIMS_TeamTK.Core.Factories;
+using WIMS_TeamTK.Models;
 using WIMS_TeamTK.Models.Enums;
 
-namespace WIMS_TeamTK.Core.Commands.ChangeCommands.Story
+namespace WIMS_TeamTK.Core.Commands
 {
     class ChangeStoryStatusCommand : Command
     {
@@ -26,7 +27,7 @@ namespace WIMS_TeamTK.Core.Commands.ChangeCommands.Story
                 string newStatus = Console.ReadLine();
 
                 (this._engine.WorkItems.First(n => n.Title == parameter && n.GetType().Name == "Story") as Story)
-                    .StoryStatus = (StoryStatus)Enum.Parse(typeof(StoryStatus), newStatus, true);
+                    .Status = (StoryStatus)Enum.Parse(typeof(StoryStatus), newStatus, true);
                 return $"Changed {parameter} priority to {newStatus}.";
             }
             catch (ArgumentException ex)

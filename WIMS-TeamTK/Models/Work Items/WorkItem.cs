@@ -20,7 +20,7 @@ namespace WIMS_TeamTK.Models
             this._id++;
             this.History = new List<string>();
             this.Comments = new List<Comment>();
-            this.History.Add($"{DateTime.Now}: Created {this.GetType().Name} with ID {this._id}.");
+            this.History.Add($"{DateTime.UtcNow}: Created {this.GetType().Name} with ID {this._id}.");
         }
             //TODO: Check if still necessary
         public WorkItem(string title, string description)
@@ -30,7 +30,7 @@ namespace WIMS_TeamTK.Models
             this._id++;
             this.History = new List<string>();
             this.Comments = new List<Comment>();
-            this.History.Add($"{DateTime.Now}: Created {this.GetType().Name} with ID {this._id}.");
+            this.History.Add($"{DateTime.UtcNow}: Created {this.GetType().Name} with ID {this._id}.");
         }
 
         public virtual string Title
@@ -42,7 +42,7 @@ namespace WIMS_TeamTK.Models
                 {
                     throw new ArgumentException("Title must be between 10 and 50 symbols.");
                 }
-                this.History.Add($"{DateTime.Now}: Changed Title to {value}.");
+                this.History.Add($"{DateTime.UtcNow}: Changed Title to {value}.");
                 this._title = value;
             }
         }
@@ -55,7 +55,7 @@ namespace WIMS_TeamTK.Models
                 {
                     throw new ArgumentException("Description must be between 10 and 500 symbols.");
                 }
-                this.History.Add($"{DateTime.Now}: Changed Description to {value}.");
+                this.History.Add($"{DateTime.UtcNow}: Changed Description to {value}.");
                 this._description = value;
             }
         }

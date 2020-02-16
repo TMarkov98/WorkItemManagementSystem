@@ -7,7 +7,7 @@ using WIMS_TeamTK.Core.Factories;
 using WIMS_TeamTK.Models;
 using WIMS_TeamTK.Models.Enums;
 
-namespace WIMS_TeamTK.Core.Commands.ChangeCommands
+namespace WIMS_TeamTK.Core.Commands
 {
     class ChangeStorySizeCommand : Command
     {
