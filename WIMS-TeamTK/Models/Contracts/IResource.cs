@@ -7,7 +7,7 @@ namespace WIMS_TeamTK.Models.Contracts
     public interface IResource
     {
         string Name { get; }
-        List<WorkItem> WorkItems { get; }
+        List<IWorkItem> WorkItems { get; }
         List<string> ActivityHistory { get; }
         string ToString();
     }

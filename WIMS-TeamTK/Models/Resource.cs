@@ -6,13 +6,13 @@ namespace WIMS_TeamTK.Models
     public abstract class Resource : IResource
     {
         protected string _name;
-        private List<WorkItem> _workItems;
+        private List<IWorkItem> _workItems;
         private List<string> _activityHistory;
 
         public Resource(string name)
         {
             this.Name = name;
-            this.WorkItems = new List<WorkItem>();
+            this.WorkItems = new List<IWorkItem>();
             this.ActivityHistory = new List<string>();
         }
 
@@ -27,7 +27,7 @@ namespace WIMS_TeamTK.Models
                 this._name = value;
             }
         }
-        public virtual List<WorkItem> WorkItems 
+        public virtual List<IWorkItem> WorkItems 
         {
             get
             {

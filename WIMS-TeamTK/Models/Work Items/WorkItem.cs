@@ -78,10 +78,6 @@ namespace WIMS_TeamTK.Models
                 this._comments = value;
             }
         }
-        public void addComment(Comment comment)
-        {
-            this._comments.Add(comment);
-        }
         public virtual string ListHistory()
         {
             string result = "";
