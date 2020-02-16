@@ -30,7 +30,7 @@ namespace WIMS_TeamTK.Models
         public List<Member> Members
         {
             get => this._members;
-            set
+            private set
             {
                 this._members = value;
             }
@@ -38,7 +38,7 @@ namespace WIMS_TeamTK.Models
         public List<Board> Boards
         {
             get => this._boards;
-            set
+            private set
             {
                 this._boards = value;
             }

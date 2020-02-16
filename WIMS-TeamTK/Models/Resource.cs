@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using WIMS_TeamTK.Models.Contracts;
 
 namespace WIMS_TeamTK.Models
@@ -7,13 +8,15 @@ namespace WIMS_TeamTK.Models
     {
         protected string _name;
         private List<IWorkItem> _workItems;
-        private List<string> _activityHistory;
+        private List<string> _activityHistory = new List<string>();
 
         public Resource(string name)
         {
             this.Name = name;
             this.WorkItems = new List<IWorkItem>();
             this.ActivityHistory = new List<string>();
+            this._activityHistory.Add($"{DateTime.UtcNow}: Created {this.GetType().Name} with name {this.Name}.");
+
         }
 
         public virtual string Name
@@ -25,26 +28,27 @@ namespace WIMS_TeamTK.Models
             set
             {
                 this._name = value;
+                this._activityHistory.Add($"{DateTime.UtcNow}: Changed name to {value}.");
             }
         }
-        public virtual List<IWorkItem> WorkItems 
+        public virtual List<IWorkItem> WorkItems
         {
             get
             {
                 return this._workItems;
             }
-            set
+            private set
             {
                 this._workItems = value;
             }
         }
-        public virtual List<string> ActivityHistory 
+        public virtual List<string> ActivityHistory
         {
             get
             {
                 return this._activityHistory;
             }
-            set
+            private set
             {
                 this._activityHistory = value;
             }
