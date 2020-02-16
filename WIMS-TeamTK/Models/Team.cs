@@ -9,10 +9,12 @@ namespace WIMS_TeamTK.Models
         private string _name;
         private List<Member> _members = new List<Member>();
         private List<Board> _boards = new List<Board>();
+        private List<string> _activityHistory = new List<string>();
 
         public Team(string name)
         {
             this.Name = name;
+            this._activityHistory.Add($"{DateTime.UtcNow}: Created new team {this.Name}");
         }
 
         public string Name
@@ -35,6 +37,28 @@ namespace WIMS_TeamTK.Models
                 this._members = value;
             }
         }
+
+        public List<string> ActivityHistory
+        {
+            get => this._activityHistory;
+            private set
+            {
+                this._activityHistory = value;
+            }
+        }
+
+        public void AddMember(Member member)
+        {
+            this.Members.Add(member);
+            this.ActivityHistory.Add($"{DateTime.UtcNow}: Added Member {member.Name}");
+        }
+
+        public void AddBoard(Board board)
+        {
+            this.Boards.Add(board);
+            this.ActivityHistory.Add($"{DateTime.UtcNow}: Added Board {board.Name}");
+        }
+
         public List<Board> Boards
         {
             get => this._boards;

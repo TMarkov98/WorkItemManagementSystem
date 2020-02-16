@@ -25,10 +25,9 @@ namespace WIMS_TeamTK.Models
             {
                 return this._name;
             }
-            set
+            protected set
             {
                 this._name = value;
-                this._activityHistory.Add($"{DateTime.UtcNow}: Changed name to {value}.");
             }
         }
         public virtual List<IWorkItem> WorkItems

@@ -25,7 +25,7 @@ namespace WIMS_TeamTK.Core.Commands
                 teamname = Console.ReadLine();
 
                 this._engine.Boards.Add(board);
-                this._engine.Teams.First(n => n.Name == teamname).Boards.Add(board);
+                this._engine.Teams.First(n => n.Name == teamname).AddBoard(board);
                 return $"Board with ID: {this._engine.Boards.Count - 1} and name: {board.Name} was created in team {teamname}.";
             }
             catch (ArgumentException ex)

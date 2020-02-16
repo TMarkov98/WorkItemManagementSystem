@@ -8,7 +8,6 @@ namespace WIMS_TeamTK.Models.Contracts
         public string Title { get; }
         public string Description { get; }
         public string ToString();
-        public ulong Id { get; }
         public void AddComment(Comment comment);
     }
 }

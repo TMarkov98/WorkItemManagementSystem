@@ -12,25 +12,22 @@ namespace WIMS_TeamTK.Models
         private string _description = "";
         private List<string> _history = new List<string>();
         private List<Comment> _comments = new List<Comment>();
-        private ulong _id = 1;
 
         public WorkItem(string title)
         {
             this.Title = title;
-            this._id++;
             this.History = new List<string>();
             this.Comments = new List<Comment>();
-            this.History.Add($"{DateTime.UtcNow}: Created {this.GetType().Name} with ID {this._id}.");
+            this.History.Add($"{DateTime.UtcNow}: Created {this.GetType().Name} with Title {this.Title}.");
         }
             //TODO: Check if still necessary
         public WorkItem(string title, string description)
         {
             this.Title = title;
             this.Description = description;
-            this._id++;
             this.History = new List<string>();
             this.Comments = new List<Comment>();
-            this.History.Add($"{DateTime.UtcNow}: Created {this.GetType().Name} with ID {this._id}.");
+            this.History.Add($"{DateTime.UtcNow}: Created {this.GetType().Name} with Title {this.Title}.");
         }
 
         public virtual string Title
@@ -42,7 +39,6 @@ namespace WIMS_TeamTK.Models
                 {
                     throw new ArgumentException("Title must be between 10 and 50 symbols.");
                 }
-                this.History.Add($"{DateTime.UtcNow}: Changed Title to {value}.");
                 this._title = value;
             }
         }
@@ -87,20 +83,13 @@ namespace WIMS_TeamTK.Models
             }
             return result.Trim();
         }
-        public virtual ulong Id 
-        {
-            get
-            {
-                return this._id;
-            }
-        }
         public virtual void AddComment(Comment comment)
         {
             this.Comments.Add(comment);
         }
         public override string ToString()
         {
-            string result = $"Type: {this.GetType().Name} ID: {this.Id}{Environment.NewLine}"
+            string result = $"Type: {this.GetType().Name}{Environment.NewLine}"
                 + $"Title: {this.Title}{Environment.NewLine}"
                 + $"Description: {this.Description}{Environment.NewLine}";
             return result;
