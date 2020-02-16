@@ -21,11 +21,13 @@ namespace WIMS_TeamTK.Core.Commands.CreateCommands
                 Console.Write("Member: ");
                 memberName = Console.ReadLine();
                 var team = this._engine.Teams.First(n => n.Name == parameter);
-                if(team.Members.Any(n => n.Name == memberName))
+                var member = this._engine.Members.First(n => n.Name == memberName);
+                if (team.Members.Any(n => n.Name == memberName))
                 {
                     throw new ArgumentException($"Member {memberName} is already assigned to this team.");
                 }
-                team.Members.Add(this._engine.Members.First(n => n.Name == memberName));
+                team.Members.Add(member);
+                member.AddedToTeamComment(team);
                 return $"Added member {memberName} to team {parameter}.";
             }
             catch (ArgumentException ex)

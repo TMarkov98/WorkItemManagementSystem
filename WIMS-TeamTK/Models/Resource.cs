@@ -58,5 +58,19 @@ namespace WIMS_TeamTK.Models
         {
             return $"{this.GetType().Name}: {this.Name}";
         }
+
+        public void AddedCommentToHistory()
+        {
+            this._activityHistory.Add($"{DateTime.UtcNow}: {this.Name} added comment to item");
+        }
+        public void AddedToTeamComment(Team team)
+        {
+            this._activityHistory.Add($"{DateTime.UtcNow}: {this.Name} was added to {team}");
+        }
+        public void AssigneWorkItem(IWorkItem workItem)
+        {
+            _workItems.Add(workItem);
+            this._activityHistory.Add($"{DateTime.UtcNow}: Item was assigned to {this.Name}");
+        }
     }
 }

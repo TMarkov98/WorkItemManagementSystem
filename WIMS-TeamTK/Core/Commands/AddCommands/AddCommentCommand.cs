@@ -26,9 +26,11 @@ namespace WIMS_TeamTK.Core.Commands.AddCommands
                 {
                     throw new ArgumentException($"Author {author} is not a valid member.");
                 }
+                var member = this._engine.Members.First(n => n.Name == author);
                 Console.Write("Message: ");
                 message = Console.ReadLine();
                 Comment comment = (Comment)this._factory.CreateComment(author, message);
+                member.AddedCommentToHistory();
                 if (this._engine.WorkItems.Count(n => n.Title == parameter) > 1)
                 {
                     Console.Write("More than one WorkItem found with this name. Please use WorkItem ID: ");

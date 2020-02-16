@@ -18,18 +18,18 @@ namespace WIMS_TeamTK.Core.Commands.AddCommands
             string workItem;
             try
             {
-                //TODO: Change Bug/Story assignee property
                 if (!this._engine.Members.Any(n => n.Name == parameter))
                 {
                     throw new ArgumentException($"Author {parameter} is not a valid member.");
                 }
+                var member = this._engine.Members.First(n => n.Name == parameter);
                 Console.WriteLine("WorkItem:");
                 workItem = Console.ReadLine();
                 if (this._engine.WorkItems.Count(n => n.Title == workItem) > 1)
                 {
                     Console.Write("More than one WorkItem found with this title. Please use WorkItem ID: ");
                     var workItemId = int.Parse(Console.ReadLine());
-                    this._engine.Members.First(n => n.Name == parameter).WorkItems.Add(this._engine.WorkItems[workItemId]);
+                    member.AssigneWorkItem(this._engine.WorkItems[workItemId]);
                 }
                 else if (this._engine.WorkItems.Count((n => n.Title == workItem)) < 1)
                 {
@@ -37,7 +37,7 @@ namespace WIMS_TeamTK.Core.Commands.AddCommands
                 }
                 else
                 {
-                    this._engine.Members.First(n => n.Name == parameter).WorkItems.Add(this._engine.WorkItems.First(n => n.Title == workItem));
+                    member.AssigneWorkItem(this._engine.WorkItems.First(n => n.Title == workItem));
                 }
                 return $"Assigned {workItem} to {parameter}";
             }
