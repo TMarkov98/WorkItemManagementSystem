@@ -31,6 +31,10 @@ namespace WIMS_TeamTK.Models
             }
             set
             {
+                if (value < -10 || value > 10)
+                {
+                    throw new ArgumentException("Rating should be between -10 and 10");
+                }
                 this.History.Add($"{DateTime.UtcNow}: Changed Rating to {value}.");
                 this._rating = value;
             }

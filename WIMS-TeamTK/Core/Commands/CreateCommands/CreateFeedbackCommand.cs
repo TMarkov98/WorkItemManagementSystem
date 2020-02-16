@@ -41,7 +41,7 @@ namespace WIMS_TeamTK.Core.Commands
                 }
                 Console.Write("Feedback Description(Single line.): ");
                 feedback.Description = Console.ReadLine();
-                Console.WriteLine("Feedback Rating(integer):");
+                Console.WriteLine("Feedback Rating(-10 to 10):");
                 feedback.Rating = int.Parse(Console.ReadLine());
                 Console.WriteLine("Feedback Status(New/Unscheduled/Scheduled/Done):");
                 feedback.Status = (FeedbackStatus)Enum.Parse(typeof(FeedbackStatus), Console.ReadLine(), true);
