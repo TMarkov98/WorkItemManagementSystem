@@ -20,10 +20,10 @@ namespace WIMS_TeamTK.Core.Commands
 
             try
             {
+                var board = this._factory.CreateBoard(parameter);
                 Console.Write("Assign to team: ");
                 teamname = Console.ReadLine();
 
-                var board = this._factory.CreateBoard(parameter);
                 this._engine.Boards.Add(board);
                 this._engine.Teams.First(n => n.Name == teamname).Boards.Add(board);
                 return $"Board with ID: {this._engine.Boards.Count - 1} and name: {board.Name} was created in team {teamname}.";
