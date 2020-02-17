@@ -23,7 +23,7 @@ namespace WIMS_TeamTK.Core.Commands
                 {
                     throw new ArgumentException($"Feedback with title {parameter} not found.");
                 }
-                Console.WriteLine("New Feedback Status(New/Unscheduled/Scheduled/Done):");
+                Console.Write("New Feedback Status(New/Unscheduled/Scheduled/Done): ");
                 string newStatus = Console.ReadLine();
 
                 (this._engine.WorkItems.First(n => n.Title == parameter && n.GetType().Name == "Feedback") as Feedback)

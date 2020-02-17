@@ -24,7 +24,7 @@ namespace WIMS_TeamTK.Core.Commands.ChangeCommands
                 {
                     throw new ArgumentException($"Bug with title {parameter} not found.");
                 }
-                Console.WriteLine("New Bug Status(Active/Fixed):");
+                Console.Write("New Bug Status(Active/Fixed): ");
                 string newStatus = Console.ReadLine();
 
                 (this._engine.WorkItems.First(n => n.Title == parameter && n.GetType().Name == "Bug") as Bug)

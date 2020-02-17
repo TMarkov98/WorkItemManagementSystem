@@ -24,7 +24,7 @@ namespace WIMS_TeamTK.Core.Commands.ChangeCommands
                 {
                     throw new ArgumentException($"Bug with title {parameter} not found.");
                 }
-                Console.WriteLine("New Bug Severity(Critical/Major/Minor):");
+                Console.Write("New Bug Severity(Critical/Major/Minor): ");
                 string newSeverity = Console.ReadLine();
 
                 (this._engine.WorkItems.First(n => n.Title == parameter && n.GetType().Name == "Bug") as Bug)

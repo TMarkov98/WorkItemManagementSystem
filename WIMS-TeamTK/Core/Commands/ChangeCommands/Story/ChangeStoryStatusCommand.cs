@@ -23,7 +23,7 @@ namespace WIMS_TeamTK.Core.Commands.ChangeCommands
                 {
                     throw new ArgumentException($"Story with title {parameter} not found.");
                 }
-                Console.WriteLine("New Story Status(NotDone/InProgress/Done):");
+                Console.Write("New Story Status(NotDone/InProgress/Done): ");
                 string newStatus = Console.ReadLine();
 
                 (this._engine.WorkItems.First(n => n.Title == parameter && n.GetType().Name == "Story") as Story)

@@ -22,7 +22,7 @@ namespace WIMS_TeamTK.Core.Commands
                 {
                     throw new ArgumentException($"Feedback with title {parameter} not found.");
                 }
-                Console.WriteLine("New Feedback Rating(-10 to 10):");
+                Console.Write("New Feedback Rating(-10 to 10): ");
                 int newRating = int.Parse(Console.ReadLine());
 
                 (this._engine.WorkItems.First(n => n.Title == parameter && n.GetType().Name == "Feedback") as Feedback)

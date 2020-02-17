@@ -23,7 +23,7 @@ namespace WIMS_TeamTK.Core.Commands.ChangeCommands
                 {
                     throw new ArgumentException($"Story with title {parameter} not found.");
                 }
-                Console.WriteLine("New Story Size(Large/Medium/Small):");
+                Console.Write("New Story Size(Large/Medium/Small): ");
                 string newSize = Console.ReadLine();
 
                 (this._engine.WorkItems.First(n => n.Title == parameter && n.GetType().Name == "Story") as Story)
