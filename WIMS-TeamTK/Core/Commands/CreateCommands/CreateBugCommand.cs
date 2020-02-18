@@ -40,7 +40,6 @@ namespace WIMS_TeamTK.Core.Commands
                     stepsToReproduce.Add(input);
                     input = Console.ReadLine();
                 }
-                bug.StepsToReproduce = stepsToReproduce;
                 Console.WriteLine("Bug Priority(High/Medium/Low):");
                 priority = this._validator.ValidatePriority(Console.ReadLine());
                 Console.WriteLine("Bug Severity(Critical/Major/Minor):");
