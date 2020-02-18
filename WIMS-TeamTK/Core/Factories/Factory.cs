@@ -22,17 +22,17 @@ namespace WIMS_TeamTK.Core.Factories
                 return instanceHolder;
             }
         }
-        public Member CreateMember(string name)
+        public IMember CreateMember(string name)
         {
             return new Member(name);
         }
 
-        public Board CreateBoard(string name)
+        public IBoard CreateBoard(string name)
         {
             return new Board(name);
         }
 
-        public Team CreateTeam(string name)
+        public ITeam CreateTeam(string name)
         {
             return new Team(name);
         }

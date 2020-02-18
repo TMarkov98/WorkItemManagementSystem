@@ -7,8 +7,8 @@ namespace WIMS_TeamTK.Models
     public class Team : ITeam
     {
         private string _name;
-        private List<Member> _members = new List<Member>();
-        private List<Board> _boards = new List<Board>();
+        private List<IMember> _members = new List<IMember>();
+        private List<IBoard> _boards = new List<IBoard>();
         private List<string> _activityHistory = new List<string>();
 
         public Team(string name)
@@ -29,7 +29,7 @@ namespace WIMS_TeamTK.Models
                 this._name = value;
             }
         }
-        public List<Member> Members
+        public List<IMember> Members
         {
             get => this._members;
             private set
@@ -47,19 +47,19 @@ namespace WIMS_TeamTK.Models
             }
         }
 
-        public void AddMember(Member member)
+        public void AddMember(IMember member)
         {
             this.Members.Add(member);
             this.ActivityHistory.Add($"{DateTime.UtcNow}: Added Member {member.Name}");
         }
 
-        public void AddBoard(Board board)
+        public void AddBoard(IBoard board)
         {
             this.Boards.Add(board);
             this.ActivityHistory.Add($"{DateTime.UtcNow}: Added Board {board.Name}");
         }
 
-        public List<Board> Boards
+        public List<IBoard> Boards
         {
             get => this._boards;
             private set

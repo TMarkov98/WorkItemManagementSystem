@@ -5,6 +5,7 @@ using System.Text;
 using WIMS_TeamTK.Core.Contracts;
 using WIMS_TeamTK.Core.Factories;
 using WIMS_TeamTK.Models;
+using WIMS_TeamTK.Models.Contracts;
 using WIMS_TeamTK.Models.Enums;
 
 namespace WIMS_TeamTK.Core.Commands.ListCommands
@@ -18,7 +19,7 @@ namespace WIMS_TeamTK.Core.Commands.ListCommands
         public override string Execute(string parameter)
         {
             string result = "";
-            List<Bug> allBugs = this._engine.WorkItems.Where(n => n.GetType().Name == "Bug").Select(n => n as Bug).ToList();
+            List<IBug> allBugs = this._engine.WorkItems.Where(n => n.GetType().Name == "Bug").Select(n => n as IBug).ToList();
             if (parameter == "")
             {
                 result = string.Join(Environment.NewLine, this._engine.WorkItems.Where(n => n.GetType().Name == "Bug").Select((workItem, index) => $"ID: {index} - {workItem.ToString()}").ToArray());

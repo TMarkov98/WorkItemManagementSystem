@@ -13,7 +13,7 @@ namespace WIMS_TeamTK.Models
         public override string Name
         {
             get => this._name;
-            protected set
+            set
             {
                 if (value.Length < 5 || value.Length > 10)
                 {

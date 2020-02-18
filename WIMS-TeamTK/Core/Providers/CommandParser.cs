@@ -20,8 +20,7 @@ namespace WIMS_TeamTK.Core.Providers
 
         public string ParseParameters(string fullCommand)
         {
-            var commandParts = fullCommand.Split(' ').ToList();
-            commandParts.RemoveAt(0);
+            var commandParts = fullCommand.Split(' ').Skip(1).ToList();
             var parameter = string.Join(' ', commandParts);
 
             if (commandParts.Count() == 0)

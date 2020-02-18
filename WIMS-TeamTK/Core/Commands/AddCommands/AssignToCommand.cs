@@ -5,6 +5,7 @@ using System.Text;
 using WIMS_TeamTK.Core.Contracts;
 using WIMS_TeamTK.Core.Factories;
 using WIMS_TeamTK.Models;
+using WIMS_TeamTK.Models.Contracts;
 
 namespace WIMS_TeamTK.Core.Commands.AddCommands
 {
@@ -24,8 +25,12 @@ namespace WIMS_TeamTK.Core.Commands.AddCommands
                     throw new ArgumentException($"Author {parameter} is not a valid member.");
                 }
                 var member = this._engine.Members.First(n => n.Name == parameter);
-                Console.WriteLine("WorkItem:");
+                Console.Write("WorkItem: ");
                 workItemTitle = Console.ReadLine();
+                if (!this._engine.WorkItems.Any(n => n.Title == workItemTitle))
+                {
+                    throw new ArgumentException($"WorkItem {workItemTitle} not found.");
+                }
                 var workItem = this._engine.WorkItems.First(n => n.Title == workItemTitle);
                 if (this._engine.WorkItems.Count(n => n.Title == workItemTitle) > 1)
                 {
@@ -33,14 +38,10 @@ namespace WIMS_TeamTK.Core.Commands.AddCommands
                     var workItemId = int.Parse(Console.ReadLine());
                     workItem = this._engine.WorkItems[workItemId];
                 }
-                else if (!this._engine.WorkItems.Any((n => n.Title == workItemTitle)))
-                {
-                    throw new ArgumentException($"WorkItem {workItemTitle} not found.");
-                }
                 member.AssignWorkItem(workItem);
                 if(workItem.GetType().Name == "Bug")
                 {
-                    (workItem as Bug).Assignee = parameter;
+                    (workItem as IBug).Assignee = parameter;
                 }
                 if (workItem.GetType().Name == "Story")
                 {
@@ -50,7 +51,7 @@ namespace WIMS_TeamTK.Core.Commands.AddCommands
             }
             catch (ArgumentException ex)
             {
-                throw new ArgumentException($"{ex.Message}{Environment.NewLine}Unable to assign work item to member.");
+                throw new ArgumentException($"{ex.Message} Unable to assign work item to member.");
             }
         }
     }

@@ -46,7 +46,7 @@ namespace WIMS_TeamTK.Core.Commands
                 bug.Description = Console.ReadLine();
                 Console.WriteLine("Steps to reproduce(Reads until it reaches an empty line.):");
                 string input = Console.ReadLine();
-                while(input != "")
+                while(input != string.Empty)
                 {
                     stepsToReproduce.Add(input);
                     input = Console.ReadLine();

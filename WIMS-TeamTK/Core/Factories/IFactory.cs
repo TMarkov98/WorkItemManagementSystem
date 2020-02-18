@@ -9,9 +9,9 @@ namespace WIMS_TeamTK.Core.Factories
 {
     public interface IFactory
     {
-        public Member CreateMember(string name);
-        public Board CreateBoard(string name);
-        public Team CreateTeam(string name);
+        public IMember CreateMember(string name);
+        public IBoard CreateBoard(string name);
+        public ITeam CreateTeam(string name);
         public IWorkItem CreateBug(string title);
         public IWorkItem CreateStory(string title);
         public IWorkItem CreateFeedback(string title);

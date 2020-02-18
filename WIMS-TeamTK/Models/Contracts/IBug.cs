@@ -9,5 +9,6 @@ namespace WIMS_TeamTK.Models.Contracts
         public Priority Priority { get; }
         public Severity Severity { get; }
         public BugStatus Status { get; }
+        public string Assignee { get; set; }
     }
 }

@@ -18,10 +18,10 @@ namespace WIMS_TeamTK.Core.Contracts
         
         IList<IWorkItem> WorkItems { get; }
 
-        IList<Board> Boards { get; }
+        IList<IBoard> Boards { get; }
 
-        IList<Member> Members { get; }
+        IList<IMember> Members { get; }
 
-        IList<Team> Teams { get; }
+        IList<ITeam> Teams { get; }
     }
 }

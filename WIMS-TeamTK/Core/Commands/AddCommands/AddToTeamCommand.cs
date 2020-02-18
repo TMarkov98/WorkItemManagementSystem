@@ -31,7 +31,6 @@ namespace WIMS_TeamTK.Core.Commands.CreateCommands
                     throw new ArgumentException($"Member {memberName} is already assigned to this team.");
                 }
                 team.AddMember(member);
-                member.AddedToTeamComment(team);
                 return $"Added member {memberName} to team {parameter}.";
             }
             catch (ArgumentException ex)
