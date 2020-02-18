@@ -12,6 +12,6 @@ namespace WIMS_TeamTK.Models.Contracts
         string ToString();
         void AddedCommentToHistory();
         void AddedToTeamComment(Team team);
-        void AssignWorkItem(IWorkItem workitem);
+        void AddWorkItem(IWorkItem workitem);
     }
 }

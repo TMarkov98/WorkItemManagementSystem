@@ -16,21 +16,23 @@ namespace WIMS_TeamTK.Core.Commands
 
         public override string Execute(string parameter)
         {
-            string teamname;
+            string boardName = parameter;
+            string teamName;
 
             try
             {
-                var board = this._factory.CreateBoard(parameter);
+                var board = this._factory.CreateBoard(boardName);
                 Console.Write("Assign to team: ");
-                teamname = Console.ReadLine();
-
+                teamName = Console.ReadLine();
+                var team = this._validator.ValidateTeamExists(this._engine.Teams, teamName);
                 this._engine.Boards.Add(board);
-                this._engine.Teams.First(n => n.Name == teamname).AddBoard(board);
-                return $"Board with ID: {this._engine.Boards.Count - 1} and name: {board.Name} was created in team {teamname}.";
+                this._validator.ValidateDuplicateBoard(team.Boards, boardName);
+                this._engine.Teams.First(n => n.Name == teamName).AddBoard(board);
+                return $"Board with ID: {this._engine.Boards.Count - 1} and name: {board.Name} was created in team {teamName}.";
             }
             catch (ArgumentException ex)
             {
-                throw new ArgumentException(ex.Message + "\nIncorrect values passed. Board was not created.");
+                throw new ArgumentException($"{ex.Message} Incorrect values passed. Board was not created.");
             }
 
 

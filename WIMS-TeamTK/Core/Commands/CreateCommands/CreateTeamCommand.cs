@@ -14,21 +14,18 @@ namespace WIMS_TeamTK.Core.Commands
 
         public override string Execute(string parameter)
         {
-
+            string teamName = parameter;
             try
             {
-                var team = this._factory.CreateTeam(parameter);
-                if(this._engine.Teams.Any(n => n.Name == parameter))
-                {
-                    throw new ArgumentException($"Team with name {parameter} already exists.");
-                }
+                var team = this._factory.CreateTeam(teamName);
+                this._validator.ValidateDuplicateTeam(this._engine.Teams, teamName);
                 this._engine.Teams.Add(team);
 
                 return $"Team with ID: {this._engine.Teams.Count - 1} and name: {parameter} was created.";
             }
             catch (ArgumentException ex)
             {
-                throw new ArgumentException($"{ex.Message}{Environment.NewLine}Unable to create team.");
+                throw new ArgumentException($"{ex.Message} Unable to create team.");
             }
 
         }

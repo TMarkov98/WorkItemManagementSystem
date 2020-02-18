@@ -35,7 +35,7 @@ namespace WIMS_TeamTK.Core.Commands.CreateCommands
             }
             catch (ArgumentException ex)
             {
-                throw new ArgumentException($"{ex.Message}{Environment.NewLine}Unable to add member to team.");
+                throw new ArgumentException($"{ex.Message} Unable to add member to team.");
             }
         }
     }

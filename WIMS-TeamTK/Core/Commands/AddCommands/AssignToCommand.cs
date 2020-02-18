@@ -38,7 +38,7 @@ namespace WIMS_TeamTK.Core.Commands.AddCommands
                     var workItemId = int.Parse(Console.ReadLine());
                     workItem = this._engine.WorkItems[workItemId];
                 }
-                member.AssignWorkItem(workItem);
+                member.AddWorkItem(workItem);
                 if(workItem.GetType().Name == "Bug")
                 {
                     (workItem as IBug).Assignee = parameter;

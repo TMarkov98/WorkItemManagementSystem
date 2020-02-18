@@ -35,10 +35,6 @@ namespace WIMS_TeamTK.Models
             get => this._title;
             set
             {
-                if (value.Length < 10 || value.Length > 50)
-                {
-                    throw new ArgumentException("Title must be between 10 and 50 symbols.");
-                }
                 this._title = value;
             }
         }
@@ -47,10 +43,6 @@ namespace WIMS_TeamTK.Models
             get => this._description;
             set
             {
-                if (value.Length < 10 || value.Length > 500)
-                {
-                    throw new ArgumentException("Description must be between 10 and 500 symbols.");
-                }
                 this.History.Add($"{DateTime.UtcNow}: Changed Description to {value}.");
                 this._description = value;
             }

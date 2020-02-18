@@ -46,7 +46,7 @@ namespace WIMS_TeamTK.Core
 
         public IParser Parser { get; set; }
 
-        public IList<IWorkItem> WorkItems { get; private set; }
+        public List<IWorkItem> WorkItems { get; private set; }
 
         public IList<IBoard> Boards { get; private set; }
 

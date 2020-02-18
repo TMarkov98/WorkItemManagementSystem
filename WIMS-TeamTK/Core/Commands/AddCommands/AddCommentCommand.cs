@@ -49,7 +49,7 @@ namespace WIMS_TeamTK.Core.Commands.AddCommands
             }
             catch (ArgumentException ex)
             {
-                throw new ArgumentException($"{ex.Message}{Environment.NewLine}Unable to add comment to WorkItem.");
+                throw new ArgumentException($"{ex.Message} Unable to add comment to WorkItem.");
             }
         }
     }

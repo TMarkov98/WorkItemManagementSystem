@@ -15,14 +15,11 @@ namespace WIMS_TeamTK.Core.Commands
 
         public override string Execute(string parameter)
         {
-
+            string memberName = parameter;
             try
             {
-                if(this._engine.Members.Any(n => n.Name == parameter))
-                {
-                    throw new ArgumentException($"Member with name {parameter} already exists.");
-                }
-                var member = this._factory.CreateMember(parameter);
+                _validator.ValidateDuplicateMember(this._engine.Members, memberName);
+                var member = this._factory.CreateMember(memberName);
                 this._engine.Members.Add(member);
                 return $"Member with ID: {this._engine.Members.Count - 1} and  name: {parameter} was created.";
             }

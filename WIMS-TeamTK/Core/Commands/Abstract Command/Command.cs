@@ -10,10 +10,12 @@ namespace WIMS_TeamTK.Core.Commands
     {
         protected readonly IFactory _factory;
         protected readonly IEngine _engine;
+        protected readonly IValidator _validator;
         public Command(IFactory factory, IEngine engine)
         {
             this._factory = factory;
             this._engine = engine;
+            this._validator = new Validator();
         }
         public abstract string Execute(string parameter);
     }

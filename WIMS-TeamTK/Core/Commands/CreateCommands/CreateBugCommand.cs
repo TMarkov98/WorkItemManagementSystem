@@ -17,33 +17,24 @@ namespace WIMS_TeamTK.Core.Commands
 
         public override string Execute(string parameter)
         {
-            string title;
-            string boardname;
+            string title = parameter;
+            string description;
             List<string> stepsToReproduce = new List<string>();
+            Priority priority;
+            Severity severity;
+            BugStatus status;
+            string boardName;
 
             try
             {
-                //TODO: Check if bug is unique in board.
-                title = parameter;
                 Bug bug = (Bug)this._factory.CreateBug(title);
                 Console.Write("Board: ");
-                boardname = Console.ReadLine();
-                if (this._engine.Boards.Count(n=>n.Name == boardname) > 1)
-                {
-                    Console.Write("More than one board found. Please use board's ID: ");
-                    var boardId = int.Parse(Console.ReadLine());
-                    this._engine.Boards[boardId].WorkItems.Add(bug);
-                }
-                else if (this._engine.Boards.Count(n => n.Name == boardname) < 1)
-                {
-                    throw new ArgumentException($"Board {boardname} not found.");
-                }
-                else
-                {
-                    this._engine.Boards.FirstOrDefault(n => n.Name == boardname).WorkItems.Add(bug);
-                }
+                boardName = Console.ReadLine();
+                var board = _validator.ValidateBoardExists(this._engine.Boards, boardName);
+                board = _validator.ValidateMoreThanOneBoard(this._engine.Boards, boardName);
+                board.AddWorkItem(bug);
                 Console.Write("Bug Description(Single line.): ");
-                bug.Description = Console.ReadLine();
+                description = _validator.ValidateDescription(Console.ReadLine());
                 Console.WriteLine("Steps to reproduce(Reads until it reaches an empty line.):");
                 string input = Console.ReadLine();
                 while(input != string.Empty)
@@ -53,17 +44,17 @@ namespace WIMS_TeamTK.Core.Commands
                 }
                 bug.StepsToReproduce = stepsToReproduce;
                 Console.WriteLine("Bug Priority(High/Medium/Low):");
-                bug.Priority = (Priority)Enum.Parse(typeof(Priority), Console.ReadLine(), true);
+                priority = this._validator.ValidatePriority(Console.ReadLine());
                 Console.WriteLine("Bug Severity(Critical/Major/Minor):");
-                bug.Severity = (Severity)Enum.Parse(typeof(Severity), Console.ReadLine(), true);
+                severity = this._validator.ValidateSeverity(Console.ReadLine());
                 Console.WriteLine("Bug Status(Active/Fixed):");
-                bug.Status = (BugStatus)Enum.Parse(typeof(BugStatus), Console.ReadLine(), true);
+                status = this._validator.ValidateBugStatus(Console.ReadLine());
                 this._engine.WorkItems.Add(bug);
                 return $"Bug with ID {this._engine.WorkItems.Count - 1}, Title {bug.Title} was created.";
             }
             catch (ArgumentException ex)
             {
-                throw new ArgumentException(ex.Message + "\nIncorrect values passed when creating bug. Bug was not created.");
+                throw new ArgumentException($"{ex.Message} Incorrect values passed when creating bug. Bug was not created.");
             }
         }
     }

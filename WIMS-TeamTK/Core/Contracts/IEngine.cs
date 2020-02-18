@@ -16,7 +16,7 @@ namespace WIMS_TeamTK.Core.Contracts
 
         IParser Parser { get; set; }
         
-        IList<IWorkItem> WorkItems { get; }
+        List<IWorkItem> WorkItems { get; }
 
         IList<IBoard> Boards { get; }
 
