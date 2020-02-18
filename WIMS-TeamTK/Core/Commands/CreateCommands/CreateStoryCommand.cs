@@ -44,7 +44,7 @@ namespace WIMS_TeamTK.Core.Commands
             }
             catch (ArgumentException ex)
             {
-                throw new ArgumentException($"{ex.Message} Incorrect values passed when creating story. Story was not created.");
+                throw new ArgumentException($"{ex.Message} Unable to create story.");
             }
         }
     }
