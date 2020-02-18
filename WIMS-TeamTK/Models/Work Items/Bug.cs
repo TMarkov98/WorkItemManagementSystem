@@ -21,10 +21,13 @@ namespace WIMS_TeamTK.Models
         {
         }
 
-        public Bug(string title, string description, List<string> stepsToReproduce)
+        public Bug(string title, string description, List<string> stepsToReproduce, Priority priority, Severity severity, BugStatus status)
             : base(title, description)
         {
             this.StepsToReproduce = stepsToReproduce;
+            this.Priority = priority;
+            this.Severity = severity;
+            this.Status = status;
         }
 
         public List<string> StepsToReproduce

@@ -17,7 +17,7 @@ namespace WIMS_TeamTK.Core.Commands
 
         public override string Execute(string parameter)
         {
-            string storyName = parameter;
+            string title = parameter;
             string description;
             string boardName;
             Priority priority;
@@ -25,12 +25,10 @@ namespace WIMS_TeamTK.Core.Commands
             StoryStatus status;
             try
             {
-                Story story = (Story)this._factory.CreateStory(parameter);
                 Console.Write("Board: ");
                 boardName = Console.ReadLine();
                 var board = this._validator.ValidateBoardExists(this._engine.Boards, boardName);
                 board = this._validator.ValidateMoreThanOneBoard(this._engine.Boards, boardName);
-                board.AddWorkItem(story);
                 Console.Write("Story Description(Single line): ");
                 description = this._validator.ValidateDescription(Console.ReadLine());
                 Console.WriteLine("Story Priority(High/Medium/Low):");
@@ -39,8 +37,10 @@ namespace WIMS_TeamTK.Core.Commands
                 size = this._validator.ValidateSize(Console.ReadLine());
                 Console.WriteLine("Story Status(NotDone/InProgress/Done):");
                 status = this._validator.ValidateStoryStatus(Console.ReadLine());
+                Story story = (Story)this._factory.CreateStory(title, description, priority, size, status);
                 this._engine.WorkItems.Add(story);
-                return $"Story with ID {this._engine.WorkItems.Count - 1}, Title {story.Title} was created.";
+                board.AddWorkItem(story);
+                return $"Story with ID {this._engine.WorkItems.Count - 1}, Title {title} was created.";
             }
             catch (ArgumentException ex)
             {

@@ -18,38 +18,26 @@ namespace WIMS_TeamTK.Core.Commands
         public override string Execute(string parameter)
         {
             string title = parameter;
-            string boardname;
+            string boardName;
             string description;
             int rating;
             FeedbackStatus status;
 
             try
             {
-                Feedback feedback = (Feedback)this._factory.CreateFeedback(title);
                 Console.Write("Board: ");
-                boardname = Console.ReadLine();
-                if (this._engine.Boards.Count(n => n.Name == boardname) > 1)
-                {
-                    Console.Write("More than one board found. Please use board's ID: ");
-                    var boardId = int.Parse(Console.ReadLine());
-                    this._engine.Boards[boardId].WorkItems.Add(feedback);
-                }
-                else if (this._engine.Boards.Count(n => n.Name == boardname) < 1)
-                {
-                    throw new ArgumentException($"Board {boardname} not found.");
-                }
-                else
-                {
-                    this._engine.Boards.FirstOrDefault(n => n.Name == boardname).WorkItems.Add(feedback);
-                }
+                boardName = Console.ReadLine();
+                var board = this._validator.ValidateBoardExists(this._engine.Boards, boardName);
+                board = this._validator.ValidateMoreThanOneBoard(this._engine.Boards, boardName);
                 Console.Write("Feedback Description(Single line.): ");
                 description = this._validator.ValidateDescription(Console.ReadLine());
                 Console.WriteLine("Feedback Rating(-10 to 10):");
                 rating = int.Parse(Console.ReadLine());
                 Console.WriteLine("Feedback Status(New/Unscheduled/Scheduled/Done):");
                 status = this._validator.ValidateFeedbackStatus(Console.ReadLine());
+                Feedback feedback = (Feedback)this._factory.CreateFeedback(title, description, rating, status);
                 this._engine.WorkItems.Add(feedback);
-                return $"Feedback with ID {this._engine.WorkItems.Count - 1}, Title {feedback.Title} was created.";
+                return $"Feedback with ID {this._engine.WorkItems.Count - 1}, Title {title} was created.";
             }
             catch (ArgumentException ex)
             {

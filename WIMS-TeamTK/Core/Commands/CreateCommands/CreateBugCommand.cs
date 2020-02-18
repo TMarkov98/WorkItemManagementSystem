@@ -27,12 +27,10 @@ namespace WIMS_TeamTK.Core.Commands
 
             try
             {
-                Bug bug = (Bug)this._factory.CreateBug(title);
                 Console.Write("Board: ");
                 boardName = Console.ReadLine();
                 var board = _validator.ValidateBoardExists(this._engine.Boards, boardName);
                 board = _validator.ValidateMoreThanOneBoard(this._engine.Boards, boardName);
-                board.AddWorkItem(bug);
                 Console.Write("Bug Description(Single line.): ");
                 description = _validator.ValidateDescription(Console.ReadLine());
                 Console.WriteLine("Steps to reproduce(Reads until it reaches an empty line.):");
@@ -49,7 +47,9 @@ namespace WIMS_TeamTK.Core.Commands
                 severity = this._validator.ValidateSeverity(Console.ReadLine());
                 Console.WriteLine("Bug Status(Active/Fixed):");
                 status = this._validator.ValidateBugStatus(Console.ReadLine());
+                Bug bug = (Bug)this._factory.CreateBug(title, description, stepsToReproduce, priority, severity, status);
                 this._engine.WorkItems.Add(bug);
+                board.AddWorkItem(bug);
                 return $"Bug with ID {this._engine.WorkItems.Count - 1}, Title {bug.Title} was created.";
             }
             catch (ArgumentException ex)
