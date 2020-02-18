@@ -142,7 +142,7 @@ namespace WIMS_TeamTK.Core
         {
             try
             {
-                int result = int.Parse(Console.ReadLine());
+                int result = int.Parse(rating);
                 if(result > 10 || result < -10)
                 {
                     throw new ArgumentException();
