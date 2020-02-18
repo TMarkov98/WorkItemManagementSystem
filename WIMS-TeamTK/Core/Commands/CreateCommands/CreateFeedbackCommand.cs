@@ -32,7 +32,7 @@ namespace WIMS_TeamTK.Core.Commands
                 Console.Write("Feedback Description(Single line.): ");
                 description = this._validator.ValidateDescription(Console.ReadLine());
                 Console.WriteLine("Feedback Rating(-10 to 10):");
-                rating = int.Parse(Console.ReadLine());
+                rating = this._validator.ValidateRating(Console.ReadLine());
                 Console.WriteLine("Feedback Status(New/Unscheduled/Scheduled/Done):");
                 status = this._validator.ValidateFeedbackStatus(Console.ReadLine());
                 Feedback feedback = (Feedback)this._factory.CreateFeedback(title, description, rating, status);
