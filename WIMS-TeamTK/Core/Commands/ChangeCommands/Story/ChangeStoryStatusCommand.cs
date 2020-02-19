@@ -5,6 +5,7 @@ using System.Text;
 using WIMS_TeamTK.Core.Contracts;
 using WIMS_TeamTK.Core.Factories;
 using WIMS_TeamTK.Models;
+using WIMS_TeamTK.Models.Contracts;
 using WIMS_TeamTK.Models.Enums;
 
 namespace WIMS_TeamTK.Core.Commands.ChangeCommands
@@ -19,16 +20,12 @@ namespace WIMS_TeamTK.Core.Commands.ChangeCommands
         {
             try
             {
-                if (!this._engine.WorkItems.Any(n => n.Title == parameter && n.GetType().Name == "Story"))
-                {
-                    throw new ArgumentException($"Story with title {parameter} not found.");
-                }
+                var story = this._validator.ValidateWorkItemExists(this._engine.WorkItems.Where(n => n.GetType().Name == "Story").ToList(), parameter);
                 Console.Write("New Story Status(NotDone/InProgress/Done): ");
                 string newStatus = Console.ReadLine();
 
-                (this._engine.WorkItems.First(n => n.Title == parameter && n.GetType().Name == "Story") as Story)
-                    .Status = (StoryStatus)Enum.Parse(typeof(StoryStatus), newStatus, true);
-                return $"Changed {parameter} status to {newStatus}.";
+                (story as IStory).Status = this._validator.ValidateStoryStatus(Console.ReadLine());
+                return $"Changed {parameter} status to {(story as IStory).Status}.";
             }
             catch (ArgumentException ex)
             {

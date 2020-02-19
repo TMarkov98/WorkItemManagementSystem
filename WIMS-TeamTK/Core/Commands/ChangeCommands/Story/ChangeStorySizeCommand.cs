@@ -1,11 +1,8 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.Linq;
-using System.Text;
 using WIMS_TeamTK.Core.Contracts;
 using WIMS_TeamTK.Core.Factories;
-using WIMS_TeamTK.Models;
-using WIMS_TeamTK.Models.Enums;
+using WIMS_TeamTK.Models.Contracts;
 
 namespace WIMS_TeamTK.Core.Commands.ChangeCommands
 {
@@ -19,16 +16,12 @@ namespace WIMS_TeamTK.Core.Commands.ChangeCommands
         {
             try
             {
-                if (!this._engine.WorkItems.Any(n => n.Title == parameter && n.GetType().Name == "Story"))
-                {
-                    throw new ArgumentException($"Story with title {parameter} not found.");
-                }
+                var story = this._validator.ValidateWorkItemExists(this._engine.WorkItems.Where(n => n.GetType().Name == "Story").ToList(), parameter);
                 Console.Write("New Story Size(Large/Medium/Small): ");
                 string newSize = Console.ReadLine();
 
-                (this._engine.WorkItems.First(n => n.Title == parameter && n.GetType().Name == "Story") as Story)
-                    .Size = (Size)Enum.Parse(typeof(Size), newSize, true);
-                return $"Changed {parameter} size to {newSize}.";
+                (story as IStory).Size = this._validator.ValidateSize(Console.ReadLine());
+                return $"Changed {parameter} size to {(story as IStory).Size}.";
             }
             catch (ArgumentException ex)
             {

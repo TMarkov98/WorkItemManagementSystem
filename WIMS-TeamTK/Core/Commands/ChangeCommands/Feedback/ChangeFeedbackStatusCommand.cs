@@ -21,6 +21,7 @@ namespace WIMS_TeamTK.Core.Commands
             try
             {
                 var feedback = this._validator.ValidateWorkItemExists(this._engine.WorkItems.Where(n => n.GetType().Name == "Feedback").ToList(), parameter);
+                feedback = this._validator.ValidateMoreThanOneWorkItem((this._engine.WorkItems.Where(n => n.GetType().Name == "Feedback").ToList()), parameter);
                 Console.Write("New Feedback Status(New/Unscheduled/Scheduled/Done): ");
                 string newStatus = Console.ReadLine();
 
