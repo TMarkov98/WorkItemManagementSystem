@@ -25,9 +25,9 @@ namespace WIMS_TeamTK.Core.Commands
                 Console.Write("Assign to team: ");
                 teamName = Console.ReadLine();
                 var team = this._validator.ValidateTeamExists(this._engine.Teams, teamName);
-                this._engine.Boards.Add(board);
                 this._validator.ValidateDuplicateBoard(team.Boards, boardName);
                 this._engine.Teams.First(n => n.Name == teamName).AddBoard(board);
+                this._engine.Boards.Add(board);
                 return $"Board with ID: {this._engine.Boards.Count - 1} and name: {board.Name} was created in team {teamName}.";
             }
             catch (ArgumentException ex)

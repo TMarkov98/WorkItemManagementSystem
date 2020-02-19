@@ -18,7 +18,7 @@ namespace WIMS_TeamTK.Core.Commands
             string memberName = parameter;
             try
             {
-                _validator.ValidateDuplicateMember(this._engine.Members, memberName);
+                this._validator.ValidateDuplicateMember(this._engine.Members, memberName);
                 var member = this._factory.CreateMember(memberName);
                 this._engine.Members.Add(member);
                 return $"Member with ID: {this._engine.Members.Count - 1} and  name: {parameter} was created.";
