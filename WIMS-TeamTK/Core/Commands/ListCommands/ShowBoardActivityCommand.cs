@@ -18,6 +18,10 @@ namespace WIMS_TeamTK.Core.Commands.ListCommands
             try
             {
                 var board = this._validator.ValidateMoreThanOneBoard(this._engine.Boards, parameter);
+                if(board.ActivityHistory.Count == 0)
+                {
+                    return "No board history listed.";
+                }
                 string result = string.Join($"{Environment.NewLine}", board.ActivityHistory);
                 return result;
             }

@@ -7,5 +7,6 @@ namespace WIMS_TeamTK.Models.Contracts
         Priority Priority { get; set;  }
         Size Size { get; set; }
         StoryStatus Status { get; set; }
+        public string Assignee { get; set; }
     }
 }

@@ -18,6 +18,10 @@ namespace WIMS_TeamTK.Core.Commands.ListCommands
             try
             {
                 var member = this._validator.ValidateMemberExists(this._engine.Members, parameter);
+                if(member.ActivityHistory.Count == 0)
+                {
+                    return "No member history listed.";
+                }
                 string result = string.Join($"{Environment.NewLine}", member.ActivityHistory);
                 return result;
             }

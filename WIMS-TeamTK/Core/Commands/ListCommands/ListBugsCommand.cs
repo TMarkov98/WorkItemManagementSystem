@@ -20,6 +20,10 @@ namespace WIMS_TeamTK.Core.Commands.ListCommands
         {
             string result = string.Empty;
             List<IBug> allBugs = this._engine.WorkItems.Where(n => n.GetType().Name == "Bug").Select(n => n as IBug).ToList();
+            if(allBugs.Count == 0)
+            {
+                return "No bugs added.";
+            }
             if (parameter == "")
             {
                 result = string.Join(Environment.NewLine, this._engine.WorkItems.Where(n => n.GetType().Name == "Bug").Select((workItem, index) => $"ID: {index} - {workItem.ToString()}").ToArray());

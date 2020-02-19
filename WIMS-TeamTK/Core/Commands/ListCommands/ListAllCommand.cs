@@ -16,7 +16,12 @@ namespace WIMS_TeamTK.Core.Commands.ListCommands
         public override string Execute(string parameter)
         {
             string result = string.Empty;
-            if(parameter == "")
+
+            if (this._engine.WorkItems.Count == 0)
+            {
+                return "No WorkItems added.";
+            }
+            if (parameter == "")
             {
                 result = string.Join($"{Environment.NewLine}============={Environment.NewLine}", this._engine.WorkItems
                     .Select((workItem) => $"ID: {this._engine.WorkItems.IndexOf(workItem)} - {workItem.ToString()}").ToArray());

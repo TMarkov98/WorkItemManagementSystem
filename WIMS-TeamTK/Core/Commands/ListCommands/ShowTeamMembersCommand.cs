@@ -18,6 +18,10 @@ namespace WIMS_TeamTK.Core.Commands.ListCommands
             try
             {
                 var team = this._engine.Teams.First(n => n.Name == parameter);
+                if(team.Members.Count == 0)
+                {
+                    return "No team members added.";
+                }
                 string result = string.Join($"{Environment.NewLine}", team.Members
                     .Select((member) => $"ID: {this._engine.Members.IndexOf(member)} - {member.ToString()}").ToArray());
                 return result;

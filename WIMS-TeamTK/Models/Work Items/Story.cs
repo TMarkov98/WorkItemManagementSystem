@@ -67,10 +67,7 @@ namespace WIMS_TeamTK.Models
 
         public string Assignee
         {
-            get
-            {
-                return this._assignee;
-            }
+            get => this._assignee;
             set
             {
                 this.History.Add($"{DateTime.UtcNow}: Changed Assignee to {value}.");
@@ -82,11 +79,19 @@ namespace WIMS_TeamTK.Models
 
         public override string ToString()
         {
-            return base.ToString()
+            string result = base.ToString()
                 + $"Priority: {this.Priority}{Environment.NewLine}"
                 + $"Size: {this.Size}{Environment.NewLine}"
-                + $"Status: {this.Status}{Environment.NewLine}"
-                + $"Assignee: {this.Assignee}";
+                + $"Status: {this.Status}{Environment.NewLine}";
+            if (this.Assignee == string.Empty)
+            {
+                result += "Not assigned.";
+            }
+            else
+            {
+                result += $"Assignee: {this.Assignee}";
+            }
+            return result;
         }
     }
 }
