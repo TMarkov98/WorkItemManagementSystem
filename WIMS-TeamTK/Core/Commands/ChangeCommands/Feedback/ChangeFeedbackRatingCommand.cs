@@ -5,6 +5,7 @@ using System.Text;
 using WIMS_TeamTK.Core.Contracts;
 using WIMS_TeamTK.Core.Factories;
 using WIMS_TeamTK.Models;
+using WIMS_TeamTK.Models.Contracts;
 
 namespace WIMS_TeamTK.Core.Commands
 {
@@ -16,18 +17,14 @@ namespace WIMS_TeamTK.Core.Commands
 
         public override string Execute(string parameter)
         {
+            string workItemName = parameter;
             try
             {
-                if (!this._engine.WorkItems.Any(n => n.Title == parameter && n.GetType().Name == "Feedback"))
-                {
-                    throw new ArgumentException($"Feedback with title {parameter} not found.");
-                }
+                var feedback = this._validator.ValidateWorkItemExists(this._engine.WorkItems.Where(n => n.GetType().Name == "Feedback").ToList(), workItemName);
+                feedback = this._validator.ValidateMoreThanOneWorkItem(this._engine.WorkItems.Where(n => n.GetType().Name == "Feedback").ToList(), workItemName);
                 Console.Write("New Feedback Rating(-10 to 10): ");
-                int newRating = int.Parse(Console.ReadLine());
-
-                (this._engine.WorkItems.First(n => n.Title == parameter && n.GetType().Name == "Feedback") as Feedback)
-                    .Rating = newRating;
-                return $"Changed {parameter} rating to {newRating}.";
+                (feedback as IFeedback).Rating = this._validator.ValidateRating(Console.ReadLine());
+                return $"Changed {parameter} rating to {(feedback as IFeedback).Rating}.";
             }
             catch (ArgumentException ex)
             {

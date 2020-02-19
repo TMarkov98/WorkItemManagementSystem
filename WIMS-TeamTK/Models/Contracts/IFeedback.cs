@@ -4,7 +4,7 @@ namespace WIMS_TeamTK.Models.Contracts
 {
     public interface IFeedback
     {
-        public int Rating { get; }
-        public FeedbackStatus Status { get; }
+        public int Rating { get; set; }
+        public FeedbackStatus Status { get; set; }
     }
 }

@@ -5,6 +5,7 @@ using System.Text;
 using WIMS_TeamTK.Core.Contracts;
 using WIMS_TeamTK.Core.Factories;
 using WIMS_TeamTK.Models;
+using WIMS_TeamTK.Models.Contracts;
 using WIMS_TeamTK.Models.Enums;
 
 namespace WIMS_TeamTK.Core.Commands.ChangeCommands
@@ -18,18 +19,14 @@ namespace WIMS_TeamTK.Core.Commands.ChangeCommands
 
         public override string Execute(string parameter)
         {
+            string workItemName = parameter;
             try
             {
-                if (!this._engine.WorkItems.Any(n => n.Title == parameter && n.GetType().Name == "Bug"))
-                {
-                    throw new ArgumentException($"Bug with title {parameter} not found.");
-                }
+                var bug = this._validator.ValidateWorkItemExists(this._engine.WorkItems.Where(n => n.GetType().Name == "Bug").ToList(), workItemName);
+                bug = this._validator.ValidateMoreThanOneWorkItem(this._engine.WorkItems.Where(n => n.GetType().Name == "Bug").ToList(), workItemName);
                 Console.Write("New Bug Status(Active/Fixed): ");
-                string newStatus = Console.ReadLine();
-
-                (this._engine.WorkItems.First(n => n.Title == parameter && n.GetType().Name == "Bug") as Bug)
-                    .Status = (BugStatus)Enum.Parse(typeof(BugStatus), newStatus, true);
-                return $"Changed {parameter} severity to {newStatus}.";
+                (bug as IBug).Status = this._validator.ValidateBugStatus(Console.ReadLine());
+                return $"Changed {parameter} severity to {(bug as IBug).Status}.";
             }
             catch (ArgumentException ex)
             {
