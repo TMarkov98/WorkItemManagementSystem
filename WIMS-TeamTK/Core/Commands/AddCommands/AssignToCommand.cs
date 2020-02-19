@@ -17,37 +17,25 @@ namespace WIMS_TeamTK.Core.Commands.AddCommands
 
         public override string Execute(string parameter)
         {
+            string memberName = parameter;
             string workItemTitle;
             try
             {
-                if (!this._engine.Members.Any(n => n.Name == parameter))
-                {
-                    throw new ArgumentException($"Author {parameter} is not a valid member.");
-                }
-                var member = this._engine.Members.First(n => n.Name == parameter);
+                var member = this._validator.ValidateMemberExists(this._engine.Members, memberName);
                 Console.Write("WorkItem: ");
                 workItemTitle = Console.ReadLine();
-                if (!this._engine.WorkItems.Any(n => n.Title == workItemTitle))
-                {
-                    throw new ArgumentException($"WorkItem {workItemTitle} not found.");
-                }
-                var workItem = this._engine.WorkItems.First(n => n.Title == workItemTitle);
-                if (this._engine.WorkItems.Count(n => n.Title == workItemTitle) > 1)
-                {
-                    Console.Write("More than one WorkItem found with this title. Please use WorkItem ID: ");
-                    var workItemId = int.Parse(Console.ReadLine());
-                    workItem = this._engine.WorkItems[workItemId];
-                }
+                var workItem = this._validator.ValidateWorkItemExists(this._engine.WorkItems, workItemTitle);
+                workItem = this._validator.ValidateMoreThanOneWorkItem(this._engine.WorkItems, workItemTitle);
                 member.AddWorkItem(workItem);
                 if(workItem.GetType().Name == "Bug")
                 {
-                    (workItem as IBug).Assignee = parameter;
+                    (workItem as IBug).Assignee = memberName;
                 }
                 if (workItem.GetType().Name == "Story")
                 {
-                    (workItem as Story).Assignee = parameter;
+                    (workItem as Story).Assignee = memberName;
                 }
-                return $"Assigned {workItemTitle} to {parameter}";
+                return $"Assigned {workItemTitle} to {memberName}";
             }
             catch (ArgumentException ex)
             {
