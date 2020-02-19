@@ -10,7 +10,7 @@ namespace WIMS_TeamTK.Models.Contracts
         List<IWorkItem> WorkItems { get; }
         List<string> ActivityHistory { get; }
         string ToString();
-        void AddedCommentToHistory();
+        void AddCommentToHistory();
         void AddedToTeamComment(Team team);
         void AddWorkItem(IWorkItem workitem);
     }

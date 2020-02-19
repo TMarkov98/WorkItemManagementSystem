@@ -11,13 +11,13 @@ namespace WIMS_TeamTK.Models
         private string _title = "";
         private string _description = "";
         private List<string> _history = new List<string>();
-        private List<Comment> _comments = new List<Comment>();
+        private List<IComment> _comments = new List<IComment>();
 
         public WorkItem(string title)
         {
             this.Title = title;
             this.History = new List<string>();
-            this.Comments = new List<Comment>();
+            this.Comments = new List<IComment>();
             this.History.Add($"{DateTime.UtcNow}: Created {this.GetType().Name} with Title {this.Title}.");
         }
             //TODO: Check if still necessary
@@ -26,7 +26,7 @@ namespace WIMS_TeamTK.Models
             this.Title = title;
             this.Description = description;
             this.History = new List<string>();
-            this.Comments = new List<Comment>();
+            this.Comments = new List<IComment>();
             this.History.Add($"{DateTime.UtcNow}: Created {this.GetType().Name} with Title {this.Title}.");
         }
 
@@ -58,7 +58,7 @@ namespace WIMS_TeamTK.Models
                 this._history = value;
             }
         }
-        public List<Comment> Comments
+        public List<IComment> Comments
         {
             get => this._comments;
             set
@@ -75,7 +75,7 @@ namespace WIMS_TeamTK.Models
             }
             return result.Trim();
         }
-        public virtual void AddComment(Comment comment)
+        public virtual void AddComment(IComment comment)
         {
             this.Comments.Add(comment);
         }

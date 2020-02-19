@@ -8,6 +8,6 @@ namespace WIMS_TeamTK.Models.Contracts
         public string Title { get; }
         public string Description { get; }
         public string ToString();
-        public void AddComment(Comment comment);
+        public void AddComment(IComment comment);
     }
 }

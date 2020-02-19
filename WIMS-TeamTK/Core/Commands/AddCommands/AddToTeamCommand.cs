@@ -15,21 +15,15 @@ namespace WIMS_TeamTK.Core.Commands.CreateCommands
 
         public override string Execute(string parameter)
         {
+            string teamName = parameter;
             string memberName;
             try
             {
                 Console.Write("Member: ");
                 memberName = Console.ReadLine();
-                if (!this._engine.Members.Any(n => n.Name == memberName))
-                {
-                    throw new ArgumentException($"{memberName} is not a valid member.");
-                }
-                var team = this._engine.Teams.First(n => n.Name == parameter);
-                var member = this._engine.Members.First(n => n.Name == memberName);
-                if (team.Members.Any(n => n.Name == memberName))
-                {
-                    throw new ArgumentException($"Member {memberName} is already assigned to this team.");
-                }
+                var member = this._validator.ValidateMemberExists(this._engine.Members, memberName);
+                var team = this._validator.ValidateTeamExists(this._engine.Teams, teamName);
+                this._validator.ValidateDuplicateMember(team.Members, memberName);
                 team.AddMember(member);
                 return $"Added member {memberName} to team {parameter}.";
             }
