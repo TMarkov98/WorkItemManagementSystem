@@ -17,11 +17,7 @@ namespace WIMS_TeamTK.Core.Commands.ListCommands
         {
             try
             {
-                if (!this._engine.Teams.Any(n => n.Name == parameter))
-                {
-                    throw new ArgumentException($"Team with name {parameter} does not exist.");
-                }
-                var team = this._engine.Teams.First(n => n.Name == parameter);
+                var team = this._validator.ValidateTeamExists(this._engine.Teams, parameter);
                 string result = string.Join(Environment.NewLine, team.ActivityHistory);
                 return result;
             }
