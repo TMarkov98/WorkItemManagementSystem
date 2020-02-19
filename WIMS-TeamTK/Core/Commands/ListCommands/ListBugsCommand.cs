@@ -18,7 +18,7 @@ namespace WIMS_TeamTK.Core.Commands.ListCommands
 
         public override string Execute(string parameter)
         {
-            string result = "";
+            string result = string.Empty;
             List<IBug> allBugs = this._engine.WorkItems.Where(n => n.GetType().Name == "Bug").Select(n => n as IBug).ToList();
             if (parameter == "")
             {
@@ -68,10 +68,7 @@ namespace WIMS_TeamTK.Core.Commands.ListCommands
                 {
                     Console.WriteLine("Assigne to filter by: ");
                     string filterAssigne = Console.ReadLine();
-                    if (!this._engine.Members.Any(n => n.Name == filterAssigne))
-                    {
-                        throw new ArgumentException($"Author {filterAssigne} is not a valid member.");
-                    }
+                    this._validator.ValidateMemberExists(this._engine.Members, filterAssigne);
                     result = string.Join(Environment.NewLine, allBugs.Where(n => n.Assignee.Equals(filterAssigne)));
                 }
                 else

@@ -17,7 +17,7 @@ namespace WIMS_TeamTK.Core.Commands.ListCommands
 
         public override string Execute(string parameter)
         {
-            string result = "";
+            string result = string.Empty;
             List<Feedback> allFeedbacks = this._engine.WorkItems.Where(n => n.GetType().Name == "Feedback").Select(n => n as Feedback).ToList();
             if (parameter == "")
             {

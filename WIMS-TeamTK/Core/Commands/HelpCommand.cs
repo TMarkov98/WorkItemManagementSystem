@@ -49,7 +49,7 @@ namespace WIMS_TeamTK.Core.Commands
             + $"- ShowMemberActivity (MemberName){Environment.NewLine}"
             + $"- ShowTeamActivity (TeamName){Environment.NewLine}"
             + $"- ShowTeamBoards (TeamName){Environment.NewLine}"
-            + $"- ShowTeamMembers{Environment.NewLine}"
+            + $"- ShowTeamMembers (TeamName){Environment.NewLine}"
             + $"- ShowTeams{Environment.NewLine}"
             + $"- ShowPeople{Environment.NewLine}";
             return result;

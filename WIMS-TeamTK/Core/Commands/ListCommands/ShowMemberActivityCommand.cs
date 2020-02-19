@@ -17,11 +17,7 @@ namespace WIMS_TeamTK.Core.Commands.ListCommands
         {
             try
             {
-                if (!this._engine.Members.Any(n => n.Name == parameter))
-                {
-                    throw new ArgumentException($"Author {parameter} is not a valid member.");
-                }
-                var member = this._engine.Members.First(n => n.Name == parameter);
+                var member = this._validator.ValidateMemberExists(this._engine.Members, parameter);
                 string result = string.Join($"{Environment.NewLine}", member.ActivityHistory);
                 return result;
             }

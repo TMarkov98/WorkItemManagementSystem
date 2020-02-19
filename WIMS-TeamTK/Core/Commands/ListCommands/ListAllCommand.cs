@@ -15,7 +15,7 @@ namespace WIMS_TeamTK.Core.Commands.ListCommands
 
         public override string Execute(string parameter)
         {
-            string result = "";
+            string result = string.Empty;
             if(parameter == "")
             {
                 result = string.Join($"{Environment.NewLine}============={Environment.NewLine}", this._engine.WorkItems
