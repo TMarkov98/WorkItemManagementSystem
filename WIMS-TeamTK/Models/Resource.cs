@@ -8,7 +8,7 @@ namespace WIMS_TeamTK.Models
     {
         protected string _name;
         private List<IWorkItem> _workItems;
-        private List<string> _activityHistory = new List<string>();
+        protected List<string> _activityHistory = new List<string>();
 
         public Resource(string name)
         {
@@ -58,10 +58,6 @@ namespace WIMS_TeamTK.Models
             return $"{this.GetType().Name}: {this.Name}";
         }
 
-        public void AddCommentToHistory()
-        {
-            this._activityHistory.Add($"{DateTime.UtcNow}: {this.Name} added comment to item.");
-        }
         public void AddedToTeamComment(Team team)
         {
             this._activityHistory.Add($"{DateTime.UtcNow}: {this.Name} was added to {team}.");
@@ -69,7 +65,7 @@ namespace WIMS_TeamTK.Models
         public void AddWorkItem(IWorkItem workItem)
         {
             _workItems.Add(workItem);
-            this._activityHistory.Add($"{DateTime.UtcNow}: Item was assigned to {this.Name}.");
+            this._activityHistory.Add($"{DateTime.UtcNow}: Item {workItem.Title} was assigned to {this.GetType().Name} {this.Name}.");
         }
     }
 }
