@@ -17,7 +17,7 @@ namespace WIMS_TeamTK.Core.Commands
 
         public override string Execute(string parameter)
         {
-            string title = parameter;
+            string title;
             string description;
             List<string> stepsToReproduce = new List<string>();
             Priority priority;
@@ -27,6 +27,7 @@ namespace WIMS_TeamTK.Core.Commands
 
             try
             {
+                title = this._validator.ValidateTitle(parameter);
                 Console.Write("Board: ");
                 boardName = Console.ReadLine();
                 var board = _validator.ValidateBoardExists(this._engine.Boards, boardName);

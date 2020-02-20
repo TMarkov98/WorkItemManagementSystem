@@ -16,11 +16,12 @@ namespace WIMS_TeamTK.Core.Commands
 
         public override string Execute(string parameter)
         {
-            string boardName = parameter;
+            string boardName;
             string teamName;
 
             try
             {
+                boardName = this._validator.ValidateBoardName(parameter);
                 var board = this._factory.CreateBoard(boardName);
                 Console.Write("Assign to team: ");
                 teamName = Console.ReadLine();

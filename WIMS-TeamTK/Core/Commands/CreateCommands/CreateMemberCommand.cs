@@ -15,9 +15,10 @@ namespace WIMS_TeamTK.Core.Commands
 
         public override string Execute(string parameter)
         {
-            string memberName = parameter;
+            string memberName;
             try
             {
+                memberName = this._validator.ValidateMemberName(parameter);
                 this._validator.ValidateDuplicateMember(this._engine.Members, memberName);
                 var member = this._factory.CreateMember(memberName);
                 this._engine.Members.Add(member);

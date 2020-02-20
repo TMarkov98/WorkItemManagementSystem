@@ -17,7 +17,7 @@ namespace WIMS_TeamTK.Core.Commands
 
         public override string Execute(string parameter)
         {
-            string title = parameter;
+            string title;
             string boardName;
             string description;
             int rating;
@@ -25,6 +25,7 @@ namespace WIMS_TeamTK.Core.Commands
 
             try
             {
+                title = this._validator.ValidateTitle(parameter);
                 Console.Write("Board: ");
                 boardName = Console.ReadLine();
                 var board = this._validator.ValidateBoardExists(this._engine.Boards, boardName);

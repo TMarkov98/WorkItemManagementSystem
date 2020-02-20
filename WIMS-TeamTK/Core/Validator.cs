@@ -160,5 +160,23 @@ namespace WIMS_TeamTK.Core
                 throw new ArgumentException($"Team with name {teamName} already exists.");
             }
         }
+
+        public string ValidateBoardName(string name)
+        {
+            if(name.Length < 5 || name.Length > 10)
+            {
+                throw new ArgumentException("Board name should be between 5 and 10 symbols.");
+            }
+            return name;
+        }
+
+        public string ValidateMemberName(string name)
+        {
+            if (name.Length < 5 || name.Length > 15)
+            {
+                throw new ArgumentException("Member name should be between 5 and 15 symbols.");
+            }
+            return name;
+        }
     }
 }
