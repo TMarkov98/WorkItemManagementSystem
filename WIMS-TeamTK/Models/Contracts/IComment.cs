@@ -8,6 +8,7 @@ namespace WIMS_TeamTK.Models.Contracts
     {
         string Author { get; set; }
         string Message { get; set; }
+        DateTime CreatedOn { get; }
         string ToString();
     }
 }

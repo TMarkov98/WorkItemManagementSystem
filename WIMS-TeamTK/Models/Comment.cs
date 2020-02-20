@@ -9,10 +9,13 @@ namespace WIMS_TeamTK.Models
     {
         private string _author;
         private string _message;
+        private DateTime _createdOn;
 
         public Comment(string author, string message)
         {
-
+            this.Author = author;
+            this.Message = message;
+            this.CreatedOn = DateTime.Now;
         }
 
         public string Author
@@ -37,10 +40,21 @@ namespace WIMS_TeamTK.Models
                 this._message = value;
             }
         }
+        public DateTime CreatedOn
+        {
+            get
+            {
+                return this._createdOn;
+            }
+            private set
+            {
+                this._createdOn = value;
+            }
+        }
 
         public override string ToString()
         {
-            return $"{this.Author}: {this.Message}";
+            return $"{this.CreatedOn} {this.Author}: {this.Message}";
         }
     }
 }
