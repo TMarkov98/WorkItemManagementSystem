@@ -32,11 +32,11 @@ namespace WIMS_TeamTK.Core.Commands
                 board = this._validator.ValidateMoreThanOneBoard(this._engine.Boards, boardName);
                 Console.Write("Story Description(Single line): ");
                 description = this._validator.ValidateDescription(Console.ReadLine());
-                Console.WriteLine("Story Priority(High/Medium/Low):");
+                Console.Write("Story Priority(High/Medium/Low): ");
                 priority = this._validator.ValidatePriority(Console.ReadLine());
-                Console.WriteLine("Story Size(Large/Medium/Small):");
+                Console.Write("Story Size(Large/Medium/Small): ");
                 size = this._validator.ValidateSize(Console.ReadLine());
-                Console.WriteLine("Story Status(NotDone/InProgress/Done):");
+                Console.Write("Story Status(NotDone/InProgress/Done): ");
                 status = this._validator.ValidateStoryStatus(Console.ReadLine());
                 Story story = (Story)this._factory.CreateStory(title, description, priority, size, status);
                 this._engine.WorkItems.Add(story);

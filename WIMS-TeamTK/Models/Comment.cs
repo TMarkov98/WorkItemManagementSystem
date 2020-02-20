@@ -15,7 +15,7 @@ namespace WIMS_TeamTK.Models
         {
             this.Author = author;
             this.Message = message;
-            this.CreatedOn = DateTime.Now;
+            this.CreatedOn = DateTime.UtcNow;
         }
 
         public string Author

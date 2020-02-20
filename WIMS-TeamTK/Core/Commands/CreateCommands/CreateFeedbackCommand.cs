@@ -32,9 +32,9 @@ namespace WIMS_TeamTK.Core.Commands
                 board = this._validator.ValidateMoreThanOneBoard(this._engine.Boards, boardName);
                 Console.Write("Feedback Description(Single line.): ");
                 description = this._validator.ValidateDescription(Console.ReadLine());
-                Console.WriteLine("Feedback Rating(-10 to 10):");
+                Console.Write("Feedback Rating(-10 to 10): ");
                 rating = this._validator.ValidateRating(Console.ReadLine());
-                Console.WriteLine("Feedback Status(New/Unscheduled/Scheduled/Done):");
+                Console.Write("Feedback Status(New/Unscheduled/Scheduled/Done): ");
                 status = this._validator.ValidateFeedbackStatus(Console.ReadLine());
                 Feedback feedback = (Feedback)this._factory.CreateFeedback(title, description, rating, status);
                 this._engine.WorkItems.Add(feedback);

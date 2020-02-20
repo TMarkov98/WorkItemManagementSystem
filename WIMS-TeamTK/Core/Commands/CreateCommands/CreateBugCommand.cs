@@ -41,11 +41,11 @@ namespace WIMS_TeamTK.Core.Commands
                     stepsToReproduce.Add(input);
                     input = Console.ReadLine();
                 }
-                Console.WriteLine("Bug Priority(High/Medium/Low):");
+                Console.Write("Bug Priority(High/Medium/Low): ");
                 priority = this._validator.ValidatePriority(Console.ReadLine());
-                Console.WriteLine("Bug Severity(Critical/Major/Minor):");
+                Console.Write("Bug Severity(Critical/Major/Minor): ");
                 severity = this._validator.ValidateSeverity(Console.ReadLine());
-                Console.WriteLine("Bug Status(Active/Fixed):");
+                Console.Write("Bug Status(Active/Fixed): ");
                 status = this._validator.ValidateBugStatus(Console.ReadLine());
                 Bug bug = (Bug)this._factory.CreateBug(title, description, stepsToReproduce, priority, severity, status);
                 this._engine.WorkItems.Add(bug);
