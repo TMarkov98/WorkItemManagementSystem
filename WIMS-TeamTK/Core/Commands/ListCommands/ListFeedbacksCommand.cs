@@ -26,7 +26,7 @@ namespace WIMS_TeamTK.Core.Commands.ListCommands
             }
             if (parameter == "")
             {
-                result = string.Join(Environment.NewLine, this._engine.WorkItems.Where(n => n.GetType().Name == "Bug").Select((workItem, index) => $"ID: {index} - {workItem.ToString()}").ToArray());
+                result = string.Join(Environment.NewLine, allFeedbacks.Select((workItem) => $"ID: {this._engine.WorkItems.IndexOf(workItem)} - {workItem.ToString()}").ToArray());
             }
             else if (parameter.ToLower() == "sort")
             {
@@ -35,7 +35,7 @@ namespace WIMS_TeamTK.Core.Commands.ListCommands
                 switch (sortedBy)
                 {
                     case "title":
-                        result = string.Join(Environment.NewLine, this._engine.WorkItems.Where(n => n.GetType().Name == "Bug").OrderBy(n => n.Title));
+                        result = string.Join(Environment.NewLine, allFeedbacks.OrderBy(n => n.Title));
                         break;
                     case "rating":
                         result = string.Join(Environment.NewLine, allFeedbacks.OrderBy(n => n.Rating));
