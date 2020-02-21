@@ -26,7 +26,8 @@ namespace WIMS_TeamTK.Core.Commands.ListCommands
             }
             if (parameter == "")
             {
-                result = string.Join(Environment.NewLine, allBugs.Select((workItem) => $"ID: {this._engine.WorkItems.IndexOf(workItem)} - {workItem.ToString()}").ToArray());
+                result = string.Join(Environment.NewLine, allBugs
+                    .Select(workItem => $"ID: {this._engine.WorkItems.IndexOf(workItem)} - {workItem.ToString()}").ToArray());
             }
             else if (parameter.ToLower() == "sort")
             {
@@ -35,16 +36,20 @@ namespace WIMS_TeamTK.Core.Commands.ListCommands
                 switch (sortedBy)
                 {
                     case "title":
-                        result = string.Join(Environment.NewLine, allBugs.OrderBy(n => n.Title));
+                        result = string.Join(Environment.NewLine, allBugs.OrderBy(n => n.Title)
+                            .Select(workItem => $"ID: {this._engine.WorkItems.IndexOf(workItem)} - {workItem.ToString()}").ToArray());
                         break;
                     case "priority":
-                        result = string.Join(Environment.NewLine, allBugs.OrderBy(n => n.Priority));
+                        result = string.Join(Environment.NewLine, allBugs.OrderBy(n => n.Priority)
+                            .Select(workItem => $"ID: {this._engine.WorkItems.IndexOf(workItem)} - {workItem.ToString()}").ToArray());
                         break;
                     case "severity":
-                        result = string.Join(Environment.NewLine, allBugs.OrderBy(n => n.Severity));
+                        result = string.Join(Environment.NewLine, allBugs.OrderBy(n => n.Severity)
+                            .Select(workItem => $"ID: {this._engine.WorkItems.IndexOf(workItem)} - {workItem.ToString()}").ToArray());
                         break;
                     case "status":
-                        result = string.Join(Environment.NewLine, allBugs.OrderBy(n => n.Status));
+                        result = string.Join(Environment.NewLine, allBugs.OrderBy(n => n.Status)
+                            .Select(workItem => $"ID: {this._engine.WorkItems.IndexOf(workItem)} - {workItem.ToString()}").ToArray());
                         break;
                     default:
                         throw new ArgumentException("Input is not valid parameter to be sort by.");
@@ -61,19 +66,22 @@ namespace WIMS_TeamTK.Core.Commands.ListCommands
                     string filterStatus = Console.ReadLine().ToLower();
                     if (filterStatus == "active")
                     {
-                        result = string.Join(Environment.NewLine, allBugs.Where(n => n.Status.Equals(BugStatus.Active)));
+                        result = string.Join(Environment.NewLine, allBugs.Where(n => n.Status.Equals(BugStatus.Active))
+                            .Select(workItem => $"ID: {this._engine.WorkItems.IndexOf(workItem)} - {workItem.ToString()}").ToArray());
                     }
                     else if (filterStatus == "fixed")
                     {
-                        result = string.Join(Environment.NewLine, allBugs.Where(n => n.Status.Equals(BugStatus.Fixed)));
+                        result = string.Join(Environment.NewLine, allBugs.Where(n => n.Status.Equals(BugStatus.Fixed))
+                            .Select(workItem => $"ID: {this._engine.WorkItems.IndexOf(workItem)} - {workItem.ToString()}").ToArray());
                     }
                 }
                 else if(filter == "assigne")
                 {
                     Console.WriteLine("Assigne to filter by: ");
-                    string filterAssigne = Console.ReadLine();
-                    this._validator.ValidateMemberExists(this._engine.Members, filterAssigne);
-                    result = string.Join(Environment.NewLine, allBugs.Where(n => n.Assignee.Equals(filterAssigne)));
+                    string filterAssignee = Console.ReadLine();
+                    this._validator.ValidateMemberExists(this._engine.Members, filterAssignee);
+                    result = string.Join(Environment.NewLine, allBugs.Where(n => n.Assignee.Equals(filterAssignee))
+                        .Select(workItem => $"ID: {this._engine.WorkItems.IndexOf(workItem)} - {workItem.ToString()}").ToArray());
                 }
                 else
                 {

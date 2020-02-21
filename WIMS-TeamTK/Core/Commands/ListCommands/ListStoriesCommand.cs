@@ -26,7 +26,7 @@ namespace WIMS_TeamTK.Core.Commands.ListCommands
             }
             if (parameter == "")
             {
-                result = string.Join(Environment.NewLine, allStories.Select((workItem) => $"ID: {this._engine.WorkItems.IndexOf(workItem)} - {workItem.ToString()}").ToArray());
+                result = string.Join(Environment.NewLine, allStories.Select(workItem => $"ID: {this._engine.WorkItems.IndexOf(workItem)} - {workItem.ToString()}").ToArray());
             }
             else if (parameter.ToLower() == "sort")
             {
@@ -61,23 +61,27 @@ namespace WIMS_TeamTK.Core.Commands.ListCommands
                     string filterStatus = Console.ReadLine().ToLower();
                     if (filterStatus == "notdone")
                     {
-                        result = string.Join(Environment.NewLine, allStories.Where(n => n.Status.Equals(StoryStatus.NotDone)).Select((workItem) => $"ID: {this._engine.WorkItems.IndexOf(workItem)} - {workItem.ToString()}"));
+                        result = string.Join(Environment.NewLine, allStories.Where(n => n.Status.Equals(StoryStatus.NotDone))
+                            .Select(workItem => $"ID: {this._engine.WorkItems.IndexOf(workItem)} - {workItem.ToString()}"));
                     }
                     else if (filterStatus == "inprogress")
                     {
-                        result = string.Join(Environment.NewLine, allStories.Where(n => n.Status.Equals(StoryStatus.InProgress)).Select((workItem) => $"ID: {this._engine.WorkItems.IndexOf(workItem)} - {workItem.ToString()}"));
+                        result = string.Join(Environment.NewLine, allStories.Where(n => n.Status.Equals(StoryStatus.InProgress))
+                            .Select(workItem => $"ID: {this._engine.WorkItems.IndexOf(workItem)} - {workItem.ToString()}"));
                     }
                     else if (filterStatus == "done")
                     {
-                        result = string.Join(Environment.NewLine, allStories.Where(n => n.Status.Equals(StoryStatus.Done)).Select((workItem) => $"ID: {this._engine.WorkItems.IndexOf(workItem)} - {workItem.ToString()}"));
+                        result = string.Join(Environment.NewLine, allStories.Where(n => n.Status.Equals(StoryStatus.Done))
+                            .Select(workItem => $"ID: {this._engine.WorkItems.IndexOf(workItem)} - {workItem.ToString()}"));
                     }
                 }
                 else if (filter == "assigne")
                 {
                     Console.Write("Assigne to filter by: ");
-                    string filterAssigne = Console.ReadLine();
-                    this._validator.ValidateMemberExists(this._engine.Members, filterAssigne);
-                    result = string.Join(Environment.NewLine, allStories.Where(n => n.Assignee.Equals(filterAssigne)).Select((workItem) => $"ID: {this._engine.WorkItems.IndexOf(workItem)} - {workItem.ToString()}"));
+                    string filterAssignee = Console.ReadLine();
+                    this._validator.ValidateMemberExists(this._engine.Members, filterAssignee);
+                    result = string.Join(Environment.NewLine, allStories.Where(n => n.Assignee.Equals(filterAssignee))
+                        .Select(workItem => $"ID: {this._engine.WorkItems.IndexOf(workItem)} - {workItem.ToString()}"));
                 }
                 else
                 {

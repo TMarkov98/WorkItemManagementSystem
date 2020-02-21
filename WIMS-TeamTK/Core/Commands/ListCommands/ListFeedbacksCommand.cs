@@ -26,7 +26,8 @@ namespace WIMS_TeamTK.Core.Commands.ListCommands
             }
             if (parameter == "")
             {
-                result = string.Join(Environment.NewLine, allFeedbacks.Select((workItem) => $"ID: {this._engine.WorkItems.IndexOf(workItem)} - {workItem.ToString()}").ToArray());
+                result = string.Join(Environment.NewLine, allFeedbacks
+                    .Select(workItem => $"ID: {this._engine.WorkItems.IndexOf(workItem)} - {workItem.ToString()}").ToArray());
             }
             else if (parameter.ToLower() == "sort")
             {
@@ -35,10 +36,12 @@ namespace WIMS_TeamTK.Core.Commands.ListCommands
                 switch (sortedBy)
                 {
                     case "title":
-                        result = string.Join(Environment.NewLine, allFeedbacks.OrderBy(n => n.Title));
+                        result = string.Join(Environment.NewLine, allFeedbacks.OrderBy(n => n.Title)
+                            .Select(workItem => $"ID: {this._engine.WorkItems.IndexOf(workItem)} - {workItem.ToString()}").ToArray());
                         break;
                     case "rating":
-                        result = string.Join(Environment.NewLine, allFeedbacks.OrderBy(n => n.Rating));
+                        result = string.Join(Environment.NewLine, allFeedbacks.OrderBy(n => n.Rating)
+                            .Select(workItem => $"ID: {this._engine.WorkItems.IndexOf(workItem)} - {workItem.ToString()}").ToArray());
                         break;
                     default:
                         throw new ArgumentException("Input is not valid parameter to be sort by.");
@@ -55,19 +58,23 @@ namespace WIMS_TeamTK.Core.Commands.ListCommands
                     string filterStatus = Console.ReadLine().ToLower();
                     if (filterStatus == "new")
                     {
-                        result = string.Join(Environment.NewLine, allFeedbacks.Where(n => n.Status.Equals(FeedbackStatus.New)));
+                        result = string.Join(Environment.NewLine, allFeedbacks.Where(n => n.Status.Equals(FeedbackStatus.New))
+                            .Select(workItem => $"ID: {this._engine.WorkItems.IndexOf(workItem)} - {workItem.ToString()}").ToArray());
                     }
                     else if (filterStatus == "unscheduled")
                     {
-                        result = string.Join(Environment.NewLine, allFeedbacks.Where(n => n.Status.Equals(FeedbackStatus.Unscheduled)));
+                        result = string.Join(Environment.NewLine, allFeedbacks.Where(n => n.Status.Equals(FeedbackStatus.Unscheduled))
+                            .Select(workItem => $"ID: {this._engine.WorkItems.IndexOf(workItem)} - {workItem.ToString()}").ToArray());
                     }
                     else if (filterStatus == "scheduled")
                     {
-                        result = string.Join(Environment.NewLine, allFeedbacks.Where(n => n.Status.Equals(FeedbackStatus.Scheduled)));
+                        result = string.Join(Environment.NewLine, allFeedbacks.Where(n => n.Status.Equals(FeedbackStatus.Scheduled))
+                            .Select(workItem => $"ID: {this._engine.WorkItems.IndexOf(workItem)} - {workItem.ToString()}").ToArray());
                     }
                     else if (filterStatus == "done")
                     {
-                        result = string.Join(Environment.NewLine, allFeedbacks.Where(n => n.Status.Equals(FeedbackStatus.Done)));
+                        result = string.Join(Environment.NewLine, allFeedbacks.Where(n => n.Status.Equals(FeedbackStatus.Done))
+                            .Select(workItem => $"ID: {this._engine.WorkItems.IndexOf(workItem)} - {workItem.ToString()}").ToArray());
                     }
                     else
                     {

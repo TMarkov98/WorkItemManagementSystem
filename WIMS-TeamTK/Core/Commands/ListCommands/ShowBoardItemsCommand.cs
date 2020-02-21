@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Linq;
 using System.Text;
 using WIMS_TeamTK.Core.Contracts;
 using WIMS_TeamTK.Core.Factories;
@@ -21,7 +22,8 @@ namespace WIMS_TeamTK.Core.Commands.ListCommands
                 {
                     throw new ArgumentException("No work items in this board.");
                 }
-                string result = string.Join(Environment.NewLine, board.WorkItems);
+                string result = string.Join(Environment.NewLine, board.WorkItems
+                    .Select(workItem => $"ID: {this._engine.WorkItems.IndexOf(workItem)} - {workItem.ToString()}"));
                 return result;
             }
             catch (Exception ex)

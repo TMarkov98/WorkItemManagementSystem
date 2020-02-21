@@ -17,11 +17,10 @@ namespace WIMS_TeamTK.Core.Commands.AddCommands
 
         public override string Execute(string parameter)
         {
-            string memberName;
+            string memberName = parameter;
             string workItemTitle;
             try
             {
-                memberName = parameter.Trim();
                 var member = this._validator.ValidateMemberExists(this._engine.Members, memberName);
                 Console.Write("WorkItem: ");
                 workItemTitle = Console.ReadLine();
