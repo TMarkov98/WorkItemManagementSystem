@@ -19,10 +19,10 @@ namespace WIMS_TeamTK.Core.Commands.CreateCommands
             string memberName;
             try
             {
+                var team = this._validator.ValidateTeamExists(this._engine.Teams, teamName);
                 Console.Write("Member: ");
                 memberName = Console.ReadLine();
                 var member = this._validator.ValidateMemberExists(this._engine.Members, memberName);
-                var team = this._validator.ValidateTeamExists(this._engine.Teams, teamName);
                 this._validator.ValidateDuplicateMember(team.Members, memberName);
                 team.AddMember(member);
                 return $"Added member {memberName} to team {parameter}.";
