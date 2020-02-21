@@ -38,6 +38,7 @@ namespace WIMS_TeamTK.Core.Commands
                 status = this._validator.ValidateFeedbackStatus(Console.ReadLine());
                 Feedback feedback = (Feedback)this._factory.CreateFeedback(title, description, rating, status);
                 this._engine.WorkItems.Add(feedback);
+                board.AddWorkItem(feedback);
                 return $"Feedback with ID {this._engine.WorkItems.Count - 1}, Title {title} was created.";
             }
             catch (ArgumentException ex)
