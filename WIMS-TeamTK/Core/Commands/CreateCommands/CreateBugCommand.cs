@@ -5,6 +5,7 @@ using System.Text;
 using WIMS_TeamTK.Core.Contracts;
 using WIMS_TeamTK.Core.Factories;
 using WIMS_TeamTK.Models;
+using WIMS_TeamTK.Models.Contracts;
 using WIMS_TeamTK.Models.Enums;
 
 namespace WIMS_TeamTK.Core.Commands
@@ -47,7 +48,7 @@ namespace WIMS_TeamTK.Core.Commands
                 severity = this._validator.ValidateSeverity(Console.ReadLine());
                 Console.Write("Bug Status(Active/Fixed): ");
                 status = this._validator.ValidateBugStatus(Console.ReadLine());
-                Bug bug = (Bug)this._factory.CreateBug(title, description, stepsToReproduce, priority, severity, status);
+                IBug bug = this._factory.CreateBug(title, description, stepsToReproduce, priority, severity, status);
                 this._engine.WorkItems.Add(bug);
                 board.AddWorkItem(bug);
                 return $"Bug with ID {this._engine.WorkItems.Count - 1}, Title {bug.Title} was created.";

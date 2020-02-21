@@ -5,6 +5,7 @@ using System.Text;
 using WIMS_TeamTK.Core.Contracts;
 using WIMS_TeamTK.Core.Factories;
 using WIMS_TeamTK.Models;
+using WIMS_TeamTK.Models.Contracts;
 using WIMS_TeamTK.Models.Enums;
 
 namespace WIMS_TeamTK.Core.Commands
@@ -38,7 +39,7 @@ namespace WIMS_TeamTK.Core.Commands
                 size = this._validator.ValidateSize(Console.ReadLine());
                 Console.Write("Story Status(NotDone/InProgress/Done): ");
                 status = this._validator.ValidateStoryStatus(Console.ReadLine());
-                Story story = (Story)this._factory.CreateStory(title, description, priority, size, status);
+                IStory story = this._factory.CreateStory(title, description, priority, size, status);
                 this._engine.WorkItems.Add(story);
                 board.AddWorkItem(story);
                 return $"Story with ID {this._engine.WorkItems.Count - 1}, Title {title} was created.";

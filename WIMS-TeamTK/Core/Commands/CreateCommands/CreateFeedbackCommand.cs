@@ -5,6 +5,7 @@ using System.Text;
 using WIMS_TeamTK.Core.Contracts;
 using WIMS_TeamTK.Core.Factories;
 using WIMS_TeamTK.Models;
+using WIMS_TeamTK.Models.Contracts;
 using WIMS_TeamTK.Models.Enums;
 
 namespace WIMS_TeamTK.Core.Commands
@@ -36,7 +37,7 @@ namespace WIMS_TeamTK.Core.Commands
                 rating = this._validator.ValidateRating(Console.ReadLine());
                 Console.Write("Feedback Status(New/Unscheduled/Scheduled/Done): ");
                 status = this._validator.ValidateFeedbackStatus(Console.ReadLine());
-                Feedback feedback = (Feedback)this._factory.CreateFeedback(title, description, rating, status);
+                IFeedback feedback = this._factory.CreateFeedback(title, description, rating, status);
                 this._engine.WorkItems.Add(feedback);
                 board.AddWorkItem(feedback);
                 return $"Feedback with ID {this._engine.WorkItems.Count - 1}, Title {title} was created.";
