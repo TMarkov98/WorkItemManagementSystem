@@ -8,9 +8,9 @@ using WIMS_TeamTK.Models;
 
 namespace WIMS_TeamTK.Core.Commands.ListCommands
 {
-    public class ShowItemCommentsCommands : Command
+    public class ShowItemCommentsCommand : Command
     {
-        public ShowItemCommentsCommands(IFactory factory, IEngine engine) : base(factory, engine)
+        public ShowItemCommentsCommand(IFactory factory, IEngine engine) : base(factory, engine)
         {
         }
 
