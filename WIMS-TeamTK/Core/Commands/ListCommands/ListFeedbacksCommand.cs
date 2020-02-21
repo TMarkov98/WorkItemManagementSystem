@@ -49,12 +49,12 @@ namespace WIMS_TeamTK.Core.Commands.ListCommands
             }
             else if (parameter.ToLower() == "filter")
             {
-                Console.WriteLine("Filter by(status): ");
+                Console.Write("Filter by(status): ");
                 string filter = Console.ReadLine().ToLower();
 
                 if (filter == "status")
                 {
-                    Console.WriteLine("Status to filter by(New/Unscheduled/Scheduled/Done): ");
+                    Console.Write("Status to filter by(New/Unscheduled/Scheduled/Done): ");
                     string filterStatus = Console.ReadLine().ToLower();
                     if (filterStatus == "new")
                     {

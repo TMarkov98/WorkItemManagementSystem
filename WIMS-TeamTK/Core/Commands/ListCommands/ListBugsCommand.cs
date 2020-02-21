@@ -57,12 +57,12 @@ namespace WIMS_TeamTK.Core.Commands.ListCommands
             }
             else if (parameter.ToLower() == "filter")
             {
-                Console.WriteLine("Filter by(status/assigne): ");
+                Console.Write("Filter by(status/assigne): ");
                 string filter = Console.ReadLine().ToLower();
 
                 if (filter == "status")
                 {
-                    Console.WriteLine("Status to filter by(active, fixed): ");
+                    Console.Write("Status to filter by(active, fixed): ");
                     string filterStatus = Console.ReadLine().ToLower();
                     if (filterStatus == "active")
                     {
@@ -77,7 +77,7 @@ namespace WIMS_TeamTK.Core.Commands.ListCommands
                 }
                 else if(filter == "assigne")
                 {
-                    Console.WriteLine("Assigne to filter by: ");
+                    Console.Write("Assigne to filter by: ");
                     string filterAssignee = Console.ReadLine();
                     this._validator.ValidateMemberExists(this._engine.Members, filterAssignee);
                     result = string.Join(Environment.NewLine, allBugs.Where(n => n.Assignee.Equals(filterAssignee))
