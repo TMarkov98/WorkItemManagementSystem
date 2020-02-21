@@ -28,7 +28,7 @@ namespace WIMS_TeamTK.Core.Commands.ListCommands
                     {
                         if(comment.Author == memberName)
                         {
-                            result += $"Comment on item {item.Title}:{Environment.NewLine} {comment}";
+                            result += $"Comment on item {item.Title}:{Environment.NewLine}{comment}";
                         }
                     }
                 }

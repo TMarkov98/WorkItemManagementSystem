@@ -22,12 +22,12 @@ namespace WIMS_TeamTK.Core.Commands.AddCommands
             string message;
             try
             {
+                var workItem = this._validator.ValidateWorkItemExists(this._engine.WorkItems, workItemName);
                 Console.Write("Author: ");
                 authorName = Console.ReadLine();
                 var author = this._validator.ValidateMemberExists(this._engine.Members, authorName);
                 Console.Write("Message: ");
                 message = Console.ReadLine();
-                var workItem = this._validator.ValidateWorkItemExists(this._engine.WorkItems, workItemName);
                 workItem = this._validator.ValidateMoreThanOneWorkItem(this._engine.WorkItems, workItemName);
                 var comment = this._factory.CreateComment(author.Name, message);
                 workItem.AddComment(comment);
