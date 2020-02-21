@@ -18,7 +18,7 @@ namespace WIMS_TeamTK.Models
             this.Title = title;
             this.History = new List<string>();
             this.Comments = new List<IComment>();
-            this.History.Add($"{DateTime.UtcNow}: Created {this.GetType().Name} with Title {this.Title}.");
+            this.History.Add($"[{DateTime.UtcNow}]: Created {this.GetType().Name} with Title {this.Title}.");
         }
             //TODO: Check if still necessary
         public WorkItem(string title, string description)
@@ -27,7 +27,7 @@ namespace WIMS_TeamTK.Models
             this.Description = description;
             this.History = new List<string>();
             this.Comments = new List<IComment>();
-            this.History.Add($"{DateTime.UtcNow}: Created {this.GetType().Name} with Title {this.Title}.");
+            this.History.Add($"[{DateTime.UtcNow}]: Created {this.GetType().Name} with Title {this.Title}.");
         }
 
         public virtual string Title
@@ -43,7 +43,7 @@ namespace WIMS_TeamTK.Models
             get => this._description;
             set
             {
-                this.History.Add($"{DateTime.UtcNow}: Changed Description to {value}.");
+                this.History.Add($"[{DateTime.UtcNow}]: Changed Description to {value}.");
                 this._description = value;
             }
         }

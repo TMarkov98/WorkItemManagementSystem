@@ -35,7 +35,7 @@ namespace WIMS_TeamTK.Models
                 {
                     throw new ArgumentException("Rating should be between -10 and 10");
                 }
-                this.History.Add($"{DateTime.UtcNow}: Changed Rating to {value}.");
+                this.History.Add($"[{DateTime.UtcNow}]: Changed Rating to {value}.");
                 this._rating = value;
             }
         }
@@ -48,7 +48,7 @@ namespace WIMS_TeamTK.Models
             }
             set
             {
-                this.History.Add($"{DateTime.UtcNow}: Changed Status to {value}.");
+                this.History.Add($"[{DateTime.UtcNow}]: Changed Status to {value}.");
                 this._status = value;
             }
         }

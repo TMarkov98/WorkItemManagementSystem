@@ -14,7 +14,7 @@ namespace WIMS_TeamTK.Models
         public Team(string name)
         {
             this.Name = name;
-            this._activityHistory.Add($"{DateTime.UtcNow}: Created new team {this.Name}");
+            this._activityHistory.Add($"[{DateTime.UtcNow}]: Created new team {this.Name}");
         }
 
         public string Name
@@ -50,13 +50,13 @@ namespace WIMS_TeamTK.Models
         public void AddMember(IMember member)
         {
             this.Members.Add(member);
-            this.ActivityHistory.Add($"{DateTime.UtcNow}: Added Member {member.Name}");
+            this.ActivityHistory.Add($"[{DateTime.UtcNow}]: Added Member {member.Name}");
         }
 
         public void AddBoard(IBoard board)
         {
             this.Boards.Add(board);
-            this.ActivityHistory.Add($"{DateTime.UtcNow}: Added Board {board.Name}");
+            this.ActivityHistory.Add($"[{DateTime.UtcNow}]: Added Board {board.Name}");
         }
 
         public List<IBoard> Boards

@@ -15,7 +15,7 @@ namespace WIMS_TeamTK.Models
             this.Name = name;
             this.WorkItems = new List<IWorkItem>();
             this.ActivityHistory = new List<string>();
-            this._activityHistory.Add($"{DateTime.UtcNow}: Created {this.GetType().Name} with name {this.Name}.");
+            this._activityHistory.Add($"[{DateTime.UtcNow}]: Created {this.GetType().Name} with name {this.Name}.");
 
         }
 
@@ -60,12 +60,12 @@ namespace WIMS_TeamTK.Models
 
         public void AddedToTeamComment(Team team)
         {
-            this._activityHistory.Add($"{DateTime.UtcNow}: {this.Name} was added to {team}.");
+            this._activityHistory.Add($"[{DateTime.UtcNow}]: {this.Name} was added to {team}.");
         }
         public void AddWorkItem(IWorkItem workItem)
         {
             _workItems.Add(workItem);
-            this._activityHistory.Add($"{DateTime.UtcNow}: Item {workItem.Title} was assigned to {this.GetType().Name} {this.Name}.");
+            this._activityHistory.Add($"[{DateTime.UtcNow}]: Item {workItem.Title} was assigned to {this.GetType().Name} {this.Name}.");
         }
     }
 }

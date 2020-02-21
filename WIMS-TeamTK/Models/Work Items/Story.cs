@@ -34,7 +34,7 @@ namespace WIMS_TeamTK.Models
             }
             set
             {
-                this.History.Add($"{DateTime.UtcNow}: Changed Priority to {value}.");
+                this.History.Add($"[{DateTime.UtcNow}]: Changed Priority to {value}.");
                 this._priority = value;
             }
         }
@@ -47,7 +47,7 @@ namespace WIMS_TeamTK.Models
             }
             set
             {
-                this.History.Add($"{DateTime.UtcNow}: Changed Size to {value}.");
+                this.History.Add($"[{DateTime.UtcNow}]: Changed Size to {value}.");
                 this._size = value;
             }
         }
@@ -60,7 +60,7 @@ namespace WIMS_TeamTK.Models
             }
             set
             {
-                this.History.Add($"{DateTime.UtcNow}: Changed Status to {value}.");
+                this.History.Add($"[{DateTime.UtcNow}]: Changed Status to {value}.");
                 this._status = value;
             }
         }
@@ -70,7 +70,7 @@ namespace WIMS_TeamTK.Models
             get => this._assignee;
             set
             {
-                this.History.Add($"{DateTime.UtcNow}: Changed Assignee to {value}.");
+                this.History.Add($"[{DateTime.UtcNow}]: Changed Assignee to {value}.");
                 this._assignee = value;
             }
         }

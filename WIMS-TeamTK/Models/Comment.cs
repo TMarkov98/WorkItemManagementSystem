@@ -54,7 +54,7 @@ namespace WIMS_TeamTK.Models
 
         public override string ToString()
         {
-            return $"{this.CreatedOn} {this.Author}: {this.Message}";
+            return $"[{this.CreatedOn}] {this.Author}: {this.Message}";
         }
     }
 }

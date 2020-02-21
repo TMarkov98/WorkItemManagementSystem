@@ -25,7 +25,7 @@ namespace WIMS_TeamTK.Models
         }
         public void AddCommentToHistory()
         {
-            this._activityHistory.Add($"{DateTime.UtcNow}: {this.Name} added comment to item.");
+            this._activityHistory.Add($"[{DateTime.UtcNow}]: {this.Name} added comment to item.");
         }
     }
 }
