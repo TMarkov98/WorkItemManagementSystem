@@ -11,29 +11,29 @@ namespace WIMS_TeamTK.Core
     {
         public void ValidateDuplicateBoard(IList<IBoard> boards, string boardName)
         {
-            if (boards.Any(board => board.Name == boardName.Trim()))
+            if (boards.Any(board => board.Name == boardName))
             {
-                throw new ArgumentException($"Board {boardName.Trim()} already exists in team.");
+                throw new ArgumentException($"Board {boardName} already exists in team.");
             }
         }
 
         public IBoard ValidateBoardExists(IList<IBoard> boards, string boardName)
         {
-            if(!boards.Any(board => board.Name == boardName.Trim()))
+            if(!boards.Any(board => board.Name == boardName))
             {
                 throw new ArgumentException($"Board {boardName} not found.");
             }
-            return boards.First(board => board.Name == boardName.Trim());
+            return boards.First(board => board.Name == boardName);
         }
 
         public BugStatus ValidateBugStatus(string bugStatus)
         {
-            return (BugStatus)Enum.Parse(typeof(BugStatus), bugStatus.Trim(), true);
+            return (BugStatus)Enum.Parse(typeof(BugStatus), bugStatus, true);
         }
 
         public string ValidateDescription(string description)
         {
-            if (description.Trim().Length < 10 || description.Trim().Length > 500)
+            if (description.Length < 10 || description.Length > 500)
             {
                 throw new ArgumentException("Description must be between 10 and 500 symbols.");
             }
@@ -42,21 +42,21 @@ namespace WIMS_TeamTK.Core
 
         public FeedbackStatus ValidateFeedbackStatus(string feedbackStatus)
         {
-            return (FeedbackStatus)Enum.Parse(typeof(FeedbackStatus), feedbackStatus.Trim(), true);
+            return (FeedbackStatus)Enum.Parse(typeof(FeedbackStatus), feedbackStatus, true);
         }
 
         public IMember ValidateMemberExists(IList<IMember> members, string memberName)
         {
-            if(!members.Any(member => member.Name == memberName.Trim()))
+            if(!members.Any(member => member.Name == memberName))
             {
-                throw new ArgumentException($"Member {memberName.Trim()} not found.");
+                throw new ArgumentException($"Member {memberName} not found.");
             }
-            return members.First(member => member.Name == memberName.Trim());
+            return members.First(member => member.Name == memberName);
         }
 
         public IBoard ValidateMoreThanOneBoard(IList<IBoard> boards, string boardName)
         {
-            if(boards.Count(board => board.Name == boardName.Trim()) > 1)
+            if(boards.Count(board => board.Name == boardName) > 1)
             {
                 Console.Write("More than one board found. Please use board ID: ");
                 int id = int.Parse(Console.ReadLine());
@@ -64,13 +64,13 @@ namespace WIMS_TeamTK.Core
             }
             else
             {
-                return boards.First(board => board.Name == boardName.Trim());
+                return boards.First(board => board.Name == boardName);
             }
         }
 
         public IWorkItem ValidateMoreThanOneWorkItem(IList<IWorkItem> workItems, string workItemName)
         {
-            if (workItems.Count(workItem => workItem.Title == workItemName.Trim()) > 1)
+            if (workItems.Count(workItem => workItem.Title == workItemName) > 1)
             {
                 Console.Write("More than one workItem found. Please use workItem ID: ");
                 int id = int.Parse(Console.ReadLine());
@@ -78,62 +78,62 @@ namespace WIMS_TeamTK.Core
             }
             else
             {
-                return workItems.First(workItem => workItem.Title == workItemName.Trim());
+                return workItems.First(workItem => workItem.Title == workItemName);
             }
         }
 
         public Priority ValidatePriority(string priority)
         {
-            return (Priority)Enum.Parse(typeof(Priority), priority.Trim(), true);
+            return (Priority)Enum.Parse(typeof(Priority), priority, true);
         }
 
         public Severity ValidateSeverity(string severity)
         {
-            return (Severity)Enum.Parse(typeof(Severity), severity.Trim(), true);
+            return (Severity)Enum.Parse(typeof(Severity), severity, true);
         }
 
         public Size ValidateSize(string size)
         {
-            return (Size)Enum.Parse(typeof(Size), size.Trim(), true);
+            return (Size)Enum.Parse(typeof(Size), size, true);
         }
 
         public StoryStatus ValidateStoryStatus(string storyStatus)
         {
-            return (StoryStatus)Enum.Parse(typeof(StoryStatus), storyStatus.Trim(), true);
+            return (StoryStatus)Enum.Parse(typeof(StoryStatus), storyStatus, true);
         }
 
         public ITeam ValidateTeamExists(IList<ITeam> teams, string teamName)
         {
-            if (!teams.Any(team => team.Name == teamName.Trim()))
+            if (!teams.Any(team => team.Name == teamName))
             {
-                throw new ArgumentException($"Team {teamName.Trim()} not found.");
+                throw new ArgumentException($"Team {teamName} not found.");
             }
-            return teams.First(team => team.Name == teamName.Trim());
+            return teams.First(team => team.Name == teamName);
         }
 
         public string ValidateTitle(string title)
         {
-            if (title.Trim().Length < 10 || title.Trim().Length > 50)
+            if (title.Length < 10 || title.Length > 50)
             {
                 throw new ArgumentException("Title must be between 10 and 50 symbols.");
             }
-            return title.Trim();
+            return title;
         }
 
         public IWorkItem ValidateWorkItemExists(IList<IWorkItem> workItems, string workItemName)
         {
-            if (!workItems.Any(workItem => workItem.Title == workItemName.Trim()))
+            if (!workItems.Any(workItem => workItem.Title == workItemName))
             {
-                throw new ArgumentException($"WorkItem {workItemName.Trim()} not found.");
+                throw new ArgumentException($"WorkItem {workItemName} not found.");
             }
-            return workItems.First(workItem => workItem.Title == workItemName.Trim());
+            return workItems.First(workItem => workItem.Title == workItemName);
         }
 
         public void ValidateDuplicateMember(IList<IMember> members, string memberName)
         {
-            if (members.Any(n => n.Name == memberName.Trim()))
+            if (members.Any(n => n.Name == memberName))
             {
-                throw new ArgumentException($"Member with name {memberName.Trim()} already exists.");
+                throw new ArgumentException($"Member with name {memberName} already exists.");
             }
         }
 
@@ -141,7 +141,7 @@ namespace WIMS_TeamTK.Core
         {
             try
             {
-                int result = int.Parse(rating.Trim());
+                int result = int.Parse(rating);
                 if(result > 10 || result < -10)
                 {
                     throw new ArgumentException();
@@ -155,36 +155,36 @@ namespace WIMS_TeamTK.Core
         }
         public void ValidateDuplicateTeam(IList<ITeam> teams, string teamName)
         {
-            if (teams.Any(n => n.Name == teamName.Trim()))
+            if (teams.Any(n => n.Name == teamName))
             {
-                throw new ArgumentException($"Team with name {teamName.Trim()} already exists.");
+                throw new ArgumentException($"Team with name {teamName} already exists.");
             }
         }
 
         public string ValidateBoardName(string name)
         {
-            if(name.Trim().Length < 5 || name.Trim().Length > 10)
+            if(name.Length < 5 || name.Length > 10)
             {
                 throw new ArgumentException("Board name should be between 5 and 10 symbols.");
             }
-            return name.Trim();
+            return name;
         }
 
         public string ValidateMemberName(string name)
         {
-            if (name.Trim().Length < 5 || name.Trim().Length > 15)
+            if (name.Length < 5 || name.Length > 15)
             {
                 throw new ArgumentException("Member name should be between 5 and 15 symbols.");
             }
-            return name.Trim();
+            return name;
         }
         public string ValidateTeamName(string name)
         {
-            if(name.Trim().Length < 5 || name.Trim().Length > 15)
+            if(name.Length < 5 || name.Length > 15)
             {
                 throw new ArgumentException("Team name should be between 5 and 15 symbols.");
             }
-            return name.Trim();
+            return name;
         }
     }
 }

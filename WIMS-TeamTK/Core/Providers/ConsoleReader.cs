@@ -9,7 +9,7 @@ namespace WIMS_TeamTK.Core.Providers
     {
         public string ReadLine()
         {
-            return Console.ReadLine();
+            return Console.ReadLine().Trim();
         }
     }
 }

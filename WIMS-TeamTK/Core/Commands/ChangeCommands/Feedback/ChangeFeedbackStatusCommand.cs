@@ -23,7 +23,7 @@ namespace WIMS_TeamTK.Core.Commands
                 var feedback = this._validator.ValidateWorkItemExists(this._engine.WorkItems.Where(n => n.GetType().Name == "Feedback").ToList(), parameter);
                 feedback = this._validator.ValidateMoreThanOneWorkItem((this._engine.WorkItems.Where(n => n.GetType().Name == "Feedback").ToList()), parameter);
                 Console.Write("New Feedback Status(New/Unscheduled/Scheduled/Done): ");
-                string newStatus = Console.ReadLine();
+                string newStatus = Console.ReadLine().Trim();
 
                 (feedback as IFeedback).Status = (FeedbackStatus)Enum.Parse(typeof(FeedbackStatus), newStatus, true);
                 return $"Changed {parameter} status to {newStatus}.";

@@ -23,7 +23,7 @@ namespace WIMS_TeamTK.Core.Commands.ChangeCommands
                 var story = this._validator.ValidateWorkItemExists(this._engine.WorkItems.Where(n => n.GetType().Name == "Story").ToList(), parameter);
                 Console.Write("New Story Priority(High/Medium/Low): ");
 
-                (story as IStory).Priority = this._validator.ValidatePriority(Console.ReadLine());
+                (story as IStory).Priority = this._validator.ValidatePriority(Console.ReadLine().Trim());
                 return $"Changed {parameter} priority to {(story as IStory).Priority}.";
             }
             catch (ArgumentException ex)

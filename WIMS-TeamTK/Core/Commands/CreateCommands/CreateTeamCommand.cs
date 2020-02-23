@@ -14,7 +14,7 @@ namespace WIMS_TeamTK.Core.Commands
 
         public override string Execute(string parameter)
         {
-            string teamName = parameter;
+            string teamName = parameter.Trim();
             try
             {
                 var team = this._factory.CreateTeam(teamName);

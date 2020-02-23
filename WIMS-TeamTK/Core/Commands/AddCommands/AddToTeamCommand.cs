@@ -15,13 +15,13 @@ namespace WIMS_TeamTK.Core.Commands.CreateCommands
 
         public override string Execute(string parameter)
         {
-            string teamName = parameter;
+            string teamName = parameter.Trim();
             string memberName;
             try
             {
                 var team = this._validator.ValidateTeamExists(this._engine.Teams, teamName);
                 Console.Write("Member: ");
-                memberName = Console.ReadLine();
+                memberName = Console.ReadLine().Trim();
                 var member = this._validator.ValidateMemberExists(this._engine.Members, memberName);
                 this._validator.ValidateDuplicateMember(team.Members, memberName);
                 team.AddMember(member);

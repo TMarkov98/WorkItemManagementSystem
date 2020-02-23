@@ -30,24 +30,24 @@ namespace WIMS_TeamTK.Core.Commands
             {
                 title = this._validator.ValidateTitle(parameter);
                 Console.Write("Board: ");
-                boardName = Console.ReadLine();
+                boardName = Console.ReadLine().Trim();
                 var board = _validator.ValidateBoardExists(this._engine.Boards, boardName);
                 board = _validator.ValidateMoreThanOneBoard(this._engine.Boards, boardName);
                 Console.Write("Bug Description(Single line.): ");
-                description = _validator.ValidateDescription(Console.ReadLine());
+                description = _validator.ValidateDescription(Console.ReadLine().Trim());
                 Console.WriteLine("Steps to reproduce(Reads until it reaches an empty line.):");
-                string input = Console.ReadLine();
+                string input = Console.ReadLine().Trim();
                 while(input != string.Empty)
                 {
                     stepsToReproduce.Add(input);
-                    input = Console.ReadLine();
+                    input = Console.ReadLine().Trim();
                 }
                 Console.Write("Bug Priority(High/Medium/Low): ");
-                priority = this._validator.ValidatePriority(Console.ReadLine());
+                priority = this._validator.ValidatePriority(Console.ReadLine().Trim());
                 Console.Write("Bug Severity(Critical/Major/Minor): ");
-                severity = this._validator.ValidateSeverity(Console.ReadLine());
+                severity = this._validator.ValidateSeverity(Console.ReadLine().Trim());
                 Console.Write("Bug Status(Active/Fixed): ");
-                status = this._validator.ValidateBugStatus(Console.ReadLine());
+                status = this._validator.ValidateBugStatus(Console.ReadLine().Trim());
                 IBug bug = this._factory.CreateBug(title, description, stepsToReproduce, priority, severity, status);
                 this._engine.WorkItems.Add(bug);
                 board.AddWorkItem(bug);

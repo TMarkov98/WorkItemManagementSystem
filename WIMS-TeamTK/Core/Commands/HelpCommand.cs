@@ -66,7 +66,11 @@ namespace WIMS_TeamTK.Core.Commands
                         + $"- ShowItemHistory (WorkItemName){Environment.NewLine}"
                         + $"- ShowBoardItems (BoardName){Environment.NewLine}"
                         + $"- ShowMemberComments (MemberName)";
-
+                case "remove":
+                    return
+                        $"=== Remove commands:{Environment.NewLine}"
+                        + $"RemoveLastComment (WorkItemName){Environment.NewLine}"
+                        + $"RemoveAllComments (WorkItemName){Environment.NewLine}";
                 default:
                     return
                         $"Thank you for using our solution.{Environment.NewLine}"

@@ -32,7 +32,7 @@ namespace WIMS_TeamTK.Core.Commands.ListCommands
             else if (parameter.ToLower() == "sort")
             {
                 Console.Write("Sort by(Title/Rating): ");
-                string sortedBy = Console.ReadLine().ToLower();
+                string sortedBy = Console.ReadLine().Trim().ToLower();
                 switch (sortedBy)
                 {
                     case "title":
@@ -50,12 +50,12 @@ namespace WIMS_TeamTK.Core.Commands.ListCommands
             else if (parameter.ToLower() == "filter")
             {
                 Console.Write("Filter by(status): ");
-                string filter = Console.ReadLine().ToLower();
+                string filter = Console.ReadLine().Trim().ToLower();
 
                 if (filter == "status")
                 {
                     Console.Write("Status to filter by(New/Unscheduled/Scheduled/Done): ");
-                    string filterStatus = Console.ReadLine().ToLower();
+                    string filterStatus = Console.ReadLine().Trim().ToLower();
                     if (filterStatus == "new")
                     {
                         result = string.Join(Environment.NewLine, allFeedbacks.Where(n => n.Status.Equals(FeedbackStatus.New))

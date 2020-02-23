@@ -17,13 +17,13 @@ namespace WIMS_TeamTK.Core.Commands.AddCommands
 
         public override string Execute(string parameter)
         {
-            string memberName = parameter;
+            string memberName = parameter.Trim();
             string workItemTitle;
             try
             {
                 var member = this._validator.ValidateMemberExists(this._engine.Members, memberName);
                 Console.Write("WorkItem: ");
-                workItemTitle = Console.ReadLine();
+                workItemTitle = Console.ReadLine().Trim();
                 var workItem = this._validator.ValidateWorkItemExists(this._engine.WorkItems, workItemTitle);
                 workItem = this._validator.ValidateMoreThanOneWorkItem(this._engine.WorkItems, workItemTitle);
                 member.AddWorkItem(workItem);

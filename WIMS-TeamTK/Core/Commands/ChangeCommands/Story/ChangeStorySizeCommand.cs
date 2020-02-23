@@ -18,9 +18,9 @@ namespace WIMS_TeamTK.Core.Commands.ChangeCommands
             {
                 var story = this._validator.ValidateWorkItemExists(this._engine.WorkItems.Where(n => n.GetType().Name == "Story").ToList(), parameter);
                 Console.Write("New Story Size(Large/Medium/Small): ");
-                string newSize = Console.ReadLine();
+                string newSize = Console.ReadLine().Trim();
 
-                (story as IStory).Size = this._validator.ValidateSize(Console.ReadLine());
+                (story as IStory).Size = this._validator.ValidateSize(Console.ReadLine().Trim());
                 return $"Changed {parameter} size to {(story as IStory).Size}.";
             }
             catch (ArgumentException ex)

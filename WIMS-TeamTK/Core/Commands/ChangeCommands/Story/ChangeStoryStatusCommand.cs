@@ -22,9 +22,9 @@ namespace WIMS_TeamTK.Core.Commands.ChangeCommands
             {
                 var story = this._validator.ValidateWorkItemExists(this._engine.WorkItems.Where(n => n.GetType().Name == "Story").ToList(), parameter);
                 Console.Write("New Story Status(NotDone/InProgress/Done): ");
-                string newStatus = Console.ReadLine();
+                string newStatus = Console.ReadLine().Trim();
 
-                (story as IStory).Status = this._validator.ValidateStoryStatus(Console.ReadLine());
+                (story as IStory).Status = this._validator.ValidateStoryStatus(Console.ReadLine().Trim());
                 return $"Changed {parameter} status to {(story as IStory).Status}.";
             }
             catch (ArgumentException ex)

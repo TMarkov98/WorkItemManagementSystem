@@ -24,7 +24,7 @@ namespace WIMS_TeamTK.Core.Commands
                 boardName = this._validator.ValidateBoardName(parameter);
                 var board = this._factory.CreateBoard(boardName);
                 Console.Write("Assign to team: ");
-                teamName = Console.ReadLine();
+                teamName = Console.ReadLine().Trim();
                 var team = this._validator.ValidateTeamExists(this._engine.Teams, teamName);
                 this._validator.ValidateDuplicateBoard(team.Boards, boardName);
                 this._engine.Teams.First(n => n.Name == teamName).AddBoard(board);

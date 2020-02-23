@@ -25,7 +25,7 @@ namespace WIMS_TeamTK.Core.Commands.ChangeCommands
                 var bug = this._validator.ValidateWorkItemExists(this._engine.WorkItems.Where(n => n.GetType().Name == "Bug").ToList(), workItemName);
                 bug = this._validator.ValidateMoreThanOneWorkItem(this._engine.WorkItems.Where(n => n.GetType().Name == "Bug").ToList(), workItemName);
                 Console.Write("New Bug Status(Active/Fixed): ");
-                (bug as IBug).Status = this._validator.ValidateBugStatus(Console.ReadLine());
+                (bug as IBug).Status = this._validator.ValidateBugStatus(Console.ReadLine().Trim());
                 return $"Changed {parameter} severity to {(bug as IBug).Status}.";
             }
             catch (ArgumentException ex)

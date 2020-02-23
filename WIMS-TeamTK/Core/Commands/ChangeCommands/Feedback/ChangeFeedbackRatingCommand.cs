@@ -23,7 +23,7 @@ namespace WIMS_TeamTK.Core.Commands
                 var feedback = this._validator.ValidateWorkItemExists(this._engine.WorkItems.Where(n => n.GetType().Name == "Feedback").ToList(), workItemName);
                 feedback = this._validator.ValidateMoreThanOneWorkItem(this._engine.WorkItems.Where(n => n.GetType().Name == "Feedback").ToList(), workItemName);
                 Console.Write("New Feedback Rating(-10 to 10): ");
-                (feedback as IFeedback).Rating = this._validator.ValidateRating(Console.ReadLine());
+                (feedback as IFeedback).Rating = this._validator.ValidateRating(Console.ReadLine().Trim());
                 return $"Changed {parameter} rating to {(feedback as IFeedback).Rating}.";
             }
             catch (ArgumentException ex)

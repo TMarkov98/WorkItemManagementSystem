@@ -32,7 +32,7 @@ namespace WIMS_TeamTK.Core.Commands.ListCommands
             else if (parameter.ToLower() == "sort")
             {
                 Console.Write("Sort by(title/priority/severity/status): ");
-                string sortedBy = Console.ReadLine().ToLower();
+                string sortedBy = Console.ReadLine().Trim().ToLower();
                 switch (sortedBy)
                 {
                     case "title":
@@ -58,12 +58,12 @@ namespace WIMS_TeamTK.Core.Commands.ListCommands
             else if (parameter.ToLower() == "filter")
             {
                 Console.Write("Filter by(status/assigne): ");
-                string filter = Console.ReadLine().ToLower();
+                string filter = Console.ReadLine().Trim().ToLower();
 
                 if (filter == "status")
                 {
                     Console.Write("Status to filter by(active, fixed): ");
-                    string filterStatus = Console.ReadLine().ToLower();
+                    string filterStatus = Console.ReadLine().Trim().ToLower();
                     if (filterStatus == "active")
                     {
                         result = string.Join(Environment.NewLine, allBugs.Where(n => n.Status.Equals(BugStatus.Active))
@@ -78,7 +78,7 @@ namespace WIMS_TeamTK.Core.Commands.ListCommands
                 else if(filter == "assigne")
                 {
                     Console.Write("Assigne to filter by: ");
-                    string filterAssignee = Console.ReadLine();
+                    string filterAssignee = Console.ReadLine().Trim();
                     this._validator.ValidateMemberExists(this._engine.Members, filterAssignee);
                     result = string.Join(Environment.NewLine, allBugs.Where(n => n.Assignee.Equals(filterAssignee))
                         .Select(workItem => $"ID: {this._engine.WorkItems.IndexOf(workItem)} - {workItem.ToString()}").ToArray());

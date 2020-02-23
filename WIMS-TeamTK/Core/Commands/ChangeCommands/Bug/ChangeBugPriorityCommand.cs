@@ -25,7 +25,7 @@ namespace WIMS_TeamTK.Core.Commands.ChangeCommands
                 var bug = this._validator.ValidateWorkItemExists(this._engine.WorkItems.Where(n => n.GetType().Name == "Bug").ToList(), workItemName);
                 bug = this._validator.ValidateMoreThanOneWorkItem(this._engine.WorkItems.Where(n => n.GetType().Name == "Bug").ToList(), workItemName);
                 Console.Write("New Bug Priority(High/Medium/Low): ");
-                (bug as IBug).Priority = this._validator.ValidatePriority(Console.ReadLine());
+                (bug as IBug).Priority = this._validator.ValidatePriority(Console.ReadLine().Trim());
                 return $"Changed {parameter} priority to {(bug as IBug).Priority}.";
             }
             catch (ArgumentException ex)
