@@ -1,10 +1,6 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
 using WIMS_TeamTK.Core.Contracts;
 using WIMS_TeamTK.Core.Factories;
-using WIMS_TeamTK.Models;
 
 namespace WIMS_TeamTK.Core.Commands.ListCommands
 {

@@ -1,9 +1,6 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Text;
 using WIMS_TeamTK.Core.Contracts;
 using WIMS_TeamTK.Core.Factories;
-using System.Linq;
 
 namespace WIMS_TeamTK.Core.Commands.RemoveCommands
 {

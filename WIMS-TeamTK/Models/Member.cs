@@ -1,5 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
 using WIMS_TeamTK.Models.Contracts;
 
 namespace WIMS_TeamTK.Models

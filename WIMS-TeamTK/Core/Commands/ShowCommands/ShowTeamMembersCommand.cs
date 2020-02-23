@@ -1,7 +1,5 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.Linq;
-using System.Text;
 using WIMS_TeamTK.Core.Contracts;
 using WIMS_TeamTK.Core.Factories;
 
@@ -15,8 +13,8 @@ namespace WIMS_TeamTK.Core.Commands.ListCommands
 
         public override string Execute(string parameter)
         {
-            try
-            {
+            try 
+            { 
                 var team = this._engine.Teams.First(n => n.Name == parameter);
                 if(team.Members.Count == 0)
                 {

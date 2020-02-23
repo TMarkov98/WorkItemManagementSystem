@@ -1,8 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
-
-namespace WIMS_TeamTK.Models.Contracts
+﻿namespace WIMS_TeamTK.Models.Contracts
 {
     public interface IAssignable
     {

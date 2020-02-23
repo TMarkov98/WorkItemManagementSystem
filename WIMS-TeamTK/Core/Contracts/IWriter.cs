@@ -1,8 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
-
-namespace WIMS_TeamTK.Core.Contracts
+﻿namespace WIMS_TeamTK.Core.Contracts
 {
     public interface IWriter
     {

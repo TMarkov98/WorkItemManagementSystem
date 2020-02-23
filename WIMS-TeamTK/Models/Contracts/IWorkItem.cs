@@ -1,6 +1,4 @@
-﻿using WIMS_TeamTK.Models.Enums;
-using WIMS_TeamTK.Models;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 
 namespace WIMS_TeamTK.Models.Contracts
 {
