@@ -6,9 +6,9 @@ using WIMS_TeamTK.Core.Factories;
 
 namespace WIMS_TeamTK.Core.Commands.ListCommands
 {
-    public class ListItemHistoryCommand : Command
+    public class ShowItemHistoryCommand : Command
     {
-        public ListItemHistoryCommand(IFactory factory, IEngine engine) : base(factory, engine)
+        public ShowItemHistoryCommand(IFactory factory, IEngine engine) : base(factory, engine)
         {
         }
 

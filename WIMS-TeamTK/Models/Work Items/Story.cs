@@ -13,12 +13,6 @@ namespace WIMS_TeamTK.Models
         private StoryStatus _status;
         private string _assignee;
 
-        public Story(string title)
-            : base(title)
-        {
-
-        }
-
         public Story(string title, string description, Priority priority, Size size, StoryStatus status) : base(title, description)
         {
             this.Priority = priority;

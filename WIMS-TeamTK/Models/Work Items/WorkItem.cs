@@ -10,24 +10,14 @@ namespace WIMS_TeamTK.Models
     {
         private string _title = "";
         private string _description = "";
-        private List<string> _history = new List<string>();
+        private readonly List<string> _history = new List<string>();
         private List<IComment> _comments = new List<IComment>();
-
-        public WorkItem(string title)
-        {
-            this.Title = title;
-            this.History = new List<string>();
-            this.Comments = new List<IComment>();
-            this.History.Add($"[{DateTime.UtcNow}]: Created {this.GetType().Name} with Title {this.Title}.");
-        }
-            //TODO: Check if still necessary
         public WorkItem(string title, string description)
         {
             this.Title = title;
-            this.Description = description;
-            this.History = new List<string>();
-            this.Comments = new List<IComment>();
             this.History.Add($"[{DateTime.UtcNow}]: Created {this.GetType().Name} with Title {this.Title}.");
+            this.Description = description;
+            this.Comments = new List<IComment>();
         }
 
         public virtual string Title
@@ -52,10 +42,6 @@ namespace WIMS_TeamTK.Models
             get
             {
                 return this._history;
-            }
-            set
-            {
-                this._history = value;
             }
         }
         public List<IComment> Comments

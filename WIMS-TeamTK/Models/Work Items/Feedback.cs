@@ -10,13 +10,6 @@ namespace WIMS_TeamTK.Models
     {
         private int _rating;
         private FeedbackStatus _status;
-
-        public Feedback(string title)
-            : base(title)
-        {
-
-        }
-
         public Feedback(string title, string description, int rating, FeedbackStatus status) : base(title, description)
         {
             this.Rating = rating;

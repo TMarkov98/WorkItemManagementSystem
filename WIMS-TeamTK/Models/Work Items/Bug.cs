@@ -16,11 +16,6 @@ namespace WIMS_TeamTK.Models
         private Severity _severity;
         private BugStatus _status;
 
-        public Bug(string title)
-            : base(title)
-        {
-        }
-
         public Bug(string title, string description, List<string> stepsToReproduce, Priority priority, Severity severity, BugStatus status)
             : base(title, description)
         {
