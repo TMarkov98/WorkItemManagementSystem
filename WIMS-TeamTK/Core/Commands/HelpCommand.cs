@@ -1,4 +1,6 @@
 ﻿using System;
+using System.Collections.Generic;
+using System.Text;
 using WIMS_TeamTK.Core.Contracts;
 using WIMS_TeamTK.Core.Factories;
 
@@ -53,7 +55,7 @@ namespace WIMS_TeamTK.Core.Commands
                         + $"- ListStories (Sort/Filter)";
                 case "show":
                     return
-                        $"=== Show Commands:{Environment.NewLine}"
+                        $"=== List Commands:{Environment.NewLine}"
                         + $"- ShowBoardActivity (BoardName){Environment.NewLine}"
                         + $"- ShowMemberActivity (MemberName){Environment.NewLine}"
                         + $"- ShowTeamActivity (TeamName){Environment.NewLine}"
@@ -62,14 +64,9 @@ namespace WIMS_TeamTK.Core.Commands
                         + $"- ShowTeams{Environment.NewLine}"
                         + $"- ShowPeople{Environment.NewLine}"
                         + $"- ShowItemHistory (WorkItemName){Environment.NewLine}"
-                        + $"- ShowItemComments (WorkItemName){Environment.NewLine}"
                         + $"- ShowBoardItems (BoardName){Environment.NewLine}"
                         + $"- ShowMemberComments (MemberName)";
-                case "remove":
-                    return
-                        $"=== Remove commands:{Environment.NewLine}"
-                        + $"RemoveLastComment (WorkItemName){Environment.NewLine}"
-                        + $"RemoveAllComments (WorkItemName){Environment.NewLine}";
+
                 default:
                     return
                         $"Thank you for using our solution.{Environment.NewLine}"

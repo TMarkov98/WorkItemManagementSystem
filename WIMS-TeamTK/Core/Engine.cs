@@ -11,7 +11,6 @@ namespace WIMS_TeamTK.Core
         private static IEngine instanceHolder;
 
         private const string TerminationCommand = "Exit";
-        private const string NullProvidersExceptionMessage = "cannot be null.";
 
         private Engine()
         {
