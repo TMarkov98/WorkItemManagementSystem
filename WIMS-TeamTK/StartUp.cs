@@ -7,7 +7,7 @@ namespace WIMS_TeamTK
     {
         static void Main(string[] args)
         {
-            Console.WriteLine("Welcome! Type \"help\" for a list of commands.");
+            Console.WriteLine("Welcome! Type \"help\" to begin.");
             var engine = Engine.Instance;
             engine.Start();
         }
