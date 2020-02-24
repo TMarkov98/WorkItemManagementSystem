@@ -9,11 +9,11 @@ namespace WIMS_TeamTK.Models
 {
     public class Bug : WorkItem, IBug, IAssignable
     {
-        private string _assignee;
         private List<string> _stepsToReproduce = new List<string>();
         private Priority _priority;
         private Severity _severity;
         private BugStatus _status;
+        private string _assignee = string.Empty;
 
         public Bug(string title, string description, List<string> stepsToReproduce, Priority priority, Severity severity, BugStatus status)
             : base(title, description)
@@ -90,7 +90,7 @@ namespace WIMS_TeamTK.Models
                 + $"Priority: {this.Priority}{Environment.NewLine}"
                 + $"Severity: {this.Severity}{Environment.NewLine}"
                 + $"Status: {this.Status}{Environment.NewLine}";
-            if(this.Assignee == "")
+            if(this.Assignee == string.Empty)
             {
                 result += "Not assigned.";
             }

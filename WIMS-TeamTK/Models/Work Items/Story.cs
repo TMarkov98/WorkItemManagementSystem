@@ -9,7 +9,7 @@ namespace WIMS_TeamTK.Models
         private Priority _priority;
         private Size _size;
         private StoryStatus _status;
-        private string _assignee;
+        private string _assignee = string.Empty;
 
         public Story(string title, string description, Priority priority, Size size, StoryStatus status) : base(title, description)
         {
@@ -75,7 +75,7 @@ namespace WIMS_TeamTK.Models
                 + $"Priority: {this.Priority}{Environment.NewLine}"
                 + $"Size: {this.Size}{Environment.NewLine}"
                 + $"Status: {this.Status}{Environment.NewLine}";
-            if (this.Assignee == "")
+            if (this.Assignee == string.Empty)
             {
                 result += "Not assigned.";
             }
