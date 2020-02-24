@@ -26,5 +26,6 @@ namespace WIMS_TeamTK.Core.Contracts
         public void ValidateDuplicateTeam(IList<ITeam> teams, string teamName);
         public string ValidateBoardName(string name);
         public string ValidateMemberName(string name);
+        public string ValidateTeamName(string name);
     }
 }

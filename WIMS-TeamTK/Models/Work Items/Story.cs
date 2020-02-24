@@ -75,7 +75,7 @@ namespace WIMS_TeamTK.Models
                 + $"Priority: {this.Priority}{Environment.NewLine}"
                 + $"Size: {this.Size}{Environment.NewLine}"
                 + $"Status: {this.Status}{Environment.NewLine}";
-            if (this.Assignee == string.Empty)
+            if (this.Assignee == "")
             {
                 result += "Not assigned.";
             }

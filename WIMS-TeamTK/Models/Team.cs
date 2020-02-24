@@ -22,10 +22,6 @@ namespace WIMS_TeamTK.Models
             get => this._name;
             set
             {
-                if (value.Length < 5 || value.Length > 15)
-                {
-                    throw new ArgumentException("Name must be between 5 and 15 symbols.");
-                }
                 this._name = value;
             }
         }

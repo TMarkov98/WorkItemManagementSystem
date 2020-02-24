@@ -12,9 +12,10 @@ namespace WIMS_TeamTK.Core.Commands
 
         public override string Execute(string parameter)
         {
-            string teamName = parameter.Trim();
+            string teamName;
             try
             {
+                teamName = this._validator.ValidateTeamName(parameter);
                 var team = this._factory.CreateTeam(teamName);
                 this._validator.ValidateDuplicateTeam(this._engine.Teams, teamName);
                 this._engine.Teams.Add(team);
