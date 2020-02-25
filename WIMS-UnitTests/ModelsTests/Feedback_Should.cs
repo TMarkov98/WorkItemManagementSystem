@@ -5,8 +5,8 @@ using System.Text;
 using WIMS_TeamTK.Models;
 using WIMS_TeamTK.Models.Enums;
 
-namespace WIMS_UnitTests
-{
+namespace WIMS_UnitTests.ModelsTests
+{ 
    [TestClass]
    public class Feedback_Should
     {

@@ -9,7 +9,7 @@ namespace WIMS_TeamTK.Core.Factories
     {
         private static IFactory instanceHolder = new Factory();
 
-        private Factory()
+        public Factory()
         {
         }
 
