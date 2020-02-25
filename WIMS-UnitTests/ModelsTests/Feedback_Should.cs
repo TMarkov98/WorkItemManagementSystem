@@ -53,20 +53,6 @@ namespace WIMS_UnitTests.ModelsTests
             Assert.AreEqual(sut.Rating, customRating);
         }
         [TestMethod]
-        public void SetCorrectStatus()
-        {
-            //Arrange
-            var customName = "FeedbackName";
-            string customDescription = "Some right description.";
-            int customRating = 2;
-            FeedbackStatus customStatus = FeedbackStatus.Done;
-            //Act
-            var sut = new Feedback(customName, customDescription, customRating, customStatus);
-
-            //Assert
-            Assert.AreEqual(sut.Status, customStatus);
-        }
-        [TestMethod]
         public void AddToHistory()
         {
             //Arrange
