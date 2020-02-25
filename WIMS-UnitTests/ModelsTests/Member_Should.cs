@@ -21,6 +21,7 @@ namespace WIMS_UnitTests.ModelsTests
             //Assert
             Assert.AreEqual(name, sut.Name);
         }
+        [TestMethod]
         public void ContainWorkItems()
         {
             //Arrange
@@ -37,6 +38,24 @@ namespace WIMS_UnitTests.ModelsTests
             sut.AddWorkItem(bug);
             //Assert
             Assert.AreEqual(sut.WorkItems.Count, 1);
+        }
+        [TestMethod]
+        public void AutoPopulateHistory()
+        {
+            //Arrange
+            string name = "TestMember";
+            var sut = new Member(name);
+            string title = "BugTitle";
+            string description = "valid description";
+            List<string> stepsToReproduce = new List<string> { "step1", "step2", "step3" };
+            Priority priority = Priority.High;
+            Severity severity = Severity.Critical;
+            BugStatus status = BugStatus.Active;
+            IBug bug = new Bug(title, description, stepsToReproduce, priority, severity, status);
+            //Act
+            sut.AddWorkItem(bug);
+            //Assert
+            Assert.AreEqual(sut.ActivityHistory.Count, 2);
         }
     }
 }
