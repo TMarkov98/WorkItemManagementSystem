@@ -1,5 +1,5 @@
 # Work Item Manager System 
-        by TeamTK
+by TeamTK
 
 ##Functional Requirements
 
