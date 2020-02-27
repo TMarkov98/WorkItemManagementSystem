@@ -2,6 +2,7 @@
 {
     public interface IAssignable
     {
+        //Properties
         public string Assignee { get; }
     }
 }

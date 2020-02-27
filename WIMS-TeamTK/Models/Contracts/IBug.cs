@@ -5,6 +5,7 @@ namespace WIMS_TeamTK.Models.Contracts
 {
     public interface IBug : IWorkItem
     {
+        // Properties
         public List<string> StepsToReproduce { get; }
         public Priority Priority { get; set; }
         public Severity Severity { get; set; }

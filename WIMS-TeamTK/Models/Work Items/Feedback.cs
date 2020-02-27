@@ -6,14 +6,26 @@ namespace WIMS_TeamTK.Models
 {
     public class Feedback : WorkItem, IFeedback
     {
+        /// <summary>Rating of Feedback</summary>
         private int _rating;
+        /// <summary>Enum with status</summary>
         private FeedbackStatus _status;
+        /// <summary>
+        /// Constructor of Feedback
+        /// </summary>
+        /// <param name="title">Title of the feedback</param>
+        /// <param name="description">Description of the feedback</param>
+        /// <param name="rating">Rating of feedback</param>
+        /// <param name="status">Status of the feedback</param>
         public Feedback(string title, string description, int rating, FeedbackStatus status) : base(title, description)
         {
             this.Rating = rating;
             this.Status = status;
         }
 
+        /// <summary>
+        /// Rating of Feedback
+        /// </summary>
         public int Rating
         {
             get
@@ -27,6 +39,9 @@ namespace WIMS_TeamTK.Models
             }
         }
 
+        /// <summary>
+        /// Status of Feedback
+        /// </summary>
         public FeedbackStatus Status
         {
             get
@@ -40,6 +55,10 @@ namespace WIMS_TeamTK.Models
             }
         }
 
+        /// <summary>
+        /// Turns class feedback to string.
+        /// </summary>
+        /// <returns>string</returns>
         public override string ToString()
         {
             return base.ToString()

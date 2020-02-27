@@ -7,12 +7,26 @@ namespace WIMS_TeamTK.Models
 {
     public class Bug : WorkItem, IBug, IAssignable
     {
+        /// <summary>Steps to reproduce the bug(with strings)</summary>
         private List<string> _stepsToReproduce = new List<string>();
+        /// <summary>Enum with priority</summary>
         private Priority _priority;
+        /// <summary>Enum with severity</summary>
         private Severity _severity;
+        /// <summary>Enum with status</summary>
         private BugStatus _status;
+        /// <summary>name of the assigned member to this bug
         private string _assignee = string.Empty;
 
+        /// <summary>
+        /// Constructor of Bug
+        /// </summary>
+        /// <param name="title">Title of Bug</param>
+        /// <param name="description">Description of the bug</param>
+        /// <param name="stepsToReproduce">Steps to reproduce the bug</param>
+        /// <param name="priority">Priority of the bug</param>
+        /// <param name="severity">Severity of the bug</param>
+        /// <param name="status">Status of the bug</param>
         public Bug(string title, string description, List<string> stepsToReproduce, Priority priority, Severity severity, BugStatus status)
             : base(title, description)
         {
@@ -22,6 +36,9 @@ namespace WIMS_TeamTK.Models
             this.Status = status;
         }
 
+        /// <summary>
+        /// Property of StepsToReproduce
+        /// </summary>
         public List<string> StepsToReproduce
         {
             get
@@ -34,6 +51,9 @@ namespace WIMS_TeamTK.Models
             }
         }
 
+        /// <summary>
+        /// Property of Priority
+        /// </summary>
         public Priority Priority
         {
             get
@@ -47,6 +67,9 @@ namespace WIMS_TeamTK.Models
             }
         }
 
+        /// <summary>
+        /// Property of Severity
+        /// </summary>
         public Severity Severity
         {
             get
@@ -60,6 +83,9 @@ namespace WIMS_TeamTK.Models
             }
         }
 
+        /// <summary>
+        /// Property of Status
+        /// </summary>
         public BugStatus Status
         {
             get
@@ -73,6 +99,9 @@ namespace WIMS_TeamTK.Models
             }
         }
 
+        /// <summary>
+        /// Property of Assignee
+        /// </summary>
         public string Assignee
         {
             get => this._assignee;
@@ -83,6 +112,10 @@ namespace WIMS_TeamTK.Models
             }
         }
 
+        /// <summary>
+        /// Turns class Bug to string.
+        /// </summary>
+        /// <returns>class to string</returns>
         public override string ToString()
         {
             string result = base.ToString()

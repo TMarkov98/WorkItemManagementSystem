@@ -6,11 +6,23 @@ namespace WIMS_TeamTK.Models
 {
     public class Story : WorkItem, IStory, IAssignable
     {
+        /// <summary>Enum with priorities</summary>
         private Priority _priority;
+        /// <summary>Enum with size</summary>
         private Size _size;
+        /// <summary>Enum with status</summary>
         private StoryStatus _status;
+        /// <summary>Name of the member assigned to this story</summary>
         private string _assignee = string.Empty;
 
+        /// <summary>
+        /// Constructor of Story
+        /// </summary>
+        /// <param name="title">Title of the story</param>
+        /// <param name="description">Description of the story</param>
+        /// <param name="priority">Priority of the story</param>
+        /// <param name="size">Size of the story</param>
+        /// <param name="status">Status of the story</param>
         public Story(string title, string description, Priority priority, Size size, StoryStatus status) : base(title, description)
         {
             this.Priority = priority;
@@ -18,6 +30,9 @@ namespace WIMS_TeamTK.Models
             this.Status = status;
         }
 
+        /// <summary>
+        /// Property of Priority
+        /// </summary>
         public Priority Priority
         {
             get
@@ -31,6 +46,9 @@ namespace WIMS_TeamTK.Models
             }
         }
 
+        /// <summary>
+        /// Property of Size
+        /// </summary>
         public Size Size
         {
             get
@@ -44,6 +62,9 @@ namespace WIMS_TeamTK.Models
             }
         }
 
+        /// <summary>
+        /// Property of Status
+        /// </summary>
         public StoryStatus Status
         {
             get
@@ -57,6 +78,9 @@ namespace WIMS_TeamTK.Models
             }
         }
 
+        /// <summary>
+        /// Property of Assignee
+        /// </summary>
         public string Assignee
         {
             get => this._assignee;
@@ -67,8 +91,15 @@ namespace WIMS_TeamTK.Models
             }
         }
 
+        /// <summary>
+        /// Property of StoryStatus
+        /// </summary>
         public StoryStatus StoryStatus { get; internal set; }
 
+        /// <summary>
+        /// Turns class Story to string.
+        /// </summary>
+        /// <returns>string</returns>
         public override string ToString()
         {
             string result = base.ToString()

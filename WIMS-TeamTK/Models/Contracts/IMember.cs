@@ -2,6 +2,7 @@
 {
     public interface IMember : IResource
     {
+        // Methods
         void AddCommentToHistory();
     }
 }
