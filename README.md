@@ -1,4 +1,5 @@
-# WIMS-TeamTK
+# Work Item Manager System 
+        by TeamTK
 
 ##Functional Requirements
 
