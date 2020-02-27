@@ -1,7 +1,7 @@
 # Work Item Manager System 
 by TeamTK
 
-##Functional Requirements
+<b>Functional Requirements<b>
 
 Application should support multiple teams. Each team has name, members and boards.
 
