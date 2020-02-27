@@ -254,7 +254,7 @@
     </TypeIdentifier>
   </Class>
   <Class Name="WIMS_TeamTK.Core.Factories.Factory" Collapsed="true" BaseTypeListCollapsed="true">
-    <Position X="39" Y="20.25" Width="1.5" />
+    <Position X="39" Y="17.75" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAAAAACgAAAAAIAAAAAAAAAAAAAAAAAAQhAAEAAAQAA=</HashCode>
       <FileName>Core\Factories\Factory.cs</FileName>
@@ -262,7 +262,7 @@
     <Lollipop Position="0.2" Collapsed="true" />
   </Class>
   <Class Name="WIMS_TeamTK.Core.Providers.CommandParser" Collapsed="true" BaseTypeListCollapsed="true">
-    <Position X="37.25" Y="19.25" Width="1.5" />
+    <Position X="37.25" Y="16.75" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAAAAAAAACAAAAAAAAAAAAAAAAAAAABAAAAAAABAAAA=</HashCode>
       <FileName>Core\Providers\CommandParser.cs</FileName>
@@ -270,7 +270,7 @@
     <Lollipop Position="0.2" Collapsed="true" />
   </Class>
   <Class Name="WIMS_TeamTK.Core.Providers.ConsoleReader" Collapsed="true" BaseTypeListCollapsed="true">
-    <Position X="40.75" Y="19.25" Width="1.5" />
+    <Position X="40.75" Y="16.75" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AABAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
       <FileName>Core\Providers\ConsoleReader.cs</FileName>
@@ -278,7 +278,7 @@
     <Lollipop Position="0.2" Collapsed="true" />
   </Class>
   <Class Name="WIMS_TeamTK.Core.Providers.ConsoleWriter" Collapsed="true" BaseTypeListCollapsed="true">
-    <Position X="42.5" Y="19.25" Width="1.5" />
+    <Position X="42.5" Y="16.75" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAAAAAAAAAAAAAAIAAAAAAAAAAAAAAAAAAAAAAEAAAA=</HashCode>
       <FileName>Core\Providers\ConsoleWriter.cs</FileName>
@@ -286,7 +286,7 @@
     <Lollipop Position="0.2" Collapsed="true" />
   </Class>
   <Class Name="WIMS_TeamTK.Core.Engine" Collapsed="true" BaseTypeListCollapsed="true">
-    <Position X="37.25" Y="20.25" Width="1.5" />
+    <Position X="37.25" Y="17.75" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAAgCAAAACAAAAAABAAAAAAAAAAAAAAARBAEACEAEAA=</HashCode>
       <FileName>Core\Engine.cs</FileName>
@@ -294,7 +294,7 @@
     <Lollipop Position="0.2" Collapsed="true" />
   </Class>
   <Class Name="WIMS_TeamTK.Core.Validator" Collapsed="true" BaseTypeListCollapsed="true">
-    <Position X="40.75" Y="20.25" Width="1.5" />
+    <Position X="40.75" Y="17.75" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AACAIAAAAAAAAAFAAEAKAABAQECAAAYAQAAACAAAAAA=</HashCode>
       <FileName>Core\Validator.cs</FileName>
@@ -302,7 +302,7 @@
     <Lollipop Position="0.2" Collapsed="true" />
   </Class>
   <Class Name="WIMS_TeamTK.Models.Bug" Collapsed="true">
-    <Position X="30.25" Y="12.75" Width="1.5" />
+    <Position X="30" Y="12.75" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AUAAAAAEAABAAAAEAAAQAAAAAAAAACIAAAAAAAQAAAE=</HashCode>
       <FileName>Models\Work Items\Bug.cs</FileName>
@@ -310,7 +310,7 @@
     <Lollipop Position="0.2" />
   </Class>
   <Class Name="WIMS_TeamTK.Models.Feedback" Collapsed="true">
-    <Position X="32.5" Y="12.75" Width="1.5" />
+    <Position X="32.25" Y="12.75" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AEAAAAAEAAAAAAAEAAAAAAAAAAAAAAEAAAAAAAAAAIA=</HashCode>
       <FileName>Models\Work Items\Feedback.cs</FileName>
@@ -318,7 +318,7 @@
     <Lollipop Position="0.2" />
   </Class>
   <Class Name="WIMS_TeamTK.Models.Story" Collapsed="true">
-    <Position X="34.75" Y="12.75" Width="1.5" />
+    <Position X="34.5" Y="12.75" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AUAAAAAEAAAAgAAEgAAQAAAAAAAAAAIAAAAAAAIAAAA=</HashCode>
       <FileName>Models\Work Items\Story.cs</FileName>
@@ -326,7 +326,7 @@
     <Lollipop Position="0.2" />
   </Class>
   <Class Name="WIMS_TeamTK.Models.WorkItem" Collapsed="true">
-    <Position X="32.5" Y="11.5" Width="1.5" />
+    <Position X="32.25" Y="11.5" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAAAAAAIEIAgAEAEAAAAAAAAgAAgAAAAAAACAAAAIAA=</HashCode>
       <FileName>Models\Work Items\WorkItem.cs</FileName>
@@ -334,7 +334,7 @@
     <Lollipop Position="0.2" />
   </Class>
   <Class Name="WIMS_TeamTK.Models.Board" Collapsed="true">
-    <Position X="37.25" Y="12.75" Width="1.5" />
+    <Position X="36.75" Y="12.75" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
       <FileName>Models\Board.cs</FileName>
@@ -342,7 +342,7 @@
     <Lollipop Position="0.2" />
   </Class>
   <Class Name="WIMS_TeamTK.Models.Comment" Collapsed="true" BaseTypeListCollapsed="true">
-    <Position X="39" Y="19.25" Width="1.5" />
+    <Position X="39" Y="16.75" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAAAAAABAAAAAAAEgAAAAAAAAAACAAAgEAAAIAAAAAA=</HashCode>
       <FileName>Models\Comment.cs</FileName>
@@ -350,7 +350,7 @@
     <Lollipop Position="0.2" Collapsed="true" />
   </Class>
   <Class Name="WIMS_TeamTK.Models.Member" Collapsed="true">
-    <Position X="39.5" Y="12.75" Width="1.5" />
+    <Position X="39" Y="12.75" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAAAAAAAAAAAAAAAAAEAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
       <FileName>Models\Member.cs</FileName>
@@ -358,7 +358,7 @@
     <Lollipop Position="0.2" />
   </Class>
   <Class Name="WIMS_TeamTK.Models.Resource" Collapsed="true">
-    <Position X="38.5" Y="11.5" Width="1.5" />
+    <Position X="38" Y="11.5" Width="1.5" />
     <TypeIdentifier>
       <HashCode>gAAAIAAAAAgBAAAEBAAAIAQAAAAAAAAAAAAAAAAAAgA=</HashCode>
       <FileName>Models\Resource.cs</FileName>
@@ -366,7 +366,7 @@
     <Lollipop Position="0.2" />
   </Class>
   <Class Name="WIMS_TeamTK.Models.Team" Collapsed="true" BaseTypeListCollapsed="true">
-    <Position X="42.5" Y="20.25" Width="1.5" />
+    <Position X="42.5" Y="17.75" Width="1.5" />
     <TypeIdentifier>
       <HashCode>gAAAIAAAAAAAAABEAAAAIAQAAQAAAAAAAAAGBCAAAAA=</HashCode>
       <FileName>Models\Team.cs</FileName>
@@ -381,161 +381,161 @@
     </TypeIdentifier>
   </Class>
   <Interface Name="WIMS_TeamTK.Core.Contracts.ICommand" Collapsed="true">
-    <Position X="31.75" Y="19.25" Width="1.5" />
+    <Position X="31.75" Y="16.75" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAAAAAAAAAAAAAQAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
       <FileName>Core\Contracts\ICommand.cs</FileName>
     </TypeIdentifier>
   </Interface>
   <Interface Name="WIMS_TeamTK.Core.Contracts.IEngine" Collapsed="true">
-    <Position X="35.25" Y="19.25" Width="1.5" />
+    <Position X="35.25" Y="16.75" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAAgCAAAACAAAAAABAAAAAAAAAAAAAAAABAEACEAAAA=</HashCode>
       <FileName>Core\Contracts\IEngine.cs</FileName>
     </TypeIdentifier>
   </Interface>
   <Interface Name="WIMS_TeamTK.Core.Contracts.IParser" Collapsed="true">
-    <Position X="31.75" Y="20" Width="1.5" />
+    <Position X="31.75" Y="17.5" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAAAAAAAACAAAAAAAAAAAAAAAAAAAAAAAAAAAABAAAA=</HashCode>
       <FileName>Core\Contracts\IParser.cs</FileName>
     </TypeIdentifier>
   </Interface>
   <Interface Name="WIMS_TeamTK.Core.Contracts.IReader" Collapsed="true">
-    <Position X="33.5" Y="20" Width="1.5" />
+    <Position X="33.5" Y="17.5" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AABAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
       <FileName>Core\Contracts\IReader.cs</FileName>
     </TypeIdentifier>
   </Interface>
   <Interface Name="WIMS_TeamTK.Core.Contracts.IValidator" Collapsed="true">
-    <Position X="30" Y="20.75" Width="1.5" />
+    <Position X="30" Y="18.25" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AACAIAAAAAAAAAFAAEAKAABAQECAAAYAAAAACAAAAAA=</HashCode>
       <FileName>Core\Contracts\IValidator.cs</FileName>
     </TypeIdentifier>
   </Interface>
   <Interface Name="WIMS_TeamTK.Core.Contracts.IWriter" Collapsed="true">
-    <Position X="31.75" Y="20.75" Width="1.5" />
+    <Position X="31.75" Y="18.25" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAAAAAAAAAAAAAAIAAAAAAAAAAAAAAAAAAAAAAEAAAA=</HashCode>
       <FileName>Core\Contracts\IWriter.cs</FileName>
     </TypeIdentifier>
   </Interface>
   <Interface Name="WIMS_TeamTK.Core.Factories.IFactory" Collapsed="true">
-    <Position X="30" Y="20" Width="1.5" />
+    <Position X="30" Y="17.5" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAAAAACgAAAAAIAAAAAAAAAAAAAAAAAAAhAAEAAAQAA=</HashCode>
       <FileName>Core\Factories\IFactory.cs</FileName>
     </TypeIdentifier>
   </Interface>
   <Interface Name="WIMS_TeamTK.Models.Contracts.IAssignable" Collapsed="true">
-    <Position X="30" Y="19.25" Width="1.5" />
+    <Position X="30" Y="16.75" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAAAAAAAAAAAAAAAAAAQAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
       <FileName>Models\Contracts\IAssignable.cs</FileName>
     </TypeIdentifier>
   </Interface>
   <Interface Name="WIMS_TeamTK.Models.Contracts.IBoard" Collapsed="true">
-    <Position X="39.5" Y="16.75" Width="1.5" />
+    <Position X="39" Y="15.5" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
       <FileName>Models\Contracts\IBoard.cs</FileName>
     </TypeIdentifier>
   </Interface>
   <Interface Name="WIMS_TeamTK.Models.Contracts.IBug" Collapsed="true">
-    <Position X="32.25" Y="16.75" Width="1.5" />
+    <Position X="32.25" Y="15.5" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAAAAAAEAAAAAAAEAAAQAAAAAAAAACAAAAAAAAQAAAA=</HashCode>
       <FileName>Models\Contracts\IBug.cs</FileName>
     </TypeIdentifier>
   </Interface>
   <Interface Name="WIMS_TeamTK.Models.Contracts.IComment" Collapsed="true">
-    <Position X="33.5" Y="19.25" Width="1.5" />
+    <Position X="33.5" Y="16.75" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAAAAAAAAAAAAAAEgAAAAAAAAAACAAAAAAAAIAAAAAA=</HashCode>
       <FileName>Models\Contracts\IComment.cs</FileName>
     </TypeIdentifier>
   </Interface>
   <Interface Name="WIMS_TeamTK.Models.Contracts.IFeedback" Collapsed="true">
-    <Position X="34.5" Y="16.75" Width="1.5" />
+    <Position X="34.5" Y="15.5" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAAAAAAEAAAAAAAAAAAAAAAAAAAAAAEAAAAAAAAAAAA=</HashCode>
       <FileName>Models\Contracts\IFeedback.cs</FileName>
     </TypeIdentifier>
   </Interface>
   <Interface Name="WIMS_TeamTK.Models.Contracts.IMember" Collapsed="true">
-    <Position X="37.25" Y="16.75" Width="1.5" />
+    <Position X="36.75" Y="15.5" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAAAAAAAAAAAAAAAAAEAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
       <FileName>Models\Contracts\IMember.cs</FileName>
     </TypeIdentifier>
   </Interface>
   <Interface Name="WIMS_TeamTK.Models.Contracts.IResource" Collapsed="true">
-    <Position X="38.5" Y="15.5" Width="1.5" />
+    <Position X="38" Y="14.25" Width="1.5" />
     <TypeIdentifier>
       <HashCode>gAAAAAAAAAABAAAEBAAAAAQAAAAAAAAAAAAAAAAAAgA=</HashCode>
       <FileName>Models\Contracts\IResource.cs</FileName>
     </TypeIdentifier>
   </Interface>
   <Interface Name="WIMS_TeamTK.Models.Contracts.IStory" Collapsed="true">
-    <Position X="30" Y="16.75" Width="1.5" />
+    <Position X="30" Y="15.5" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAAAAAAEAAAAgAAEAAAQAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
       <FileName>Models\Contracts\IStory.cs</FileName>
     </TypeIdentifier>
   </Interface>
   <Interface Name="WIMS_TeamTK.Models.Contracts.ITeam" Collapsed="true">
-    <Position X="35.25" Y="20" Width="1.5" />
+    <Position X="35.25" Y="17.5" Width="1.5" />
     <TypeIdentifier>
       <HashCode>gAAAAAAAAAAAAAAEAAAAAAQAAQAAAAAAAAAEBCAAAAA=</HashCode>
       <FileName>Models\Contracts\ITeam.cs</FileName>
     </TypeIdentifier>
   </Interface>
   <Interface Name="WIMS_TeamTK.Models.Contracts.IWorkItem" Collapsed="true">
-    <Position X="32.25" Y="15.5" Width="1.5" />
+    <Position X="32.25" Y="14.25" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAAAAAAIAAAgAEAEAAAAAAAAAAAAAAAAAAACAAAAIAA=</HashCode>
       <FileName>Models\Contracts\IWorkItem.cs</FileName>
     </TypeIdentifier>
   </Interface>
   <Enum Name="WIMS_TeamTK.Models.Enums.BugStatus" Collapsed="true">
-    <Position X="30" Y="22.25" Width="1.5" />
+    <Position X="31.75" Y="19.25" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAgAAAAAABAAAA=</HashCode>
       <FileName>Models\Enums\BugStatus.cs</FileName>
     </TypeIdentifier>
   </Enum>
   <Enum Name="WIMS_TeamTK.Models.Enums.FeedbackStatus" Collapsed="true">
-    <Position X="31.75" Y="22.25" Width="1.5" />
+    <Position X="33.5" Y="19.25" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AABAAAAAAAAAACAAAAAAAAAQAEAAAAAAAAAAAAAAAAA=</HashCode>
       <FileName>Models\Enums\FeedbackStatus.cs</FileName>
     </TypeIdentifier>
   </Enum>
   <Enum Name="WIMS_TeamTK.Models.Enums.Priority" Collapsed="true">
-    <Position X="33.5" Y="22.25" Width="1.5" />
+    <Position X="35.25" Y="19.25" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAAAAAAAAAAAAAAAAgAAAAAAAAgAAAAAAAAAAAAEAAA=</HashCode>
       <FileName>Models\Enums\Priority.cs</FileName>
     </TypeIdentifier>
   </Enum>
   <Enum Name="WIMS_TeamTK.Models.Enums.Severity" Collapsed="true">
-    <Position X="35.25" Y="22.25" Width="1.5" />
+    <Position X="37" Y="19.25" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAAIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAgAAAAACA=</HashCode>
       <FileName>Models\Enums\Severity.cs</FileName>
     </TypeIdentifier>
   </Enum>
   <Enum Name="WIMS_TeamTK.Models.Enums.Size" Collapsed="true">
-    <Position X="37" Y="22.25" Width="1.5" />
+    <Position X="38.75" Y="19.25" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAAAAAAAAAAAAAAAAAAAAABgAAAAAAAAAAAAAAAEAAA=</HashCode>
       <FileName>Models\Enums\Size.cs</FileName>
     </TypeIdentifier>
   </Enum>
   <Enum Name="WIMS_TeamTK.Models.Enums.StoryStatus" Collapsed="true">
-    <Position X="38.75" Y="22.25" Width="1.5" />
+    <Position X="40.5" Y="19.25" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AABAAAAAAAAAAAAAAAAAAAAAACAAAAAAAAAAABAAAAA=</HashCode>
       <FileName>Models\Enums\StoryStatus.cs</FileName>
