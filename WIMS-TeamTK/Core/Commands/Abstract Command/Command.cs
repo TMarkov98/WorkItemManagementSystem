@@ -15,9 +15,9 @@ namespace WIMS_TeamTK.Core.Commands
             this._validator = validator;
         }
         /// <summary>
-        /// Executes a command with the given parameter
+        /// Executes a command with the given parameter.
         /// </summary>
-        /// <param name="parameter"></param>
+        /// <param name="parameter">The given parameter.</param>
         /// <returns></returns>
         public abstract string Execute(string parameter);
     }

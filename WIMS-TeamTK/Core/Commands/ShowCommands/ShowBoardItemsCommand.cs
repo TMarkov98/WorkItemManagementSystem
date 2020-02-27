@@ -10,7 +10,11 @@ namespace WIMS_TeamTK.Core.Commands.ListCommands
         public ShowBoardItemsCommand(IFactory factory, IEngine engine, IValidator validator) : base(factory, engine, validator)
         {
         }
-
+        /// <summary>
+        /// Shows all WorkItems in a Board.
+        /// </summary>
+        /// <param name="parameter">The name of the Board.</param>
+        /// <returns>A string with the Board's WorkItems.</returns>
         public override string Execute(string parameter)
         {
             try
@@ -26,7 +30,7 @@ namespace WIMS_TeamTK.Core.Commands.ListCommands
             }
             catch (Exception ex)
             {
-                throw new ArgumentException($"{ex.Message} Unable to list board's comments.");
+                throw new ArgumentException($"{ex.Message} Unable to list board's items.");
             }
         }
     }

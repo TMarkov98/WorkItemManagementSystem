@@ -9,7 +9,11 @@ namespace WIMS_TeamTK.Core.Commands.ListCommands
         public ShowMemberActivityCommand(IFactory factory, IEngine engine, IValidator validator) : base(factory, engine, validator)
         {
         }
-
+        /// <summary>
+        /// Shows the ActivityHistory of a Member.
+        /// </summary>
+        /// <param name="parameter">The name of the Member.</param>
+        /// <returns>A string with the Member's history.</returns>
         public override string Execute(string parameter)
         {
             try

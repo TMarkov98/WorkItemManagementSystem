@@ -5,12 +5,15 @@ using WIMS_TeamTK.Core.Factories;
 
 namespace WIMS_TeamTK.Core.Commands.ListCommands
 {
-    public class ShowPeopleCommand : Command
+    public class ListMembersCommand : Command
     {
-        public ShowPeopleCommand(IFactory factory, IEngine engine, IValidator validator) : base(factory, engine, validator)
+        public ListMembersCommand(IFactory factory, IEngine engine, IValidator validator) : base(factory, engine, validator)
         {
         }
-
+        /// <summary>
+        /// Lists all members.
+        /// </summary>
+        /// <returns>A string with the listed members.</returns>
         public override string Execute(string parameter)
         {
             if (this._engine.Members.Count == 0)

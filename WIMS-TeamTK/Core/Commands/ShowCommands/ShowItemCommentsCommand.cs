@@ -9,7 +9,11 @@ namespace WIMS_TeamTK.Core.Commands.ListCommands
         public ShowItemCommentsCommand(IFactory factory, IEngine engine, IValidator validator) : base(factory, engine, validator)
         {
         }
-
+        /// <summary>
+        /// Shows all Comments in a WorkItem.
+        /// </summary>
+        /// <param name="parameter">The title of the WorkItem.</param>
+        /// <returns>A string with all listed comments.</returns>
         public override string Execute(string parameter)
         {
             try

@@ -11,7 +11,11 @@ namespace WIMS_TeamTK.Core.Commands.ListCommands
         public ShowMemberCommentsCommand(IFactory factory, IEngine engine, IValidator validator) : base(factory, engine, validator)
         {
         }
-
+        /// <summary>
+        /// Shows all Comments posted by a Member.
+        /// </summary>
+        /// <param name="parameter">The name of the Member.</param>
+        /// <returns>A string with the Member's listed Comments.</returns>
         public override string Execute(string parameter)
         {
             string memberName = parameter;

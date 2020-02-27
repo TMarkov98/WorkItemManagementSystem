@@ -13,7 +13,11 @@ namespace WIMS_TeamTK.Core.Commands.ListCommands
         public ListBugsCommand(IFactory factory, IEngine engine, IValidator validator) : base(factory, engine, validator)
         {
         }
-
+        /// <summary>
+        /// Lists all Bugs, based on user input.
+        /// </summary>
+        /// <param name="parameter">Expects either "sort" or "filter", depending on the user's sorting preference.</param>
+        /// <returns>A string with the sorted Bugs.</returns>
         public override string Execute(string parameter)
         {
             string result = string.Empty;

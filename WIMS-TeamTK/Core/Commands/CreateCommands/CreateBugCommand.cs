@@ -12,7 +12,11 @@ namespace WIMS_TeamTK.Core.Commands
         public CreateBugCommand(IFactory factory, IEngine engine, IValidator validator) : base(factory, engine, validator)
         {
         }
-
+        /// <summary>
+        /// Creates a new Bug in a Board, based on user input.
+        /// </summary>
+        /// <param name="parameter">The name of the Bug.</param>
+        /// <returns>A string that reflects if the command was successful.</returns>
         public override string Execute(string parameter)
         {
             string title;

@@ -9,7 +9,11 @@ namespace WIMS_TeamTK.Core.Commands.CreateCommands
         public AddToTeamCommand(IFactory factory, IEngine engine, IValidator validator) : base(factory, engine, validator)
         {
         }
-
+        /// <summary>
+        /// Adds a member into the provided team, based on user input.
+        /// </summary>
+        /// <param name="parameter">The name of the team.</param>
+        /// <returns>A string that reflects if the command was successful.</returns>
         public override string Execute(string parameter)
         {
             string teamName = parameter.Trim();

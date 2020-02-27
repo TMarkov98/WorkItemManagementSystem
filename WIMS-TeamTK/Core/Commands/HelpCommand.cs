@@ -10,7 +10,11 @@ namespace WIMS_TeamTK.Core.Commands
             : base(factory, engine, validator)
         {
         }
-
+        /// <summary>
+        /// Provides a list of instructions on how to use the console.
+        /// </summary>
+        /// <param name="parameter">Expects the type of command that the user wants to see.</param>
+        /// <returns>A string with instructions.</returns>
         public override string Execute(string parameter)
         {
             switch (parameter.ToLower())

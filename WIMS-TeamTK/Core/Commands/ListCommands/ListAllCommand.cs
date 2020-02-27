@@ -10,7 +10,11 @@ namespace WIMS_TeamTK.Core.Commands.ListCommands
         public ListAllCommand(IFactory factory, IEngine engine, IValidator validator) : base(factory, engine, validator)
         {
         }
-
+        /// <summary>
+        /// Lists all WorkItems, based on user input.
+        /// </summary>
+        /// <param name="parameter">Expects either "title" or blank, depending on the user's sorting preference.</param>
+        /// <returns>A string with the sorted WorkItems.</returns>
         public override string Execute(string parameter)
         {
             string result = string.Empty;

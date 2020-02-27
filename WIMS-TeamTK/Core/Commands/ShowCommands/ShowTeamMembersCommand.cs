@@ -10,12 +10,16 @@ namespace WIMS_TeamTK.Core.Commands.ListCommands
         public ShowTeamMembersCommand(IFactory factory, IEngine engine, IValidator validator) : base(factory, engine, validator)
         {
         }
-
+        /// <summary>
+        /// Shows all Members in a Team.
+        /// </summary>
+        /// <param name="parameter">The name of the Team.</param>
+        /// <returns>A string with all Members added to the Team.</returns>
         public override string Execute(string parameter)
         {
             try
             {
-                var team = this._engine.Teams.First(n => n.Name == parameter);
+                var team = this._validator.ValidateExists(this._engine.Teams, parameter);
                 if (team.Members.Count == 0)
                 {
                     return "No team members added.";
