@@ -34,7 +34,7 @@ namespace WIMS_TeamTK.Core.Commands
                 description = _validator.ValidateDescription(Console.ReadLine().Trim());
                 Console.WriteLine("Steps to reproduce(Reads until it reaches an empty line.):");
                 string input = Console.ReadLine().Trim();
-                while(input != string.Empty)
+                while (input != string.Empty)
                 {
                     stepsToReproduce.Add(input);
                     input = Console.ReadLine().Trim();

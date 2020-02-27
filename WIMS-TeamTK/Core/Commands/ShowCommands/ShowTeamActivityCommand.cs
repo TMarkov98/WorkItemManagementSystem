@@ -15,7 +15,7 @@ namespace WIMS_TeamTK.Core.Commands.ListCommands
             try
             {
                 var team = this._validator.ValidateExists(this._engine.Teams, parameter);
-                if(team.ActivityHistory.Count == 0)
+                if (team.ActivityHistory.Count == 0)
                 {
                     return "No team history listed.";
                 }

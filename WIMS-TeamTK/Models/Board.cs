@@ -1,5 +1,4 @@
-﻿using System;
-using WIMS_TeamTK.Models.Contracts;
+﻿using WIMS_TeamTK.Models.Contracts;
 
 namespace WIMS_TeamTK.Models
 {

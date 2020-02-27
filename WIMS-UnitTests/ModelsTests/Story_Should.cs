@@ -1,7 +1,4 @@
 ﻿using Microsoft.VisualStudio.TestTools.UnitTesting;
-using System;
-using System.Collections.Generic;
-using System.Text;
 using WIMS_TeamTK.Models;
 using WIMS_TeamTK.Models.Contracts;
 using WIMS_TeamTK.Models.Enums;

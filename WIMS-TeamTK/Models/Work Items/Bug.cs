@@ -34,7 +34,8 @@ namespace WIMS_TeamTK.Models
             }
         }
 
-        public Priority Priority {
+        public Priority Priority
+        {
             get
             {
                 return this._priority;
@@ -43,10 +44,11 @@ namespace WIMS_TeamTK.Models
             {
                 this.History.Add($"[{DateTime.UtcNow}]: Changed Priority to {value}.");
                 this._priority = value;
-            } 
+            }
         }
 
-        public Severity Severity {
+        public Severity Severity
+        {
             get
             {
                 return this._severity;
@@ -88,11 +90,12 @@ namespace WIMS_TeamTK.Models
                 + $"Priority: {this.Priority}{Environment.NewLine}"
                 + $"Severity: {this.Severity}{Environment.NewLine}"
                 + $"Status: {this.Status}{Environment.NewLine}";
-            if(this.Assignee == string.Empty)
+            if (this.Assignee == string.Empty)
             {
                 result += "Not assigned.";
             }
-            else {
+            else
+            {
                 result += $"Assignee: {this.Assignee}";
             }
             return result;

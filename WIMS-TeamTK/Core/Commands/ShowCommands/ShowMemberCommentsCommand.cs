@@ -20,11 +20,11 @@ namespace WIMS_TeamTK.Core.Commands.ListCommands
                 this._validator.ValidateExists(this._engine.Members, memberName);
                 List<IComment> memberComments = new List<IComment>();
                 string result = "";
-                foreach(var item in this._engine.WorkItems)
+                foreach (var item in this._engine.WorkItems)
                 {
-                    foreach(var comment in item.Comments)
+                    foreach (var comment in item.Comments)
                     {
-                        if(comment.Author == memberName)
+                        if (comment.Author == memberName)
                         {
                             result += $"Comment on item {item.Title}:{Environment.NewLine}{comment}{Environment.NewLine}";
                         }
@@ -34,7 +34,7 @@ namespace WIMS_TeamTK.Core.Commands.ListCommands
                     return $"No comments by {memberName}";
                 return result;
             }
-            catch(ArgumentException ex)
+            catch (ArgumentException ex)
             {
                 throw new ArgumentException($"{ex.Message} Unable to list member comments.");
             }

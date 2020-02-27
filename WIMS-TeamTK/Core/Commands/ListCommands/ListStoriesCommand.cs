@@ -18,7 +18,7 @@ namespace WIMS_TeamTK.Core.Commands.ListCommands
         {
             string result = string.Empty;
             List<IStory> allStories = this._engine.WorkItems.Where(n => n.GetType().Name == "Story").Select(n => n as IStory).ToList();
-            if(allStories.Count == 0)
+            if (allStories.Count == 0)
             {
                 return "No stories added.";
             }

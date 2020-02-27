@@ -24,7 +24,7 @@ namespace WIMS_TeamTK.Core.Commands.ListCommands
                 result = string.Join($"{Environment.NewLine}============={Environment.NewLine}", this._engine.WorkItems
                     .Select((workItem) => $"ID: {this._engine.WorkItems.IndexOf(workItem)} - {workItem.ToString()}").ToArray());
             }
-            else if(parameter.ToLower() == "title")
+            else if (parameter.ToLower() == "title")
             {
                 result = string.Join($"{Environment.NewLine}============={Environment.NewLine}", this._engine.WorkItems
                     .OrderBy(n => n.Title).Select((workItem) => $"ID: {this._engine.WorkItems.IndexOf(workItem)} - {workItem.ToString()}").ToArray());

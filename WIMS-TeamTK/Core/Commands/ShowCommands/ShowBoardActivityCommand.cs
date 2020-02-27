@@ -15,7 +15,7 @@ namespace WIMS_TeamTK.Core.Commands.ListCommands
             try
             {
                 var board = this._validator.ValidateMoreThanOne(this._engine.Boards, parameter);
-                if(board.ActivityHistory.Count == 0)
+                if (board.ActivityHistory.Count == 0)
                 {
                     return "No board history listed.";
                 }

@@ -13,7 +13,7 @@ namespace WIMS_TeamTK.Core.Commands.ListCommands
 
         public override string Execute(string parameter)
         {
-            if(this._engine.Teams.Count == 0)
+            if (this._engine.Teams.Count == 0)
             {
                 return "No teams added.";
             }

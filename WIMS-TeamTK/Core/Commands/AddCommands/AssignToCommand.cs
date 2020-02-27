@@ -24,7 +24,7 @@ namespace WIMS_TeamTK.Core.Commands.AddCommands
                 var workItem = this._validator.ValidateExists(this._engine.WorkItems, workItemTitle);
                 workItem = this._validator.ValidateMoreThanOne(this._engine.WorkItems, workItemTitle);
                 member.AddWorkItem(workItem);
-                if(workItem.GetType().Name == "Bug")
+                if (workItem.GetType().Name == "Bug")
                 {
                     (workItem as IBug).Assignee = memberName;
                 }

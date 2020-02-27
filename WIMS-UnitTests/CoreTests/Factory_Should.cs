@@ -1,10 +1,7 @@
 ﻿using Microsoft.VisualStudio.TestTools.UnitTesting;
-using System;
 using System.Collections.Generic;
-using System.Text;
 using WIMS_TeamTK.Core.Factories;
 using WIMS_TeamTK.Models;
-using WIMS_TeamTK.Models.Contracts;
 using WIMS_TeamTK.Models.Enums;
 
 namespace WIMS_UnitTests.CoreTests
@@ -90,5 +87,5 @@ namespace WIMS_UnitTests.CoreTests
             Assert.IsInstanceOfType(sut, typeof(Team));
         }
     }
-    
+
 }

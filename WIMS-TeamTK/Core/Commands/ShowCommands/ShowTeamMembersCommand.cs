@@ -13,10 +13,10 @@ namespace WIMS_TeamTK.Core.Commands.ListCommands
 
         public override string Execute(string parameter)
         {
-            try 
-            { 
+            try
+            {
                 var team = this._engine.Teams.First(n => n.Name == parameter);
-                if(team.Members.Count == 0)
+                if (team.Members.Count == 0)
                 {
                     return "No team members added.";
                 }

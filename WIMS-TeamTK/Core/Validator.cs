@@ -19,7 +19,7 @@ namespace WIMS_TeamTK.Core
 
         public IBoard ValidateExists(IList<IBoard> boards, string boardName)
         {
-            if(!boards.Any(board => board.Name == boardName))
+            if (!boards.Any(board => board.Name == boardName))
             {
                 throw new ArgumentException($"Board {boardName} not found.");
             }
@@ -47,7 +47,7 @@ namespace WIMS_TeamTK.Core
 
         public IMember ValidateExists(IList<IMember> members, string memberName)
         {
-            if(!members.Any(member => member.Name == memberName))
+            if (!members.Any(member => member.Name == memberName))
             {
                 throw new ArgumentException($"Member {memberName} not found.");
             }
@@ -56,7 +56,7 @@ namespace WIMS_TeamTK.Core
 
         public IBoard ValidateMoreThanOne(IList<IBoard> boards, string boardName)
         {
-            if(boards.Count(board => board.Name == boardName) > 1)
+            if (boards.Count(board => board.Name == boardName) > 1)
             {
                 Console.Write("More than one board found. Please use board ID: ");
                 int id = int.Parse(Console.ReadLine());
@@ -142,7 +142,7 @@ namespace WIMS_TeamTK.Core
             try
             {
                 int result = int.Parse(rating);
-                if(result > 10 || result < -10)
+                if (result > 10 || result < -10)
                 {
                     throw new ArgumentException();
                 }
@@ -163,7 +163,7 @@ namespace WIMS_TeamTK.Core
 
         public string ValidateBoardName(string name)
         {
-            if(name.Length < 5 || name.Length > 10)
+            if (name.Length < 5 || name.Length > 10)
             {
                 throw new ArgumentException("Board name should be between 5 and 10 symbols.");
             }
@@ -180,7 +180,7 @@ namespace WIMS_TeamTK.Core
         }
         public string ValidateTeamName(string name)
         {
-            if(name.Length < 5 || name.Length > 15)
+            if (name.Length < 5 || name.Length > 15)
             {
                 throw new ArgumentException("Team name should be between 5 and 15 symbols.");
             }

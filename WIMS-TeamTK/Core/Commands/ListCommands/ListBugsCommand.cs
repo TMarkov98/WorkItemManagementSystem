@@ -18,7 +18,7 @@ namespace WIMS_TeamTK.Core.Commands.ListCommands
         {
             string result = string.Empty;
             List<IBug> allBugs = this._engine.WorkItems.Where(n => n.GetType().Name == "Bug").Select(n => n as IBug).ToList();
-            if(allBugs.Count == 0)
+            if (allBugs.Count == 0)
             {
                 return "No bugs added.";
             }
@@ -73,7 +73,7 @@ namespace WIMS_TeamTK.Core.Commands.ListCommands
                             .Select(workItem => $"ID: {this._engine.WorkItems.IndexOf(workItem)} - {workItem.ToString()}").ToArray());
                     }
                 }
-                else if(filter == "assigne")
+                else if (filter == "assigne")
                 {
                     Console.Write("Assigne to filter by: ");
                     string filterAssignee = Console.ReadLine().Trim();

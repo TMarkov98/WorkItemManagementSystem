@@ -16,7 +16,7 @@ namespace WIMS_TeamTK.Core.Commands.ListCommands
             try
             {
                 var team = this._engine.Teams.First(n => n.Name == parameter);
-                if(team.Boards.Count == 0)
+                if (team.Boards.Count == 0)
                 {
                     return "No boards added to team.";
                 }

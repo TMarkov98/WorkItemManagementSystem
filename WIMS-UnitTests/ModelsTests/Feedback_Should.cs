@@ -1,14 +1,11 @@
 ﻿using Microsoft.VisualStudio.TestTools.UnitTesting;
-using System;
-using System.Collections.Generic;
-using System.Text;
 using WIMS_TeamTK.Models;
 using WIMS_TeamTK.Models.Enums;
 
 namespace WIMS_UnitTests.ModelsTests
-{ 
-   [TestClass]
-   public class Feedback_Should
+{
+    [TestClass]
+    public class Feedback_Should
     {
         [TestMethod]
         public void SetCorrectName()

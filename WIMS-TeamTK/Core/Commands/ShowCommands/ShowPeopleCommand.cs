@@ -19,7 +19,7 @@ namespace WIMS_TeamTK.Core.Commands.ListCommands
             }
             string result = string.Join($"{Environment.NewLine}", this._engine.Members
                 .Select((member) => $"ID: {this._engine.Members.IndexOf(member)} - {member.ToString()}").ToArray());
-            
+
             return result;
         }
     }

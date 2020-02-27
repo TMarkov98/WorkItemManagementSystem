@@ -12,7 +12,7 @@ namespace WIMS_TeamTK.Core.Contracts
         IWriter Writer { get; set; }
 
         IParser Parser { get; set; }
-        
+
         List<IWorkItem> WorkItems { get; }
 
         IList<IBoard> Boards { get; }

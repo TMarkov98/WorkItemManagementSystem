@@ -18,7 +18,7 @@ namespace WIMS_TeamTK.Core.Commands.ListCommands
         {
             string result = string.Empty;
             List<IFeedback> allFeedbacks = this._engine.WorkItems.Where(n => n.GetType().Name == "Feedback").Select(n => n as IFeedback).ToList();
-            if(allFeedbacks.Count == 0)
+            if (allFeedbacks.Count == 0)
             {
                 return "No feedbacks added.";
             }
