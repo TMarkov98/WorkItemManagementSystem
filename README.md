@@ -1,25 +1,24 @@
 # WIMS-TeamTK
 
-Functional Requirements
+##Functional Requirements
 
 Application should support multiple teams. Each team has name, members and boards.
 
 
-Member has name, list of work items and activity history.
-
+###Member has name, list of work items and activity history.
 
 Name should be unique in the application.
 Name is a string between 5 and 15 symbols.
 
 
-Board has name, list of work items and activity history.
+###Board has name, list of work items and activity history.
 
 Name should be unique in the team.
 Name is a string between 5 and 10 symbols.
 There are 3 types of work items: Bug, Story and Feedback.
 
 
-Bug has ID, title, description, steps to reproduce, priority, severity, status, assignee, comments and history.
+###Bug has ID, title, description, steps to reproduce, priority, severity, status, assignee, comments and history.
 
 
 Title is a string between 10 and 50 symbols.
