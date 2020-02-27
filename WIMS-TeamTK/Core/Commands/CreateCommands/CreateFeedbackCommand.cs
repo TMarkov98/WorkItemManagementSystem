@@ -8,7 +8,7 @@ namespace WIMS_TeamTK.Core.Commands
 {
     class CreateFeedbackCommand : Command
     {
-        public CreateFeedbackCommand(IFactory factory, IEngine engine) : base(factory, engine)
+        public CreateFeedbackCommand(IFactory factory, IEngine engine, IValidator validator) : base(factory, engine, validator)
         {
         }
 
@@ -25,8 +25,8 @@ namespace WIMS_TeamTK.Core.Commands
                 title = this._validator.ValidateTitle(parameter);
                 Console.Write("Board: ");
                 boardName = Console.ReadLine().Trim();
-                var board = this._validator.ValidateBoardExists(this._engine.Boards, boardName);
-                board = this._validator.ValidateMoreThanOneBoard(this._engine.Boards, boardName);
+                var board = this._validator.ValidateExists(this._engine.Boards, boardName);
+                board = this._validator.ValidateMoreThanOne(this._engine.Boards, boardName);
                 Console.Write("Feedback Description(Single line.): ");
                 description = this._validator.ValidateDescription(Console.ReadLine().Trim());
                 Console.Write("Feedback Rating(-10 to 10): ");

@@ -21,7 +21,7 @@ namespace WIMS_TeamTK.Models
         public virtual string Title
         {
             get => this._title;
-            set
+            private set
             {
                 this._title = value;
             }
@@ -29,7 +29,7 @@ namespace WIMS_TeamTK.Models
         public virtual string Description
         {
             get => this._description;
-            set
+            private set
             {
                 this.History.Add($"[{DateTime.UtcNow}]: Changed Description to {value}.");
                 this._description = value;

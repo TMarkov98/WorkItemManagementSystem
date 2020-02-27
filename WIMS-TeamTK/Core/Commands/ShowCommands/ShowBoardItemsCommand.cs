@@ -7,7 +7,7 @@ namespace WIMS_TeamTK.Core.Commands.ListCommands
 {
     public class ShowBoardItemsCommand : Command
     {
-        public ShowBoardItemsCommand(IFactory factory, IEngine engine) : base(factory, engine)
+        public ShowBoardItemsCommand(IFactory factory, IEngine engine, IValidator validator) : base(factory, engine, validator)
         {
         }
 
@@ -15,7 +15,7 @@ namespace WIMS_TeamTK.Core.Commands.ListCommands
         {
             try
             {
-                var board = this._validator.ValidateBoardExists(this._engine.Boards, parameter);
+                var board = this._validator.ValidateExists(this._engine.Boards, parameter);
                 if (board.WorkItems.Count == 0)
                 {
                     throw new ArgumentException("No work items in this board.");

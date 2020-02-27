@@ -6,7 +6,7 @@ namespace WIMS_TeamTK.Core.Commands.CreateCommands
 {
     class AddToTeamCommand : Command
     {
-        public AddToTeamCommand(IFactory factory, IEngine engine) : base(factory, engine)
+        public AddToTeamCommand(IFactory factory, IEngine engine, IValidator validator) : base(factory, engine, validator)
         {
         }
 
@@ -16,11 +16,11 @@ namespace WIMS_TeamTK.Core.Commands.CreateCommands
             string memberName;
             try
             {
-                var team = this._validator.ValidateTeamExists(this._engine.Teams, teamName);
+                var team = this._validator.ValidateExists(this._engine.Teams, teamName);
                 Console.Write("Member: ");
                 memberName = Console.ReadLine().Trim();
-                var member = this._validator.ValidateMemberExists(this._engine.Members, memberName);
-                this._validator.ValidateDuplicateMember(team.Members, memberName);
+                var member = this._validator.ValidateExists(this._engine.Members, memberName);
+                this._validator.ValidateDuplicate(team.Members, memberName);
                 team.AddMember(member);
                 return $"Added member {memberName} to team {parameter}.";
             }

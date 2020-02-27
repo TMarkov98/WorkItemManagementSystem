@@ -8,8 +8,8 @@ namespace WIMS_TeamTK.Core.Commands
 {
     class HelpCommand : Command
     {
-        public HelpCommand(IFactory factory, IEngine engine)
-            : base(factory, engine)
+        public HelpCommand(IFactory factory, IEngine engine, IValidator validator)
+            : base(factory, engine, validator)
         {
         }
 

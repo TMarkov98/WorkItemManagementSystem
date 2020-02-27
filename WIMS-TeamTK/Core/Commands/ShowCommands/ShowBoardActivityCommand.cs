@@ -6,7 +6,7 @@ namespace WIMS_TeamTK.Core.Commands.ListCommands
 {
     public class ShowBoardActivityCommand : Command
     {
-        public ShowBoardActivityCommand(IFactory factory, IEngine engine) : base(factory, engine)
+        public ShowBoardActivityCommand(IFactory factory, IEngine engine, IValidator validator) : base(factory, engine, validator)
         {
         }
 
@@ -14,7 +14,7 @@ namespace WIMS_TeamTK.Core.Commands.ListCommands
         {
             try
             {
-                var board = this._validator.ValidateMoreThanOneBoard(this._engine.Boards, parameter);
+                var board = this._validator.ValidateMoreThanOne(this._engine.Boards, parameter);
                 if(board.ActivityHistory.Count == 0)
                 {
                     return "No board history listed.";

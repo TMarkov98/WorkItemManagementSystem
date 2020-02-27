@@ -8,7 +8,7 @@ namespace WIMS_TeamTK.Core.Commands.AddCommands
 {
     public class AssignToCommand : Command
     {
-        public AssignToCommand(IFactory factory, IEngine engine) : base(factory, engine)
+        public AssignToCommand(IFactory factory, IEngine engine, IValidator validator) : base(factory, engine, validator)
         {
         }
 
@@ -18,11 +18,11 @@ namespace WIMS_TeamTK.Core.Commands.AddCommands
             string workItemTitle;
             try
             {
-                var member = this._validator.ValidateMemberExists(this._engine.Members, memberName);
+                var member = this._validator.ValidateExists(this._engine.Members, memberName);
                 Console.Write("WorkItem: ");
                 workItemTitle = Console.ReadLine().Trim();
-                var workItem = this._validator.ValidateWorkItemExists(this._engine.WorkItems, workItemTitle);
-                workItem = this._validator.ValidateMoreThanOneWorkItem(this._engine.WorkItems, workItemTitle);
+                var workItem = this._validator.ValidateExists(this._engine.WorkItems, workItemTitle);
+                workItem = this._validator.ValidateMoreThanOne(this._engine.WorkItems, workItemTitle);
                 member.AddWorkItem(workItem);
                 if(workItem.GetType().Name == "Bug")
                 {

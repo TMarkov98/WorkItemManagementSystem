@@ -6,7 +6,7 @@ namespace WIMS_TeamTK.Core.Commands.ListCommands
 {
     public class ShowItemHistoryCommand : Command
     {
-        public ShowItemHistoryCommand(IFactory factory, IEngine engine) : base(factory, engine)
+        public ShowItemHistoryCommand(IFactory factory, IEngine engine, IValidator validator) : base(factory, engine, validator)
         {
         }
 
@@ -14,7 +14,7 @@ namespace WIMS_TeamTK.Core.Commands.ListCommands
         {
             try
             {
-                var workItem = this._validator.ValidateWorkItemExists(this._engine.WorkItems, parameter);
+                var workItem = this._validator.ValidateExists(this._engine.WorkItems, parameter);
                 if (workItem.History.Count == 0)
                 {
                     throw new ArgumentException("History of this item is empty.");

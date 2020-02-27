@@ -7,7 +7,7 @@ namespace WIMS_TeamTK.Core.Commands.ListCommands
 {
     class ListAllCommand : Command
     {
-        public ListAllCommand(IFactory factory, IEngine engine) : base(factory, engine)
+        public ListAllCommand(IFactory factory, IEngine engine, IValidator validator) : base(factory, engine, validator)
         {
         }
 

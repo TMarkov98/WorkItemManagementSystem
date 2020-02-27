@@ -9,7 +9,7 @@ namespace WIMS_TeamTK.Core
 {
     public class Validator : IValidator
     {
-        public void ValidateDuplicateBoard(IList<IBoard> boards, string boardName)
+        public void ValidateDuplicate(IList<IBoard> boards, string boardName)
         {
             if (boards.Any(board => board.Name == boardName))
             {
@@ -17,7 +17,7 @@ namespace WIMS_TeamTK.Core
             }
         }
 
-        public IBoard ValidateBoardExists(IList<IBoard> boards, string boardName)
+        public IBoard ValidateExists(IList<IBoard> boards, string boardName)
         {
             if(!boards.Any(board => board.Name == boardName))
             {
@@ -45,7 +45,7 @@ namespace WIMS_TeamTK.Core
             return (FeedbackStatus)Enum.Parse(typeof(FeedbackStatus), feedbackStatus, true);
         }
 
-        public IMember ValidateMemberExists(IList<IMember> members, string memberName)
+        public IMember ValidateExists(IList<IMember> members, string memberName)
         {
             if(!members.Any(member => member.Name == memberName))
             {
@@ -54,7 +54,7 @@ namespace WIMS_TeamTK.Core
             return members.First(member => member.Name == memberName);
         }
 
-        public IBoard ValidateMoreThanOneBoard(IList<IBoard> boards, string boardName)
+        public IBoard ValidateMoreThanOne(IList<IBoard> boards, string boardName)
         {
             if(boards.Count(board => board.Name == boardName) > 1)
             {
@@ -68,7 +68,7 @@ namespace WIMS_TeamTK.Core
             }
         }
 
-        public IWorkItem ValidateMoreThanOneWorkItem(IList<IWorkItem> workItems, string workItemName)
+        public IWorkItem ValidateMoreThanOne(IList<IWorkItem> workItems, string workItemName)
         {
             if (workItems.Count(workItem => workItem.Title == workItemName) > 1)
             {
@@ -102,7 +102,7 @@ namespace WIMS_TeamTK.Core
             return (StoryStatus)Enum.Parse(typeof(StoryStatus), storyStatus, true);
         }
 
-        public ITeam ValidateTeamExists(IList<ITeam> teams, string teamName)
+        public ITeam ValidateExists(IList<ITeam> teams, string teamName)
         {
             if (!teams.Any(team => team.Name == teamName))
             {
@@ -120,7 +120,7 @@ namespace WIMS_TeamTK.Core
             return title;
         }
 
-        public IWorkItem ValidateWorkItemExists(IList<IWorkItem> workItems, string workItemName)
+        public IWorkItem ValidateExists(IList<IWorkItem> workItems, string workItemName)
         {
             if (!workItems.Any(workItem => workItem.Title == workItemName))
             {
@@ -129,7 +129,7 @@ namespace WIMS_TeamTK.Core
             return workItems.First(workItem => workItem.Title == workItemName);
         }
 
-        public void ValidateDuplicateMember(IList<IMember> members, string memberName)
+        public void ValidateDuplicate(IList<IMember> members, string memberName)
         {
             if (members.Any(n => n.Name == memberName))
             {
@@ -153,7 +153,7 @@ namespace WIMS_TeamTK.Core
                 throw new ArgumentException("Rating was not passed in a correct format. Please provide an integer between -10 and 10.");
             }
         }
-        public void ValidateDuplicateTeam(IList<ITeam> teams, string teamName)
+        public void ValidateDuplicate(IList<ITeam> teams, string teamName)
         {
             if (teams.Any(n => n.Name == teamName))
             {

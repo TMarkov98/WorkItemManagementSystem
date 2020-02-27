@@ -9,7 +9,7 @@ namespace WIMS_TeamTK.Core.Commands
 {
     class CreateBugCommand : Command
     {
-        public CreateBugCommand(IFactory factory, IEngine engine) : base(factory, engine)
+        public CreateBugCommand(IFactory factory, IEngine engine, IValidator validator) : base(factory, engine, validator)
         {
         }
 
@@ -28,8 +28,8 @@ namespace WIMS_TeamTK.Core.Commands
                 title = this._validator.ValidateTitle(parameter);
                 Console.Write("Board: ");
                 boardName = Console.ReadLine().Trim();
-                var board = _validator.ValidateBoardExists(this._engine.Boards, boardName);
-                board = _validator.ValidateMoreThanOneBoard(this._engine.Boards, boardName);
+                var board = _validator.ValidateExists(this._engine.Boards, boardName);
+                board = _validator.ValidateMoreThanOne(this._engine.Boards, boardName);
                 Console.Write("Bug Description(Single line.): ");
                 description = _validator.ValidateDescription(Console.ReadLine().Trim());
                 Console.WriteLine("Steps to reproduce(Reads until it reaches an empty line.):");

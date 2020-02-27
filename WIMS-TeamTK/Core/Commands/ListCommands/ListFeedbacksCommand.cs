@@ -10,7 +10,7 @@ namespace WIMS_TeamTK.Core.Commands.ListCommands
 {
     class ListFeedbacksCommand : Command
     {
-        public ListFeedbacksCommand(IFactory factory, IEngine engine) : base(factory, engine)
+        public ListFeedbacksCommand(IFactory factory, IEngine engine, IValidator validator) : base(factory, engine, validator)
         {
         }
 

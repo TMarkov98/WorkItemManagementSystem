@@ -25,7 +25,7 @@ namespace WIMS_TeamTK.Models
             {
                 return this._name;
             }
-            set
+            private set
             {
                 this._name = value;
             }

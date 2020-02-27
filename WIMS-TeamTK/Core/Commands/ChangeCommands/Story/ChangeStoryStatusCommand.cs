@@ -8,7 +8,7 @@ namespace WIMS_TeamTK.Core.Commands.ChangeCommands
 {
     class ChangeStoryStatusCommand : Command
     {
-        public ChangeStoryStatusCommand(IFactory factory, IEngine engine) : base(factory, engine)
+        public ChangeStoryStatusCommand(IFactory factory, IEngine engine, IValidator validator) : base(factory, engine, validator)
         {
         }
 
@@ -16,7 +16,7 @@ namespace WIMS_TeamTK.Core.Commands.ChangeCommands
         {
             try
             {
-                var story = this._validator.ValidateWorkItemExists(this._engine.WorkItems.Where(n => n.GetType().Name == "Story").ToList(), parameter);
+                var story = this._validator.ValidateExists(this._engine.WorkItems.Where(n => n.GetType().Name == "Story").ToList(), parameter);
                 Console.Write("New Story Status(NotDone/InProgress/Done): ");
                 string newStatus = Console.ReadLine().Trim();
 

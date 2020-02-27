@@ -8,8 +8,8 @@ namespace WIMS_TeamTK.Core.Commands.ChangeCommands
 {
     class ChangeBugPriorityCommand : Command
     {
-        public ChangeBugPriorityCommand(IFactory factory, IEngine engine)
-            : base(factory, engine)
+        public ChangeBugPriorityCommand(IFactory factory, IEngine engine, IValidator validator)
+            : base(factory, engine, validator)
         {
         }
 
@@ -18,8 +18,8 @@ namespace WIMS_TeamTK.Core.Commands.ChangeCommands
             string workItemName = parameter;
             try
             {
-                var bug = this._validator.ValidateWorkItemExists(this._engine.WorkItems.Where(n => n.GetType().Name == "Bug").ToList(), workItemName);
-                bug = this._validator.ValidateMoreThanOneWorkItem(this._engine.WorkItems.Where(n => n.GetType().Name == "Bug").ToList(), workItemName);
+                var bug = this._validator.ValidateExists(this._engine.WorkItems.Where(n => n.GetType().Name == "Bug").ToList(), workItemName);
+                bug = this._validator.ValidateMoreThanOne(this._engine.WorkItems.Where(n => n.GetType().Name == "Bug").ToList(), workItemName);
                 Console.Write("New Bug Priority(High/Medium/Low): ");
                 (bug as IBug).Priority = this._validator.ValidatePriority(Console.ReadLine().Trim());
                 return $"Changed {parameter} priority to {(bug as IBug).Priority}.";

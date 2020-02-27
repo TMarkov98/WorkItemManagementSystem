@@ -8,8 +8,8 @@ namespace WIMS_TeamTK.Core.Commands.ChangeCommands
 {
     class ChangeBugSeverityCommand : Command
     {
-        public ChangeBugSeverityCommand(IFactory factory, IEngine engine)
-            : base(factory, engine)
+        public ChangeBugSeverityCommand(IFactory factory, IEngine engine, IValidator validator)
+            : base(factory, engine, validator)
         {
         }
 
@@ -18,8 +18,8 @@ namespace WIMS_TeamTK.Core.Commands.ChangeCommands
             string workItemName = parameter;
             try
             {
-                var bug = this._validator.ValidateWorkItemExists(this._engine.WorkItems.Where(n => n.GetType().Name == "Bug").ToList(), workItemName);
-                bug = this._validator.ValidateMoreThanOneWorkItem(this._engine.WorkItems.Where(n => n.GetType().Name == "Bug").ToList(), workItemName);
+                var bug = this._validator.ValidateExists(this._engine.WorkItems.Where(n => n.GetType().Name == "Bug").ToList(), workItemName);
+                bug = this._validator.ValidateMoreThanOne(this._engine.WorkItems.Where(n => n.GetType().Name == "Bug").ToList(), workItemName);
                 Console.Write("New Bug Severity(Critical/Major/Minor): ");
                 (bug as IBug).Severity = this._validator.ValidateSeverity(Console.ReadLine().Trim());
                 return $"Changed {parameter} severity to {(bug as IBug).Severity}.";

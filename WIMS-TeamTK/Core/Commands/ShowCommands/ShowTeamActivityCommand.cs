@@ -6,7 +6,7 @@ namespace WIMS_TeamTK.Core.Commands.ListCommands
 {
     class ShowTeamActivityCommand : Command
     {
-        public ShowTeamActivityCommand(IFactory factory, IEngine engine) : base(factory, engine)
+        public ShowTeamActivityCommand(IFactory factory, IEngine engine, IValidator validator) : base(factory, engine, validator)
         {
         }
 
@@ -14,7 +14,7 @@ namespace WIMS_TeamTK.Core.Commands.ListCommands
         {
             try
             {
-                var team = this._validator.ValidateTeamExists(this._engine.Teams, parameter);
+                var team = this._validator.ValidateExists(this._engine.Teams, parameter);
                 if(team.ActivityHistory.Count == 0)
                 {
                     return "No team history listed.";

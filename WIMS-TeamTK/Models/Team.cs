@@ -10,7 +10,6 @@ namespace WIMS_TeamTK.Models
         private List<IMember> _members = new List<IMember>();
         private List<IBoard> _boards = new List<IBoard>();
         private List<string> _activityHistory = new List<string>();
-
         public Team(string name)
         {
             this.Name = name;
@@ -20,7 +19,7 @@ namespace WIMS_TeamTK.Models
         public string Name
         {
             get => this._name;
-            set
+            private set
             {
                 this._name = value;
             }

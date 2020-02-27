@@ -8,7 +8,7 @@ namespace WIMS_TeamTK.Core.Commands.ListCommands
 {
     public class ShowMemberCommentsCommand : Command
     {
-        public ShowMemberCommentsCommand(IFactory factory, IEngine engine) : base(factory, engine)
+        public ShowMemberCommentsCommand(IFactory factory, IEngine engine, IValidator validator) : base(factory, engine, validator)
         {
         }
 
@@ -17,7 +17,7 @@ namespace WIMS_TeamTK.Core.Commands.ListCommands
             string memberName = parameter;
             try
             {
-                this._validator.ValidateMemberExists(this._engine.Members, memberName);
+                this._validator.ValidateExists(this._engine.Members, memberName);
                 List<IComment> memberComments = new List<IComment>();
                 string result = "";
                 foreach(var item in this._engine.WorkItems)

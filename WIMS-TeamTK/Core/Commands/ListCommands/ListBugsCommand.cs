@@ -10,7 +10,7 @@ namespace WIMS_TeamTK.Core.Commands.ListCommands
 {
     class ListBugsCommand : Command
     {
-        public ListBugsCommand(IFactory factory, IEngine engine) : base(factory, engine)
+        public ListBugsCommand(IFactory factory, IEngine engine, IValidator validator) : base(factory, engine, validator)
         {
         }
 
@@ -77,7 +77,7 @@ namespace WIMS_TeamTK.Core.Commands.ListCommands
                 {
                     Console.Write("Assigne to filter by: ");
                     string filterAssignee = Console.ReadLine().Trim();
-                    this._validator.ValidateMemberExists(this._engine.Members, filterAssignee);
+                    this._validator.ValidateExists(this._engine.Members, filterAssignee);
                     result = string.Join(Environment.NewLine, allBugs.Where(n => n.Assignee.Equals(filterAssignee))
                         .Select(workItem => $"ID: {this._engine.WorkItems.IndexOf(workItem)} - {workItem.ToString()}").ToArray());
                 }

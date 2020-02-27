@@ -8,7 +8,7 @@ namespace WIMS_TeamTK.Core.Commands
 {
     class CreateStoryCommand : Command
     {
-        public CreateStoryCommand(IFactory factory, IEngine engine) : base(factory, engine)
+        public CreateStoryCommand(IFactory factory, IEngine engine, IValidator validator) : base(factory, engine, validator)
         {
         }
 
@@ -25,8 +25,8 @@ namespace WIMS_TeamTK.Core.Commands
                 title = this._validator.ValidateTitle(parameter);
                 Console.Write("Board: ");
                 boardName = Console.ReadLine().Trim();
-                var board = this._validator.ValidateBoardExists(this._engine.Boards, boardName);
-                board = this._validator.ValidateMoreThanOneBoard(this._engine.Boards, boardName);
+                var board = this._validator.ValidateExists(this._engine.Boards, boardName);
+                board = this._validator.ValidateMoreThanOne(this._engine.Boards, boardName);
                 Console.Write("Story Description(Single line): ");
                 description = this._validator.ValidateDescription(Console.ReadLine().Trim());
                 Console.Write("Story Priority(High/Medium/Low): ");

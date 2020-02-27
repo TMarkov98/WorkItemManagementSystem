@@ -9,7 +9,7 @@ namespace WIMS_TeamTK.Core.Commands
 {
     class ChangeFeedbackStatusCommand : Command
     {
-        public ChangeFeedbackStatusCommand(IFactory factory, IEngine engine) : base(factory, engine)
+        public ChangeFeedbackStatusCommand(IFactory factory, IEngine engine, IValidator validator) : base(factory, engine, validator)
         {
         }
 
@@ -17,8 +17,8 @@ namespace WIMS_TeamTK.Core.Commands
         {
             try
             {
-                var feedback = this._validator.ValidateWorkItemExists(this._engine.WorkItems.Where(n => n.GetType().Name == "Feedback").ToList(), parameter);
-                feedback = this._validator.ValidateMoreThanOneWorkItem((this._engine.WorkItems.Where(n => n.GetType().Name == "Feedback").ToList()), parameter);
+                var feedback = this._validator.ValidateExists(this._engine.WorkItems.Where(n => n.GetType().Name == "Feedback").ToList(), parameter);
+                feedback = this._validator.ValidateMoreThanOne((this._engine.WorkItems.Where(n => n.GetType().Name == "Feedback").ToList()), parameter);
                 Console.Write("New Feedback Status(New/Unscheduled/Scheduled/Done): ");
                 string newStatus = Console.ReadLine().Trim();
 

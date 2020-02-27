@@ -7,7 +7,7 @@ namespace WIMS_TeamTK.Core.Commands.ListCommands
 {
     public class ShowTeamMembersCommand : Command
     {
-        public ShowTeamMembersCommand(IFactory factory, IEngine engine) : base(factory, engine)
+        public ShowTeamMembersCommand(IFactory factory, IEngine engine, IValidator validator) : base(factory, engine, validator)
         {
         }
 

@@ -6,7 +6,7 @@ namespace WIMS_TeamTK.Core.Commands.RemoveCommands
 {
     public class RemoveLastCommentCommand : Command
     {
-        public RemoveLastCommentCommand(IFactory factory, IEngine engine) : base(factory, engine)
+        public RemoveLastCommentCommand(IFactory factory, IEngine engine, IValidator validator) : base(factory, engine, validator)
         {
         }
 
@@ -15,11 +15,11 @@ namespace WIMS_TeamTK.Core.Commands.RemoveCommands
             string workItemName = parameter;
             try
             {
-                var workItem = this._validator.ValidateWorkItemExists(this._engine.WorkItems, workItemName);
-                workItem = this._validator.ValidateMoreThanOneWorkItem(this._engine.WorkItems, workItemName);
+                var workItem = this._validator.ValidateExists(this._engine.WorkItems, workItemName);
+                workItem = this._validator.ValidateMoreThanOne(this._engine.WorkItems, workItemName);
                 Console.Write("Author: ");
                 string authorName = Console.ReadLine().Trim();
-                var author = this._validator.ValidateMemberExists(this._engine.Members, authorName);
+                var author = this._validator.ValidateExists(this._engine.Members, authorName);
                 var comment = workItem.Comments.FindLast(c => c.Author == authorName);
                 workItem.Comments.Remove(comment);
                 return $"Removed last comment of {authorName} from {workItemName}";

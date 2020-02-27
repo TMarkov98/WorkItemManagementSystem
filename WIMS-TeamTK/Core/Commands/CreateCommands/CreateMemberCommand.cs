@@ -6,8 +6,8 @@ namespace WIMS_TeamTK.Core.Commands
 {
     class CreateMemberCommand : Command
     {
-        public CreateMemberCommand(IFactory factory, IEngine engine)
-            : base(factory, engine)
+        public CreateMemberCommand(IFactory factory, IEngine engine, IValidator validator)
+            : base(factory, engine, validator)
         {
         }
 
@@ -17,7 +17,7 @@ namespace WIMS_TeamTK.Core.Commands
             try
             {
                 memberName = this._validator.ValidateMemberName(parameter);
-                this._validator.ValidateDuplicateMember(this._engine.Members, memberName);
+                this._validator.ValidateDuplicate(this._engine.Members, memberName);
                 var member = this._factory.CreateMember(memberName);
                 this._engine.Members.Add(member);
                 return $"Member with ID: {this._engine.Members.Count - 1} and  name: {parameter} was created.";

@@ -8,7 +8,7 @@ namespace WIMS_TeamTK.Core.Commands.ChangeCommands
 {
     class ChangeStorySizeCommand : Command
     {
-        public ChangeStorySizeCommand(IFactory factory, IEngine engine) : base(factory, engine)
+        public ChangeStorySizeCommand(IFactory factory, IEngine engine, IValidator validator) : base(factory, engine, validator)
         {
         }
 
@@ -16,7 +16,7 @@ namespace WIMS_TeamTK.Core.Commands.ChangeCommands
         {
             try
             {
-                var story = this._validator.ValidateWorkItemExists(this._engine.WorkItems.Where(n => n.GetType().Name == "Story").ToList(), parameter);
+                var story = this._validator.ValidateExists(this._engine.WorkItems.Where(n => n.GetType().Name == "Story").ToList(), parameter);
                 Console.Write("New Story Size(Large/Medium/Small): ");
                 string newSize = Console.ReadLine().Trim();
 
