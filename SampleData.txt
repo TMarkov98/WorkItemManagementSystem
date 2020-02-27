@@ -1,0 +1,31 @@
+createteam peshoteam
+createboard peshoboard
+peshoteam
+createbug peshobug123
+peshoboard
+peshobug valid description
+step1
+step2
+step3
+
+high
+minor
+active
+createfeedback peshofeedback
+peshoboard
+peshofeedback valid description
+4
+new
+createstory peshostory
+peshoboard
+peshostory valid description
+medium
+large
+notdone
+createmember peshko
+addcomment peshofeedback
+peshko
+this feedback is not for me
+addcomment peshostory
+peshko
+this story puts me to sleep

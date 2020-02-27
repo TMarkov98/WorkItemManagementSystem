@@ -11,7 +11,7 @@ namespace WIMS_TeamTK.Models
         private string _message;
         /// <summary>Date and time of creation</summary>
         private DateTime _createdOn;
-        
+
         /// <summary>
         /// Constructor of Comment
         /// </summary>

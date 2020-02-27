@@ -54,7 +54,7 @@ namespace WIMS_TeamTK.Models
                 this._workItems = value;
             }
         }
-        
+
         /// <summary>
         /// Property of ActivityHistory
         /// </summary>
