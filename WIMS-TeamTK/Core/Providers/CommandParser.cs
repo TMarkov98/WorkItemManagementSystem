@@ -12,7 +12,7 @@ namespace WIMS_TeamTK.Core.Providers
         {
             var commandName = fullCommand.Split(' ')[0];
             var commandTypeInfo = this.FindCommand(commandName);
-            var command = Activator.CreateInstance(commandTypeInfo, Factory.Instance, Engine.Instance) as ICommand;
+            var command = Activator.CreateInstance(commandTypeInfo, Factory.Instance, Engine.Instance, Validator.Instance) as ICommand;
 
             return command;
         }

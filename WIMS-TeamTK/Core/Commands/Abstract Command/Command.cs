@@ -14,6 +14,11 @@ namespace WIMS_TeamTK.Core.Commands
             this._engine = engine;
             this._validator = validator;
         }
+        /// <summary>
+        /// Executes a command with the given parameter
+        /// </summary>
+        /// <param name="parameter"></param>
+        /// <returns></returns>
         public abstract string Execute(string parameter);
     }
 }

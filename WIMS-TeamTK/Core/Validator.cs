@@ -9,6 +9,20 @@ namespace WIMS_TeamTK.Core
 {
     public class Validator : IValidator
     {
+
+        private static IValidator instanceHolder;
+        public static IValidator Instance
+        {
+            get
+            {
+                if (instanceHolder == null)
+                {
+                    instanceHolder = new Validator();
+                }
+
+                return instanceHolder;
+            }
+        }
         public void ValidateDuplicate(IList<IBoard> boards, string boardName)
         {
             if (boards.Any(board => board.Name == boardName))
