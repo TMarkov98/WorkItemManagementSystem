@@ -8,12 +8,19 @@ namespace WIMS_TeamTK.Core.Commands
         protected readonly IFactory _factory;
         protected readonly IEngine _engine;
         protected readonly IValidator _validator;
+        /// <summary>
+        /// Constructor
+        /// </summary>
+        /// <param name="factory">Factory to use</param>
+        /// <param name="engine">Engine to use</param>
+        /// <param name="validator">Validator to use</param>
         public Command(IFactory factory, IEngine engine, IValidator validator)
         {
             this._factory = factory;
             this._engine = engine;
             this._validator = validator;
         }
+
         /// <summary>
         /// Executes a command with the given parameter.
         /// </summary>
