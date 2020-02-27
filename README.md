@@ -1,22 +1,3 @@
-      <div class="w-100 row no-gutters align-items-center c-header-content">
-        <div class="page-title mb-sm-3 mb-md-0"><div class="page-context-header"><div class="page-header-headings"><h1>.NET Jan'20 - Module 1</h1></div></div></div>
-
-        <div class="settings-menu">
-          <div id="headerBtn" class="header-settings-menu-box">
-              
-          </div>
-          
-        </div>
-
-
-
-        
-
-
-      </div>
-
-    </div>
-
 <div id="page-content" class="row no-gutters page-main-content">
             <div id="region-main-box">
                 <section id="region-main">
