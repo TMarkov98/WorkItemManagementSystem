@@ -21,7 +21,7 @@ namespace WIMS_UnitTests.CoreTests
             var board = new Board(name);
             boards.Add(board);
             //Act and Assert
-            Assert.ThrowsException<ArgumentException>(() => validator.ValidateDuplicateBoard(boards, name));
+            Assert.ThrowsException<ArgumentException>(() => validator.ValidateDuplicate(boards, name));
         }
         [TestMethod]
         public void ValidateBoardExists_WithValidData()
@@ -33,7 +33,7 @@ namespace WIMS_UnitTests.CoreTests
             var board = new Board(name);
             boards.Add(board);
             //Act
-            var sut = validator.ValidateBoardExists(boards, name);
+            var sut = validator.ValidateExists(boards, name);
             //Assert
             Assert.AreEqual(board, sut);
         }
@@ -48,7 +48,7 @@ namespace WIMS_UnitTests.CoreTests
             var board = new Board(name);
             boards.Add(board);
             //Act and Assert
-            Assert.ThrowsException<ArgumentException>(() => validator.ValidateBoardExists(boards, wrongName));
+            Assert.ThrowsException<ArgumentException>(() => validator.ValidateExists(boards, wrongName));
         }
         [TestMethod]
         public void ValidateBugStatus_WithValidData()
@@ -122,7 +122,7 @@ namespace WIMS_UnitTests.CoreTests
             var member = new Member(name);
             members.Add(member);
             //Act
-            var sut = validator.ValidateMemberExists(members, name);
+            var sut = validator.ValidateExists(members, name);
             //Assert
             Assert.AreEqual(member, sut);
         }
@@ -137,7 +137,7 @@ namespace WIMS_UnitTests.CoreTests
             var member = new Member(name);
             members.Add(member);
             //Act and Assert
-            Assert.ThrowsException<ArgumentException>(() => validator.ValidateMemberExists(members, wrongName));
+            Assert.ThrowsException<ArgumentException>(() => validator.ValidateExists(members, wrongName));
         }
         [TestMethod]
         public void ValidateMoreThanOneBoard_WithValidData()
@@ -149,7 +149,7 @@ namespace WIMS_UnitTests.CoreTests
             var board = new Board(name);
             boards.Add(board);
             //Act
-            var sut = validator.ValidateMoreThanOneBoard(boards, name);
+            var sut = validator.ValidateMoreThanOne(boards, name);
             //Assert
             Assert.AreEqual(board, sut);
         }
@@ -169,7 +169,7 @@ namespace WIMS_UnitTests.CoreTests
             var board = new Board(name);
             board.AddWorkItem(bug);
             //Act
-            var sut = validator.ValidateMoreThanOneWorkItem(board.WorkItems, title);
+            var sut = validator.ValidateMoreThanOne(board.WorkItems, title);
             //Assert
             Assert.AreEqual(bug, sut);
         }
@@ -267,7 +267,7 @@ namespace WIMS_UnitTests.CoreTests
             var team = new Team(name);
             teams.Add(team);
             //Act
-            var sut = validator.ValidateTeamExists(teams, name);
+            var sut = validator.ValidateExists(teams, name);
             //Assert
             Assert.AreEqual(team, sut);
         }
@@ -282,7 +282,7 @@ namespace WIMS_UnitTests.CoreTests
             var team = new Team(name);
             teams.Add(team);
             //Act and Assert
-            Assert.ThrowsException<ArgumentException>(() => validator.ValidateTeamExists(teams, wrongName));
+            Assert.ThrowsException<ArgumentException>(() => validator.ValidateExists(teams, wrongName));
         }
         [TestMethod]
         public void ValidateTitle_WithValidData()
@@ -320,7 +320,7 @@ namespace WIMS_UnitTests.CoreTests
             var board = new Board(name);
             board.AddWorkItem(bug);
             //Act
-            var sut = validator.ValidateWorkItemExists(board.WorkItems, title);
+            var sut = validator.ValidateExists(board.WorkItems, title);
             //Assert
             Assert.AreEqual(bug, sut);
         }
@@ -332,7 +332,7 @@ namespace WIMS_UnitTests.CoreTests
             List<IWorkItem> workItems = new List<IWorkItem>();
             string wrongTitle = "FakeWorkItem";
             //Act and Assert
-            Assert.ThrowsException<ArgumentException>(() => validator.ValidateWorkItemExists(workItems, wrongTitle));
+            Assert.ThrowsException<ArgumentException>(() => validator.ValidateExists(workItems, wrongTitle));
         }
         [TestMethod]
         public void ValidateDuplicateMember_ThrowsException()
@@ -344,7 +344,7 @@ namespace WIMS_UnitTests.CoreTests
             var member = new Member(name);
             members.Add(member);
             //Act and Assert
-            Assert.ThrowsException<ArgumentException>(() => validator.ValidateDuplicateMember(members, name));
+            Assert.ThrowsException<ArgumentException>(() => validator.ValidateDuplicate(members, name));
         }
         [TestMethod]
         public void ValidateRating_WithValidData()
@@ -377,7 +377,7 @@ namespace WIMS_UnitTests.CoreTests
             var team = new Team(name);
             teams.Add(team);
             //Act and Assert
-            Assert.ThrowsException<ArgumentException>(() => validator.ValidateDuplicateTeam(teams, name));
+            Assert.ThrowsException<ArgumentException>(() => validator.ValidateDuplicate(teams, name));
         }
         [TestMethod]
         public void ValidateBoardName_WithValidData()
