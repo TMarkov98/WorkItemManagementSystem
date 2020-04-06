@@ -3,7 +3,9 @@
                 <section id="region-main">
                   <span class="notifications" id="user-notifications"></span>
                   <div role="main" id="yui_3_17_2_1_1582818651653_32"><span id="maincontent"></span><h2 id="yui_3_17_2_1_1582818651653_33">Work Item Management System</h2><div class="box py-3 generalbox center clearfix card-content" id="yui_3_17_2_1_1582818651653_31"><div class="no-overflow" id="yui_3_17_2_1_1582818651653_30"><h3>Functional Requirements</h3>
-
+<p>
+Trello board: https://trello.com/b/7PI0mT8d/oop-teamtk
+</p>
 <p>
     Application should support multiple teams. Each team has name, members and boards.
 </p>
