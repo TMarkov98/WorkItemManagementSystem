@@ -9,7 +9,6 @@ namespace WIMS_TeamTK.Core
 {
     public class Validator : IValidator
     {
-        //ASDFASDF
         private static IValidator instanceHolder;
         public static IValidator Instance
         {
